@@ -248,6 +248,48 @@ This certification only attests that the official version of the repository comp
 
 ---
 
+# Téléchargement BitTorrent / BitTorrent Download
+
+## 🇫🇷 Téléchargement via BitTorrent
+
+Le projet complet est disponible en téléchargement via BitTorrent.  
+Ce mode de distribution permet de partager efficacement des fichiers volumineux sans dépendre des limites de GitHub.
+
+**Lien magnet :**
+
+```
+magnet:?xt=urn:btih:8c96be1fde9107e8af8ca8dc38efa297c9bdf92c
+```
+
+**Instructions :**
+- Copiez le lien ci‑dessus.  
+- Ouvrez votre client BitTorrent (qBittorrent recommandé).  
+- Choisissez *Ajouter un lien torrent* et collez le lien magnet.  
+- Le téléchargement commencera automatiquement.
+
+Ce lien donne accès à l’ensemble des fichiers du projet, incluant la documentation, les PDF, les sources, les modules et les ressources associées.
+
+---
+
+## 🇬🇧 Download via BitTorrent
+
+The complete project is available through BitTorrent.  
+This distribution method allows efficient sharing of large scientific files without GitHub storage limitations.
+
+**Magnet link:**
+
+```
+magnet:?xt=urn:btih:8c96be1fde9107e8af8ca8dc38efa297c9bdf92c
+```
+
+**Instructions:**
+- Copy the magnet link above.  
+- Open your BitTorrent client (qBittorrent recommended).  
+- Select *Add torrent link* and paste the magnet link.  
+- The download will start automatically.
+
+This link provides access to the full project, including documentation, PDFs, source files, modules, and associated resources.
+
 ## Developer Certificate of Origin (DCO)
 
 This repository uses the **Developer Certificate of Origin (DCO)** to ensure that all contributions comply with copyright rules and the project’s licensing terms.
