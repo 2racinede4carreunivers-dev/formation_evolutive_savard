@@ -1561,21 +1561,4 @@ axiomatization where
   all_zeros_on_critical_line:
     "complementary_areas \<Longrightarrow> (\<forall>\<rho>::zero_zeta. Re_zero \<rho> = 1/2)"
 
-text "
-  Resume de licence (version courte)
-
-  Ce travail est protege par le droit d'auteur.
-  Toute reproduction, modification, redistribution ou utilisation
-  commerciale est interdite sans autorisation ecrite de l'auteur.
-
-  Une utilisation personnelle, academique ou non commerciale est permise,
-  sous reserve de conserver le nom de l'auteur et la presente mention.
-
-  Le travail est fourni tel quel, sans garantie d'aucune sorte.
-  L'auteur ne peut etre tenu responsable de tout dommage resultant
-  de son utilisation.
-
-  Auteur : Philippe Thomas Savard
-  Date   : Vingt-sept février deux milles vint-six
-"
 end

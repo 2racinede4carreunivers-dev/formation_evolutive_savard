@@ -1,4 +1,5 @@
-session "Methode_Spectrale" = HOL +
+session Methode_Spectral = HOL +
+  options [document = false]
   theories
-    methode_de_philippot
     methode_spectral
+    methode_de_philippot

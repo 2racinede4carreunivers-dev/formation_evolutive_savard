@@ -84,6 +84,20 @@ Ce dépôt contient la formalisation Lean de la fonction zêta, des L‑fonction
 
 ---
 
+## Certification de compilation
+
+![Isabelle/HOL](https://img.shields.io/badge/Isabelle2025--2-Build%20Passing-brightgreen)
+![LaTeX](https://img.shields.io/badge/LaTeX-PDF%20OK-brightgreen)
+
+**État de certification :**  
+Tous les fichiers Isabelle/HOL et LaTeX de ce dépôt ont été compilés avec succès  
+le **3 mars 2026**, sous l’environnement suivant :
+
+- **Isabelle2025‑2** (`isabelle build -D .`)
+- **MiKTeX** (`pdflatex`)
+
+Cette certification atteste uniquement que la version officielle du dépôt compile à cette date.
+
 ## 6. Licence
 
 Ce projet est distribué sous licence Apache 2.0. Les utilisateurs peuvent consulter, utiliser, modifier et redistribuer le contenu selon les termes de la licence incluse dans le dépôt.
