@@ -99,19 +99,19 @@ text "
 subsubsection "A1.1 Unites admissibles"
 
 definition prime_nat :: "nat \<Rightarrow> bool" where
-  "prime_nat p \<longleftrightarrow> (p > 1 \<and> (\<forall>m. m dvd p \<longrightarrow> m = 1 \<or> m = p))"
+  "prime_nat p \<longleftrightarrow> (p > 1 \<and> (\<forall>m. m dvd p --> m = 1 \<or> m = p))"
 
 definition admissible_unit :: "nat \<Rightarrow> bool" where
   "admissible_unit p \<longleftrightarrow> prime_nat p"
 
-definition unit :: "nat \<Rightarrow> real" where
+definition unit :: "nat => real" where
   "unit p = sqrt (real p) + 1"
 
 subsubsection "A1.2 Carrés emboîtés"
 
 type_synonym point = "real \<times> real"
 
-definition side :: "nat \<Rightarrow> real" where
+definition side :: "nat => real" where
   "side n = (1.5 :: real) ^ n"
 
 definition A :: point where "A = (0,0)"
@@ -130,28 +130,28 @@ text "
   ou la base repose sur les axes et le sommet est C(n).
 "
 
-definition base_param :: "nat \<Rightarrow> nat \<Rightarrow> real" where
+definition base_param :: "nat => nat=> real" where
   "base_param n p = (side n) / (sqrt (real p) + 0.5)"
 
-definition P1 :: "nat \<Rightarrow> nat \<Rightarrow> point" where
+definition P1 :: "nat => nat => point" where
   "P1 n p = (base_param n p, 0)"
 
-definition P2 :: "nat \<Rightarrow> nat \<Rightarrow> point" where
+definition P2 :: "nat => nat => point" where
   "P2 n p = (0, base_param n p)"
 
 subsubsection "A1.4 Rapport fondamental : demi-base / hauteur = sqrt(p)"
 
-definition dist2 :: "point \<Rightarrow> point \<Rightarrow> real" where
+definition dist2 :: "point => point => real" where
   "dist2 P Q = sqrt ((fst P - fst Q)^2 + (snd P - snd Q)^2)"
 
-definition base_length :: "nat \<Rightarrow> nat \<Rightarrow> real" where
+definition base_length :: "nat => nat => real" where
   "base_length n p = dist2 (P1 n p) (P2 n p)"
 
-definition height_length :: "nat \<Rightarrow> nat \<Rightarrow> real" where
+definition height_length :: "nat => nat => real" where
   "height_length n p =
      abs ((2 * side n - base_param n p) / sqrt 2)"
 
-definition ratio_halfbase_height :: "nat \<Rightarrow> nat \<Rightarrow> real" where
+definition ratio_halfbase_height :: "nat => nat => real" where
   "ratio_halfbase_height n p =
      ((base_length n p) / 2) / (height_length n p)"
 
@@ -209,10 +209,10 @@ text "
       AL_nat(p) = \<surd>4.5 / (\<surd>p + 1).
 "
 
-definition AL_nat :: "nat \<Rightarrow> real" where
+definition AL_nat :: "nat => real" where
   "AL_nat p = sqrt 4.5 / (sqrt (real p) + 1)"
 
-definition geometric_unit :: "nat \<Rightarrow> real" where
+definition geometric_unit :: "nat => real" where
   "geometric_unit p = sqrt 4.5 / AL_nat p"
 
 
@@ -232,7 +232,7 @@ qed
 
 axiomatization where
   AL_nat_domain:
-    "admissible_unit p \<Longrightarrow> AL_nat p \<noteq> 0"
+    "admissible_unit p ==> AL_nat p \<noteq> 0"
 subsubsection "A1.6 Axiome d'invariance (version demontree)"
 
 text "
@@ -259,7 +259,7 @@ qed
 
 subsection "B1.0 Cardan sans blocage (formalise)"
 
-definition pol :: "real \<Rightarrow> real \<Rightarrow> point" where
+definition pol :: "real => real => point" where
   "pol r \<theta> = (r * cos \<theta>, r * sin \<theta>)"
 
 definition ang_BDE :: real where "ang_BDE = (pi / 3)"     (* 60\<degree> *)
@@ -311,44 +311,44 @@ record cardan_lengths =
   u15     :: real
   u3375   :: real
 
-definition C1 :: "cardan_lengths \<Rightarrow> length" where "C1 L = AD L"
-definition C2 :: "cardan_lengths \<Rightarrow> length" where "C2 L = AB L"
-definition C3 :: "cardan_lengths \<Rightarrow> length" where "C3 L = BD L"
-definition C4 :: "cardan_lengths \<Rightarrow> length" where "C4 L = AG L"
-definition C5 :: "cardan_lengths \<Rightarrow> length" where "C5 L = AC L"
-definition C6 :: "cardan_lengths \<Rightarrow> length" where "C6 L = CG L"
-definition C7 :: "cardan_lengths \<Rightarrow> length" where "C7 L = DG L"
-definition C8 :: "cardan_lengths \<Rightarrow> length" where "C8 L = EF L"
-definition C9 :: "cardan_lengths \<Rightarrow> length" where "C9 L = DE L + FG L"
+definition C1 :: "cardan_lengths => length" where "C1 L = AD L"
+definition C2 :: "cardan_lengths => length" where "C2 L = AB L"
+definition C3 :: "cardan_lengths => length" where "C3 L = BD L"
+definition C4 :: "cardan_lengths => length" where "C4 L = AG L"
+definition C5 :: "cardan_lengths => length" where "C5 L = AC L"
+definition C6 :: "cardan_lengths => length" where "C6 L = CG L"
+definition C7 :: "cardan_lengths => length" where "C7 L = DG L"
+definition C8 :: "cardan_lengths => length" where "C8 L = EF L"
+definition C9 :: "cardan_lengths => length" where "C9 L = DE L + FG L"
 
-definition R1 :: "cardan_lengths \<Rightarrow> length" where
+definition R1 :: "cardan_lengths => length" where
   "R1 L = C1 L + C2 L + C3 L"
 
-definition R2 :: "cardan_lengths \<Rightarrow> length" where
+definition R2 :: "cardan_lengths => length" where
   "R2 L = C4 L + C5 L + C6 L"
 
-definition R3 :: "cardan_lengths \<Rightarrow> length" where
+definition R3 :: "cardan_lengths => length" where
   "R3 L = C7 L + C8 L + C9 L"
 
 
 subsection "1. Matrice deduite des mesures du plan"
 
-definition M1_L1 :: "cardan_lengths \<Rightarrow> bool" where
+definition M1_L1 :: "cardan_lengths => bool" where
   "M1_L1 L \<longleftrightarrow>
      C1 L * diam_eq L + C2 L * diam_eq L + C3 L * diam_eq L
        = 2 * C1 L * diam_eq L"
 
-definition M1_L2 :: "cardan_lengths \<Rightarrow> bool" where
+definition M1_L2 :: "cardan_lengths => bool" where
   "M1_L2 L \<longleftrightarrow>
      C4 L * u15 L + C5 L * u15 L + C6 L * u15 L
        = 2 * C4 L * u15 L"
 
-definition M1_L3 :: "cardan_lengths \<Rightarrow> bool" where
+definition M1_L3 :: "cardan_lengths => bool" where
   "M1_L3 L \<longleftrightarrow>
      C7 L * u3375 L + C8 L * u3375 L + C9 L * u3375 L
        = 2 * C7 L * u3375 L"
 
-definition M1_matrix :: "cardan_lengths \<Rightarrow> bool" where
+definition M1_matrix :: "cardan_lengths => bool" where
   "M1_matrix L \<longleftrightarrow> M1_L1 L \<and> M1_L2 L \<and> M1_L3 L"
 
 
@@ -381,7 +381,7 @@ text "
     R2' = 2 * C3' * u15'
     R3' = 2 * C6' * u3375'
 "
-definition M2_structure :: "drift_transition \<Rightarrow> bool" where
+definition M2_structure :: "drift_transition => bool" where
   "M2_structure T \<longleftrightarrow>
      C1' T + C2' T + C3' T = R1' T \<and>
      C4' T + C5' T + C6' T = R2' T \<and>

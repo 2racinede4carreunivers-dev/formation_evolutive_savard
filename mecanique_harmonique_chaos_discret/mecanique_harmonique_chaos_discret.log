@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.3.3)  10 MAR 2026 10:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.3.3)  10 MAR 2026 19:42
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./mecanique_harmonique_chaos_discret.tex
 (mecanique_harmonique_chaos_discret.tex
@@ -472,84 +472,449 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@dimlist=\toks33
 
 (C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
-(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count316
-\lst@gtempboxa=\box64
-\lst@token=\toks34
-\lst@length=\count317
-\lst@currlwidth=\dimen275
-\lst@column=\count318
-\lst@pos=\count319
-\lst@lostspace=\dimen276
-\lst@width=\dimen277
-\lst@newlines=\count320
-\lst@lineno=\count321
-\lst@maxwidth=\dimen278
-
-(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
-File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
-)
-(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count322
-\lst@skipnumbers=\count323
-\lst@framebox=\box65
-)
-(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
-File: listings.cfg 2025/11/14 1.11b listings configuration
-))
-Package: listings 2025/11/14 1.11b (Carsten Heinz)
-
-==> First Aid for listings.sty no longer applied!
-    Expected:
-        2024/09/23 1.10c (Carsten Heinz)
-    but found:
-        2025/11/14 1.11b (Carsten Heinz)
-    so I'm assuming it got fixed.
 (C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\courier.sty
 Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
+)
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/newunicodechar\newunicod
+echar.sty
+Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
+)
+
+Package newunicodechar Warning: Redefining Unicode character on input line 29.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 30.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 31.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 32.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 33.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 34.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 35.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 36.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 37.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 38.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 39.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 40.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 41.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 42.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 45.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 46.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 47.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 48.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 49.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 50.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 51.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 52.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 55.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 56.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 59.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 60.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 70.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 73.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 76.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 80.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 85.
+
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/minted\minted.sty
+Package: minted 2025/05/14 v3.7.0 Yet another Pygments shim for LaTeX
+
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/generic/catchfile\catchfile.st
+y
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.st
+y
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count316
+) (C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/fvextra\fvextra.sty
+Package: fvextra 2025/05/29 v1.13.2 fvextra - extensions and patches for fancyv
+rb
+
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
+Package: fancyvrb 2025/07/28 4.6 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count317
+\FV@InFile=\read4
+\FV@TabBox=\box64
+\c@FancyVerbLine=\count318
+\FV@StepNumber=\count319
+\FV@OutFile=\write4
+)
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.
+sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+))
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty
+Package: lineno 2025/05/13 line numbers on paragraphs v5.5
+
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+\linenopenalty=\count320
+\output=\toks34
+\linenoprevgraf=\count321
+\linenumbersep=\dimen275
+\linenumberwidth=\dimen276
+\c@linenumber=\count322
+\c@pagewiselinenumber=\count323
+\c@LN@truepage=\count324
+\c@internallinenumber=\count325
+\c@internallinenumbers=\count326
+\quotelinenumbersep=\dimen277
+\bframerule=\dimen278
+\bframesep=\dimen279
+\bframebox=\box65
+)
+\c@FancyVerbWriteLine=\count327
+\c@FancyVerbBufferLine=\count328
+\c@FV@TrueTabGroupLevel=\count329
+\c@FV@TrueTabCounter=\count330
+\FV@TabBox@Group=\box66
+\FV@bgcolorstructbox=\box67
+\FV@TmpLength=\skip51
+\c@FV@HighlightLinesStart=\count331
+\c@FV@HighlightLinesStop=\count332
+\FV@LoopCount=\count333
+\FV@NCharsBox=\box68
+\FV@BreakIndent=\dimen280
+\FV@BreakIndentNChars=\count334
+\FV@BreakSymbolSepLeft=\dimen281
+\FV@BreakSymbolSepLeftNChars=\count335
+\FV@BreakSymbolSepRight=\dimen282
+\FV@BreakSymbolSepRightNChars=\count336
+\FV@BreakSymbolIndentLeft=\dimen283
+\FV@BreakSymbolIndentLeftNChars=\count337
+\FV@BreakSymbolIndentRight=\dimen284
+\FV@BreakSymbolIndentRightNChars=\count338
+\c@FancyVerbLineBreakLast=\count339
+\FV@LineBox=\box69
+\FV@LineIndentBox=\box70
+\c@FV@BreakBufferDepth=\count340
+\FV@LineWidth=\dimen285
+)
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/latex2pydata\latex2pydat
+a.sty
+Package: latex2pydata 2025/03/26 v0.6.0 latex2pydata - write data to file in Py
+thon literal format
+)
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/pgfopts\pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks35
+\pgfopts@list@add@b@toks=\toks36
+)
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+)
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count341
+\float@exts=\toks37
+\float@box=\box71
+\@float@everytoks=\toks38
+\@floatcapt=\box72
+)
+\c@minted@FancyVerbLineTemp=\count342
+\@float@every@listing=\toks39
+\c@listing=\count343
 )
 (C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
 ex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count324
+\l__color_backend_stack_int=\count344
 ) (mecanique_harmonique_chaos_discret.aux
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 8.
 )
 \openout1 = `mecanique_harmonique_chaos_discret.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Info: Redefining \degres on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Info: Redefining \degres on input line 99.
 
 (C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
 i
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count325
-\scratchdimen=\dimen279
-\scratchbox=\box66
-\nofMPsegments=\count326
-\nofMParguments=\count327
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count328
-\MPscratchDim=\dimen280
-\MPnumerator=\count329
-\makeMPintoPDFobject=\count330
-\everyMPtoPDFconversion=\toks36
+\scratchcounter=\count345
+\scratchdimen=\dimen286
+\scratchbox=\box73
+\nofMPsegments=\count346
+\nofMParguments=\count347
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count348
+\MPscratchDim=\dimen287
+\MPnumerator=\count349
+\makeMPintoPDFobject=\count350
+\everyMPtoPDFconversion=\toks41
 )
 (C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
 se.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for packag
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cf
+g
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+[1
+
+{C:/Users/HP 3/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 151.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 151.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 151.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 15
+5.
+
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+<cardan_blocage.png, id=13, 643.6547pt x 554.07pt>
+File: cardan_blocage.png Graphic file (type png)
+<use cardan_blocage.png>
+Package pdftex.def Info: cardan_blocage.png  used on input line 264.
+(pdftex.def)             Requested size: 385.02547pt x 331.44695pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[1{C:/Users/HP 3/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+\pydata@fh@0=\write5
+\openout5 = `_BC12F987B4FAB976F60F87A5B18D74FA.data.minted'.
+
+runsystem(latexminted config  --timestamp 20260310194217 BC12F987B4FAB976F60F87
+A5B18D74FA)...executed.
+
+
+(_BC12F987B4FAB976F60F87A5B18D74FA.config.minted)
+runsystem(latexminted cleanconfig  --timestamp 20260310194217 BC12F987B4FAB976F
+60F87A5B18D74FA)...executed.
+
+ (_minted/default.style.minted)
+\openout5 = `_BC12F987B4FAB976F60F87A5B18D74FA.data.minted'.
+
+runsystem(latexminted highlight  --timestamp 20260310194217 BC12F987B4FAB976F60
+F87A5B18D74FA)...executed.
+
+ (_minted/21F7AD1F63C7F11E7B9EB4CCA889A178.highlight.minted
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 8.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 8.
+LaTeX Info: Symbol \textasciigrave not provided by
+            font family pcr in TS1 encoding.
+            Default family used instead on input line 9.
+LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 9
+.
+
+(C:\Users\HP 3\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1pcr.fd
+File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
+)
+LaTeX Info: Symbol \textasciigrave not provided by
+            font family pcr in TS1 encoding.
+            Default family used instead on input line 9.
+
+[2 <./cardan_blocage.png>]
+LaTeX Info: Symbol \textasciigrave not provided by
+            font family pcr in TS1 encoding.
+            Default family used instead on input line 29.
+LaTeX Info: Symbol \textasciigrave not provided by
+            font family pcr in TS1 encoding.
+            Default family used instead on input line 29.
+LaTeX Info: Symbol \textasciigrave not provided by
+            font family pcr in TS1 encoding.
+            Default family used instead on input line 36.
+LaTeX Info: Symbol \textasciigrave not provided by
+            font family pcr in TS1 encoding.
+            Default family used instead on input line 36.
+LaTeX Info: Symbol \textasciigrave not provided by
+            font family pcr in TS1 encoding.
+            Default family used instead on input line 44.
+LaTeX Info: Symbol \textasciigrave not provided by
+            font family pcr in TS1 encoding.
+            Default family used instead on input line 44.
+ [3]
+LaTeX Info: Symbol \textasciigrave not provided by
+            font family pcr in TS1 encoding.
+            Default family used instead on input line 98.
+LaTeX Info: Symbol \textasciigrave not provided by
+            font family pcr in TS1 encoding.
+            Default family used instead on input line 98.
+ [4] [5] [6] [7]
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10.95> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 245.
+LaTeX Font Info:    Font shape `TS1/pcr/m/it' in size <10.95> not available
+(Font)              Font shape `TS1/pcr/m/sl' tried instead on input line 245.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 267.
+ [8] [9] [10] [11] [12] [13])
+[14]
+\openout5 = `_BC12F987B4FAB976F60F87A5B18D74FA.data.minted'.
+
+runsystem(latexminted clean  --timestamp 20260310194217 BC12F987B4FAB976F60F87A
+5B18D74FA)...executed.
+
+ (mecanique_harmonique_chaos_discret.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 21053 strings out of 467866
+ 465093 string characters out of 5418774
+ 1192557 words of memory out of 5000000
+ 49594 multiletter control sequences out of 15000+600000
+ 645447 words of font info for 78 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 102i,8n,107p,825b,1462s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\HP 3\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1
+095.pk> <C:\Users\HP 3\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+eccc1200.pk> <C:\Users\HP 3\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dp
+i600\ecrm1200.pk> <C:\Users\HP 3\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/
+ec/dpi600\ecbx1440.pk> <C:\Users\HP 3\AppData\Local\MiKTeX\fonts/pk/ljfour/jkna
+ppen/ec/dpi600\ecrm1440.pk> <C:\Users\HP 3\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\HP 3\AppData\Local\MiKTeX\fonts/pk/l
+jfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\HP 3\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/HP 3/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/HP 3/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/HP 3/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/HP 3/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/User
+s/HP 3/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+C:/Users/HP 3/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb><C:/Users/HP 3/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb
+8a.pfb><C:/Users/HP 3/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucr
+r8a.pfb><C:/Users/HP 3/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/uc
+rro8a.pfb>
+Output written on mecanique_harmonique_chaos_discret.pdf (15 pages, 280038 byte
+s).
+PDF statistics:
+ 292 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+
