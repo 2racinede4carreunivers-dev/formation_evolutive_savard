@@ -1,4 +1,6 @@
-# Fichiers temporaires LaTeX
+########################################
+# LaTeX — fichiers temporaires
+########################################
 *.aux
 *.log
 *.out
@@ -6,14 +8,81 @@
 *.synctex.gz
 *.fls
 *.fdb_latexmk
-texput.log
-
-# Fichiers temporaires de compilation PDF
 *.nav
 *.snm
 *.vrb
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.xdv
+*.pdfsync
+*.thm
+*.ilg
+*.ind
+*.idx
+*.glg
+*.glo
+*.gls
+*.ist
 
-# Sauvegardes éventuelles
+# Minted
+_minted*
+*.pyg
+
+# Sauvegardes LaTeX
 *.bak
 *.backup
 *~
+*.tmp
+
+########################################
+# PDF générés automatiquement
+########################################
+# (à garder si tu veux éviter de committer les PDF finaux)
+*.pdf
+
+########################################
+# VS Code
+########################################
+.vscode/
+*.code-workspace
+
+########################################
+# Python
+########################################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.env
+.venv
+venv/
+
+########################################
+# OS files
+########################################
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+########################################
+# Build / cache directories
+########################################
+build/
+dist/
+cache/
+tmp/
+temp/
+
+########################################
+# Git submodules leftovers
+########################################
+.gitmodules
