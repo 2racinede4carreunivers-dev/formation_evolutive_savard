@@ -19,7 +19,7 @@
 
 % Police machine à écrire propre
 \usepackage{courier}
-
+\usepackage{amsmath}
 % ======================================================================
 %  SUPPORT UTF-8 (pour caractères spéciaux hors minted)
 % ======================================================================
@@ -98,6 +98,8 @@
 
 \begin{document}
 
+\tableofcontents
+\clearpage
 
 \begin{titlepage}
     \centering
@@ -135,7 +137,7 @@ par pur plaisir intellectuel et en consequence d'un interet profond pour les mat
 % SECTION : FIGURE
 % ============================================================
 
-\section*{Figure de la mecanique harmonique du chaos discret}
+\section{Figure de la mecanique harmonique du chaos discret}
 
 Cette figure est le schema sur lequel l'auteur applique un raisonnement intuitif 
 qui lui permet de determiner la possibilite d'une invariance geometrique nouvelle. 
@@ -266,12 +268,350 @@ soit : \texttt{AEFG * (0.5 / sin(angle))}.
     \label{fig:cardan_blocage}
 \end{figure}
 
+\subsection{Produit alternatif pour l’unité $\sqrt{2}+1$}
+
+\begin{align}
+2 \times 2(\mathrm{BE}) &= \mathrm{AL} \times \mathrm{JK} \\
+(\mathrm{LF})^{2} &= (\mathrm{LF})^{2} \\
+2 \times 2(0.3860389705) &= 3\left(\frac{2 - \sqrt{2}}{2}\right) \times 3(2 - \sqrt{2}) \\
+(\sqrt{18} - 3)^{2} &= (\sqrt{18} - 3)^{2} \\
+\mathrm{BE} &= (\mathrm{AL})^{2}
+\end{align}
+
+\noindent\textbf{Unité :}
+\[
+\arcsin\left(\frac{\mathrm{AL}}{2}\right) = 26.06176717^\circ
+\]
+
+\[
+\frac{\sqrt{4.5} \times 0.5}{\sin(26.06176717^\circ)} = \sqrt{2} + 1
+\]
+
+\subsection{Produit alternatif pour l’unité $\sqrt{3}+1$}
+
+\begin{align}
+3 \times (\mathrm{BE}) &= \mathrm{AL} \times \mathrm{EC} \\
+(\mathrm{LF})^{2} &= (\mathrm{LF})^{2} \\
+3 \times 0.602885683 &= 0.7764571353 \times 2.329371406 \\
+1.808657049 &= 1.808657049 \\
+\mathrm{BE} &= (\mathrm{AL})^{2}
+\end{align}
+
+\noindent\textbf{Unité :}
+\[
+\arcsin\left(\frac{\mathrm{AL}}{2}\right) = 22.84432053^\circ
+\]
+
+\[
+\frac{\sqrt{4.5} \times 0.5}{\sin(22.84432053^\circ)} = \sqrt{3} + 1
+\]
+
+\subsection{Produit alternatif pour l’unité $\sqrt{5}+1$}
+
+\begin{align}
+5 \times (\mathrm{BE}) &= \mathrm{AL} \times \left(\frac{\mathrm{LM} \times 1}{2}\right) / 10 \\
+(\mathrm{LF})^{2} &= (\mathrm{LF})^{2} \\
+5 \times 0.8594235252 &= 0.6555240366 \\
+\mathrm{BE} &= 2(\mathrm{AL})^{2}
+\end{align}
+
+\noindent\textbf{Unité :}
+\[
+\arcsin\left(\frac{\mathrm{AL}}{2}\right) = 19.13299528^\circ
+\]
+
+\[
+\frac{\sqrt{4.5} \times 0.5}{\sin(19.13299528^\circ)} = \sqrt{5} + 1
+\]
+
+\subsection{Lecture des trois exemples d'unites \texorpdfstring{$\sqrt{p} + 1$}{sqrt(p)+1}}
+
+Les trois exemples numériques présentés dans ce document pour les unités
+$\sqrt{2} + 1$, $\sqrt{3} + 1$ et $\sqrt{5} + 1$ illustrent concrètement
+la mécanique harmonique du chaos discret.
+
+\begin{itemize}
+  \item \textbf{Unité $\sqrt{2} + 1$} :\\
+  La configuration géométrique associée à $p = 2$ met en évidence un produit
+  alternatif où les longueurs issues de la figure (segments comme $AL$, $JK$,
+  $BE$, etc.) satisfont une relation d'égalité non triviale. Cette égalité
+  est cohérente avec la structure générale formalisée dans Isabelle/HOL :
+  l'unité abstraite $u(2) = \sqrt{2} + 1$ est compatible avec l'unité
+  géométrique obtenue à partir de $AL_{\text{nat}}(2)$.
+
+  \item \textbf{Unité $\sqrt{3} + 1$} :\\
+  Pour $p = 3$, l'exemple met en lumière un autre produit alternatif, avec
+  des longueurs et des angles différents, mais une structure relationnelle
+  analogue. La valeur numérique change, mais la forme de la relation reste
+  la même. C'est précisément ce que capture l'axiome
+  \texttt{ratio\_axiom} dans le script HOL : le rapport demi-base / hauteur
+  est toujours relié à $\sqrt{p}$, et l'unité géométrique reste égale à
+  $\sqrt{p} + 1$.
+
+  \item \textbf{Unité $\sqrt{5} + 1$} :\\
+  Le cas $p = 5$ montre que même lorsque les longueurs deviennent plus
+  complexes et que les valeurs numériques semblent moins « simples », la
+  structure d'invariance persiste. Les égalités obtenues numériquement
+  dans les produits alternatifs sont des manifestations particulières
+  d'une loi générale : la figure encode une unité géométrique qui coïncide
+  avec l'unité abstraite $u(5) = \sqrt{5} + 1$.
+\end{itemize}
+
+Ces trois exemples ne sont donc pas des cas isolés, mais des instances
+particulières d'une même loi universelle, que le script Isabelle/HOL
+formalise et généralise à toutes les unités admissibles $p$.
+
+\subsection{Exemple d'invariance géométrique et lien avec la formalisation Isabelle/HOL}
+
+Dans la mécanique harmonique du chaos discret, l'idée centrale de l'invariance
+géométrique est la suivante : pour chaque unité admissible
+\[
+  u(p) = \sqrt{p} + 1,
+\]
+la configuration géométrique associée (carrés emboîtés, triangle inscrit,
+demi-triangle rectangle) encode une relation stable entre les longueurs, qui
+se traduit par une égalité structurelle indépendante des détails numériques.
+
+Dans le script Isabelle/HOL, cette idée est capturée par les définitions
+suivantes (voir \texttt{mecanique\_discret.thy}) :
+\begin{itemize}
+  \item la longueur de base du triangle inscrit :
+  \[
+    \texttt{base\_length}\ n\ p = \texttt{dist2}\ (\texttt{P1}\ n\ p)\ (\texttt{P2}\ n\ p),
+  \]
+  \item la hauteur correspondante :
+  \[
+    \texttt{height\_length}\ n\ p =
+      \left|\frac{2 \cdot \texttt{side}\ n - \texttt{base\_param}\ n\ p}{\sqrt{2}}\right|,
+  \]
+  \item le rapport demi-base / hauteur :
+  \[
+    \texttt{ratio\_halfbase\_height}\ n\ p =
+      \frac{\texttt{base\_length}\ n\ p / 2}{\texttt{height\_length}\ n\ p}.
+  \]
+\end{itemize}
+
+L'axiome fondamental de la mécanique harmonique du chaos discret est alors
+formalisé par :
+\[
+  \texttt{ratio\_axiom} :
+  \quad \texttt{admissible\_unit}\ p \wedge n \ge 1
+  \Longrightarrow
+  \texttt{ratio\_halfbase\_height}\ n\ p = \sqrt{\texttt{real}\ p}.
+\]
+
+En particulier, pour $n = 1$, on obtient :
+\[
+  \frac{\texttt{base\_length}\ 1\ p}{\texttt{height\_length}\ 1\ p}
+  = 2 \sqrt{\texttt{real}\ p},
+\]
+ce qui est formalisé dans Isabelle par la définition :
+\[
+  \texttt{invariant\_geom}\ p =
+    \frac{\texttt{base\_length}\ 1\ p}{\texttt{height\_length}\ 1\ p}
+\]
+et le lemme :
+\[
+  \texttt{invariant\_geom\_formule} :
+  \quad \texttt{admissible\_unit}\ p
+  \Longrightarrow
+  \texttt{invariant\_geom}\ p = 2 \sqrt{\texttt{real}\ p}.
+\]
+
+Cet invariant géométrique, bien que dépendant de $p$ dans sa valeur numérique,
+est \emph{structurellement} le même pour toutes les unités admissibles : la
+forme de la relation est stable, et c'est cette stabilité qui permet de
+relier la géométrie à l'unité abstraite $u(p) = \sqrt{p} + 1$.
+
+Pour relier cette structure à l'unité géométrique, on introduit le segment
+$AL_{\text{nat}}(p)$, défini de sorte que :
+\[
+  U(p) = \frac{\sqrt{4{,}5}}{AL_{\text{nat}}(p)}
+\]
+soit égal à l'unité abstraite $\sqrt{p} + 1$. Dans Isabelle/HOL, cela donne :
+\[
+  \texttt{AL\_nat}\ p = \frac{\sqrt{4{,}5}}{\sqrt{\texttt{real}\ p} + 1},
+  \qquad
+  \texttt{geometric\_unit}\ p = \frac{\sqrt{4{,}5}}{\texttt{AL\_nat}\ p}.
+\]
+Le lemme
+\[
+  \texttt{geometric\_unit\_eq\_unit} :
+  \quad \texttt{AL\_nat}\ p \neq 0
+  \Longrightarrow
+  \texttt{geometric\_unit}\ p = \sqrt{\texttt{real}\ p} + 1
+\]
+formalise exactement l'égalité
+\[
+  U(p) = \sqrt{p} + 1.
+\]
+
+Enfin, en définissant l'unité abstraite
+\[
+  \texttt{u\_nat}\ p = \sqrt{\texttt{real}\ p} + 1,
+\]
+on obtient le lemme d'invariance :
+\[
+  \texttt{invariance\_geometric\_unit} :
+  \quad \texttt{admissible\_unit}\ p
+  \Longrightarrow
+  \texttt{geometric\_unit}\ p = \texttt{u\_nat}\ p,
+\]
+qui exprime que, pour toute unité admissible $p$, l'unité géométrique
+définie par la figure coïncide avec l'unité abstraite $\sqrt{p} + 1$.
+Cette égalité est le cœur de l'invariance géométrique : la figure encode
+la même loi pour toutes les unités $p$.
+
+\section{Exemple complet : Construction des trois matrices de la mécanique harmonique du chaos discret}
+
+Dans cette section, nous illustrons la construction des trois matrices fondamentales
+de la mécanique harmonique du chaos discret : la matrice issue des mesures du plan
+(M1), la matrice de transition (M2) et la matrice à dérivée première simplifiée (M3).
+Ces trois matrices sont directement reliées aux définitions formalisées dans le
+script Isabelle/HOL (\texttt{mecanique\_discret.thy}).
+
+\subsection{1. Matrice M1 : mesures du plan}
+
+La matrice M1 est obtenue en regroupant les longueurs fondamentales du cardan
+sans blocage. Dans Isabelle/HOL, ces longueurs sont stockées dans un enregistrement
+\texttt{cardan\_lengths} contenant les champs :
+\[
+  AD,\ AB,\ BD,\ AG,\ AC,\ CG,\ DG,\ EF,\ DE,\ FG.
+\]
+
+Les coefficients de la matrice sont définis par :
+\[
+  C_1 = AD,\quad C_2 = AB,\quad C_3 = BD,
+\]
+\[
+  C_4 = AG,\quad C_5 = AC,\quad C_6 = CG,
+\]
+\[
+  C_7 = DG,\quad C_8 = EF,\quad C_9 = DE + FG.
+\]
+
+Les trois lignes de la matrice M1 sont alors :
+\[
+  R_1 = C_1 + C_2 + C_3,\qquad
+  R_2 = C_4 + C_5 + C_6,\qquad
+  R_3 = C_7 + C_8 + C_9.
+\]
+
+La structure matricielle imposée par la géométrie est :
+\[
+  \begin{aligned}
+    C_1 \cdot \mathrm{diam\_eq} + C_2 \cdot \mathrm{diam\_eq} + C_3 \cdot \mathrm{diam\_eq}
+      &= 2\, C_1 \cdot \mathrm{diam\_eq}, \\
+    C_4 \cdot u_{1.5} + C_5 \cdot u_{1.5} + C_6 \cdot u_{1.5}
+      &= 2\, C_4 \cdot u_{1.5}, \\
+    C_7 \cdot u_{3.375} + C_8 \cdot u_{3.375} + C_9 \cdot u_{3.375}
+      &= 2\, C_7 \cdot u_{3.375}.
+  \end{aligned}
+\]
+
+Cette matrice encode la structure géométrique brute issue des mesures du plan.
+
+\subsection{2. Matrice M2 : matrice de transition}
+
+La matrice M2 est une version abstraite de M1, où les longueurs sont remplacées
+par des variables symboliques :
+\[
+  C_1', C_2', C_3',\dots,C_9',\qquad R_1', R_2', R_3'.
+\]
+
+La structure imposée est :
+\[
+  C_1' + C_2' + C_3' = R_1',\qquad
+  C_4' + C_5' + C_6' = R_2',\qquad
+  C_7' + C_8' + C_9' = R_3'.
+\]
+
+Et les relations internes sont :
+\[
+  R_1' = 2\, C_1' \cdot \mathrm{diam\_eq}',\qquad
+  R_2' = 2\, C_3' \cdot u_{1.5}',\qquad
+  R_3' = 2\, C_6' \cdot u_{3.375}'.
+\]
+
+Cette matrice représente la structure relationnelle indépendante des valeurs
+numériques : elle est l’ossature logique du système.
+
+\subsection{3. Matrice M3 : matrice à dérivée première simplifiée}
+
+La matrice M3 est une version entièrement normalisée, où :
+\begin{itemize}
+  \item les coefficients sont des nombres premiers,
+  \item les pondérations sont toutes de la forme \(7 / k\),
+  \item l’unique inconnue est \(u = \sqrt{3.375}\).
+\end{itemize}
+
+Les trois lignes simplifiées sont :
+\[
+  37x + 31x + 29x = 41x,
+\]
+\[
+  19y + 17y + 13y = 23y,
+\]
+\[
+   7z +  5z +  3z = 11z.
+\]
+
+La version pondérée est :
+\[
+  37\left(\frac{7}{48.5}\right)u
+  + 31\left(\frac{7}{48.5}\right)u
+  + 29\left(\frac{7}{48.5}\right)u
+  = 41\left(\frac{7}{20.5}\right)u,
+\]
+\[
+  19\left(\frac{7}{24.5}\right)u
+  + 17\left(\frac{7}{24.5}\right)u
+  + 13\left(\frac{7}{24.5}\right)u
+  = 23\left(\frac{7}{11.5}\right)u,
+\]
+\[
+   7\left(\frac{7}{7.5}\right)u
+  +  5\left(\frac{7}{7.5}\right)u
+  +  3\left(\frac{7}{7.5}\right)u
+  = 11\left(\frac{7}{5.5}\right)u.
+\]
+
+Cette matrice est la forme la plus épurée du système : elle révèle la structure
+arithmétique profonde du cardan sans blocage.
+
+\subsection{Comment construire les trois matrices}
+
+La construction des matrices M1, M2 et M3 suit une logique progressive allant
+du concret vers l’abstrait.
+
+\paragraph{1. Matrice M1 : mesures du plan}
+On part des longueurs réelles mesurées dans la figure du cardan sans blocage.
+Ces longueurs sont regroupées dans un enregistrement \texttt{cardan\_lengths}.
+Les coefficients \(C_1\) à \(C_9\) sont des projections directes de ces longueurs.
+Les lignes \(R_1\), \(R_2\), \(R_3\) sont des sommes de trois coefficients chacune.
+Les relations imposées (égalité entre une somme pondérée et un double produit)
+proviennent directement de la géométrie.
+
+\paragraph{2. Matrice M2 : matrice de transition}
+On remplace les longueurs réelles par des variables symboliques.
+La structure de M1 est conservée, mais les valeurs numériques disparaissent.
+Cette matrice représente la structure logique du système, indépendante de la
+géométrie particulière.
+
+\paragraph{3. Matrice M3 : matrice à dérivée première}
+On normalise complètement la matrice M2 :
+\begin{itemize}
+  \item les coefficients deviennent des nombres premiers,
+  \item les pondérations sont toutes de la forme \(7/k\),
+  \item l’unique inconnue est \(u = \sqrt{3.375}\).
+\end{itemize}
+Cette matrice révèle la structure arithmétique profonde du système et constitue
+la forme la plus abstraite de la mécanique harmonique du chaos discret.
+
 % ============================================================
 % SECTION : SCRIPT ISABELLE HOL
 % ============================================================
-
-\section*{Script Isabelle HOL : mecanique\_discret.thy}
-\section*{Script Isabelle HOL : mecanique\_discret.thy}
+\section{Script Isabelle HOL : mecanique\_discret.thy}
 
 Le script suivant constitue la formalisation complete de la mecanique
 harmonique du chaos discret dans Isabelle/HOL. Il a ete valide par le
@@ -279,7 +619,7 @@ moteur de preuve et compile sans erreur via :
 
 \texttt{isabelle build -D .}
 
-\begin{minted}[fontsize=\small]{isabelle}
+\begin{minted}[fontsize=\small, breaklines]{isabelle}
 
 theory mecanique_discret
   imports Complex_Main
@@ -516,6 +856,7 @@ qed
 axiomatization where
   AL_nat_domain:
     "admissible_unit p ==> AL_nat p ~= 0"
+
 subsubsection "A1.6 Axiome d'invariance (version demontree)"
 
 text "
@@ -523,7 +864,6 @@ text "
   coincide avec l'unite abstraite sqrt p + 1.
 "
 
-(* Definition correcte de l'unite abstraite *)
 definition u_nat :: "nat => real" where
   "u_nat p = sqrt (real p) + 1"
 
@@ -633,6 +973,7 @@ definition M1_L3 :: "cardan_lengths => bool" where
 
 definition M1_matrix :: "cardan_lengths => bool" where
   "M1_matrix L \<longleftrightarrow> M1_L1 L \<and> M1_L2 L \<and> M1_L3 L"
+
 subsection "2. Matrice de transition"
 
 record drift_transition =
@@ -743,70 +1084,111 @@ Ce travail est distribue sous la licence Apache 2.0.
 LICENCE APACHE 2.0 (TEXTE COMPLET)
 -------------------------------------------------------------------------------
 "
-   Subject to the terms and conditions of this License, each Contributor
-   hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
-   royalty-free, irrevocable copyright license to reproduce, prepare
-   Derivative Works of, publicly display, publicly perform, sublicense,
-   and distribute the Work and such Derivative Works in Source or Object
-   form.
+
+end
+\end{minted}
+
+\section{Conclusion}
+
+La mécanique harmonique du chaos discret présentée dans ce document constitue
+le résultat d’une démarche intuitive, personnelle et indépendante. Bien que
+l’auteur, Philippe Thomas Savard, ne provienne pas du milieu académique et ne
+dispose d’aucune formation spécialisée en mathématiques, il demeure convaincu
+que les structures mises en lumière ici révèlent des régularités profondes et
+cohérentes, en résonance avec certains thèmes connus des sciences modernes.
+
+L’un des points centraux de cette exploration est l’idée d’une \emph{invariance
+géométrique}, concept encore jeune et imparfaitement défini, mais porteur
+d’un potentiel remarquable. À travers les constructions géométriques, les
+produits alternatifs, les unités de la forme $\sqrt{p} + 1$ et la formalisation
+rigoureuse effectuée dans Isabelle/HOL, une même structure relationnelle
+apparaît, stable et universelle. Cette stabilité évoque, pour l’auteur, une
+possible analogie avec la violation de l’invariance par renversement, un sujet
+bien établi dans la physique contemporaine.
+
+La formalisation dans Isabelle/HOL, loin d’être un simple exercice technique,
+a permis de valider plusieurs intuitions fondamentales : cohérence interne des
+définitions, compatibilité des invariants, et existence d’une unité géométrique
+qui coïncide systématiquement avec l’unité abstraite $\sqrt{p} + 1$. Ces
+résultats, bien que modestes, renforcent l’idée que cette mécanique harmonique
+du chaos discret pourrait constituer un domaine fertile, riche en structures
+nouvelles et en pistes de recherche.
+
+L’auteur demeure conscient que son approche est encore embryonnaire et que
+beaucoup reste à clarifier, préciser et approfondir. Toutefois, il conserve la
+conviction intime que cette théorie, née d’une intuition sincère et d’un
+plaisir intellectuel authentique, possède un avenir certain. Elle ouvre la
+porte à un espace de réflexion où la géométrie, l’arithmétique et la dynamique
+se rencontrent, et où de nouvelles formes d’invariance pourraient émerger.
+
+Ce document n’est donc pas une fin, mais un début : une invitation à poursuivre
+l’exploration, à questionner, à formaliser davantage, et à laisser la mécanique
+harmonique du chaos discret révéler progressivement toute sa profondeur.
+\section{Licence Apach 2.0}
+\bigskip
+\noindent\textbf{Licence Apache 2.0 (texte complet)}
+
+\begin{quote}
+Subject to the terms and conditions of this License, each Contributor
+hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
+royalty-free, irrevocable copyright license to reproduce, prepare
+Derivative Works of, publicly display, publicly perform, sublicense,
+and distribute the Work and such Derivative Works in Source or Object
+form.
 
 3. Grant of Patent License.
 
-   Subject to the terms and conditions of this License, each Contributor
-   hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
-   royalty-free, irrevocable (except as stated in this section) patent
-   license to make, have made, use, offer to sell, sell, import, and
-   otherwise transfer the Work.
+Subject to the terms and conditions of this License, each Contributor
+hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
+royalty-free, irrevocable (except as stated in this section) patent
+license to make, have made, use, offer to sell, sell, import, and
+otherwise transfer the Work.
 
 4. Redistribution.
 
-   You may reproduce and distribute copies of the Work or Derivative
-   Works thereof in any medium, with or without modifications, and in
-   Source or Object form, provided that You meet the following conditions:
+You may reproduce and distribute copies of the Work or Derivative
+Works thereof in any medium, with or without modifications, and in
+Source or Object form, provided that You meet the following conditions:
 
-   (a) You must give any other recipients of the Work a copy of this
-       License; and
+(a) You must give any other recipients of the Work a copy of this
+    License; and
 
-   (b) You must cause any modified files to carry prominent notices
-       stating that You changed the files; and
+(b) You must cause any modified files to carry prominent notices
+    stating that You changed the files; and
 
-   (c) You must retain, in the Source form of any Derivative Works that
-       You distribute, all copyright, patent, trademark, and attribution
-       notices from the Source form of the Work.
+(c) You must retain, in the Source form of any Derivative Works that
+    You distribute, all copyright, patent, trademark, and attribution
+    notices from the Source form of the Work.
 
 5. Submission of Contributions.
 
-   Unless You explicitly state otherwise, any Contribution intentionally
-   submitted for inclusion in the Work shall be under the terms and
-   conditions of this License.
+Unless You explicitly state otherwise, any Contribution intentionally
+submitted for inclusion in the Work shall be under the terms and
+conditions of this License.
 
 6. Trademarks.
 
-   This License does not grant permission to use the trade names,
-   trademarks, service marks, or product names of the Licensor.
+This License does not grant permission to use the trade names,
+trademarks, service marks, or product names of the Licensor.
 
 7. Disclaimer of Warranty.
 
-   Unless required by applicable law or agreed to in writing, Licensor
-   provides the Work (and each Contributor provides its Contributions)
-   on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.
+Unless required by applicable law or agreed to in writing, Licensor
+provides the Work (and each Contributor provides its Contributions)
+on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.
 
 8. Limitation of Liability.
 
-   In no event and under no legal theory shall any Contributor be liable
-   to You for damages, including any direct, indirect, special,
-   incidental, or consequential damages.
+In no event and under no legal theory shall any Contributor be liable
+to You for damages, including any direct, indirect, special,
+incidental, or consequential damages.
 
 9. Accepting Warranty or Additional Liability.
 
-   While redistributing the Work, You may choose to offer support or
-   warranty protection for a fee, but You must do so on Your own behalf.
+While redistributing the Work, You may choose to offer support or
+warranty protection for a fee, but You must do so on Your own behalf.
 
 END OF TERMS AND CONDITIONS
-
--------------------------------------------------------------------------------
-"
-end
-\end{minted}
+\end{quote}
 
 \end{document}
