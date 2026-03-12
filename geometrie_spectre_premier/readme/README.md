@@ -1,3 +1,29 @@
+
+#  Structure du projet
+
+Voici les dossiers principaux du dépôt, chacun lié à sa fonction dans la théorie.
+
+- [geometrie_spectre_premier/](https://github.com/2racinede4carreunivers-dev/analyse-de-la-conjecture-zeta-riemann-savard/tree/main/geometrie_spectre_premier)  
+  → Théorie géométrique du spectre des nombres premiers, LaTeX, images, PDF, IA évolutive.
+
+- [mecanique_harmonique_chaos_discret/](https://github.com/2racinede4carreunivers-dev/analyse-de-la-conjecture-zeta-riemann-savard/tree/main/mecanique_harmonique_chaos_discret)  
+  → Formalisation du chaos discret, mécanique harmonique, Isabelle/HOL, PDF.
+
+- [LaTeX/](https://github.com/2racinede4carreunivers-dev/analyse-de-la-conjecture-zeta-riemann-savard/tree/main/LaTeX)  
+  → Sources LaTeX globales du projet.
+
+- [pdf_finaux/](https://github.com/2racinede4carreunivers-dev/analyse-de-la-conjecture-zeta-riemann-savard/tree/main/pdf_finaux)  
+  → Documents finaux prêts pour publication.
+
+- [python/](https://github.com/2racinede4carreunivers-dev/analyse-de-la-conjecture-zeta-riemann-savard/tree/main/python)  
+  → Scripts Python utilitaires.
+
+- [readme/](https://github.com/2racinede4carreunivers-dev/analyse-de-la-conjecture-zeta-riemann-savard/tree/main/readme)  
+  → Documentation détaillée : guides, licences, sécurité.
+
+- [app/](https://github.com/2racinede4carreunivers-dev/analyse-de-la-conjecture-zeta-riemann-savard/tree/main/app)  
+  → (Racine) Dossier réservé pour extensions futures ou outils externes.
+
 # Géométrie du spectre des nombres premiers
 Projet conceptuel et formel de Philippe Thomas Savard
 

@@ -13,23 +13,30 @@
 \usepackage{geometry}
 \geometry{margin=1in}
 
-\usepackage{amsthm}
-
-\newtheorem{theorem}{Theoreme}
-\newtheorem{lemma}{Lemme}
-\newtheorem{definition}{Definition}
-\newtheorem{proposition}{Proposition}
-\newtheorem{corollary}{Corollaire}
-
 % Couleurs
 \usepackage{xcolor}
 \definecolor{lightgray}{gray}{0.95}
 
+% Théorèmes
+\usepackage{amsthm}
+
+\newtheorem{lemma}{Lemme}
+\newtheorem{theorem}{Théorème}
+\newtheorem{corollary}{Corollaire}
+\newtheorem{proposition}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Définition}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remarque}
+
 % Police machine à écrire propre
 \usepackage{courier}
 \usepackage{amsmath}
+
 % ======================================================================
-%  SUPPORT UTF-8 (pour caractères spéciaux hors minted)
+%  SUPPORT UTF-8 (pour accents français uniquement)
 % ======================================================================
 \usepackage{newunicodechar}
 
@@ -67,25 +74,10 @@
 \newunicodechar{–}{--}
 \newunicodechar{—}{---}
 
-% Symboles mathématiques
-\newunicodechar{<=}{\leq}
-\newunicodechar{>=}{\geq}
-\newunicodechar{~=}{\neq}
-\newunicodechar{\in }{\in}
-\newunicodechar{\notin }{\notin}
-\newunicodechar{\wedge }{\wedge}
-\newunicodechar{\vee }{\vee}
-\newunicodechar{~}{\neg}
-\newunicodechar{\forall }{\forall}
-\newunicodechar{\exists }{\exists}
-\newunicodechar{->}{\rightarrow}
-\newunicodechar{=>}{\Rightarrow}
-\newunicodechar{<->}{\leftrightarrow}
-\newunicodechar{\times }{\times}
-\newunicodechar{\sqrt{}}{\sqrt{}}
-
-% Degré
-\newunicodechar{°}{^\circ}
+% ======================================================================
+%  ATTENTION : NE PAS DÉFINIR DE SYMBOLES MATHÉMATIQUES ICI
+%  (ils cassent minted et provoquent Missing $ inserted)
+% ======================================================================
 
 % Espaces invisibles
 \newunicodechar{​}{}   % ZERO WIDTH SPACE
@@ -96,7 +88,6 @@
 %  MINTED — remplace listings (UTF-8 natif, stable, moderne)
 % ======================================================================
 \usepackage{minted}
-% Option recommandée pour éviter les débordements
 \setminted{
     fontsize=\small,
     breaklines=true,
@@ -105,7 +96,6 @@
 }
 
 \begin{document}
-
 \tableofcontents
 \clearpage
 
@@ -130,13 +120,13 @@
 
 \vspace{0.5cm}
 
-Ce document a ete redige sans financement, sans avantages materiels ou symboliques, 
-et dans une totale liberte de conscience et de jugement. 
-Ce texte est le fruit d'une experience de pensee, illustree par des calculs mathematiques, 
-des schemas, des tableaux, ainsi que des exemples et explications. 
-L'auteur n'est pas initie aux mathematiques au sens academique : 
-il ne possede aucune formation specialisee dans ce domaine. 
-Il est ouvrier, et c'est en dehors des sentiers balises qu'il a con\c{c}u ce document 
+Ce document a ete redige sans financement, sans avantages materiels ou symboliques,
+et dans une totale liberte de conscience et de jugement.
+Ce texte est le fruit d'une experience de pensee, illustree par des calculs mathematiques,
+des schemas, des tableaux, ainsi que des exemples et explications.
+L'auteur n'est pas initie aux mathematiques au sens academique :
+il ne possede aucune formation specialisee dans ce domaine.
+Il est ouvrier, et c'est en dehors des sentiers balises qu'il a concu ce document
 par pur plaisir intellectuel et en consequence d'un interet profond pour les mathematiques.
 
 \vspace{0.5cm}
@@ -147,21 +137,21 @@ par pur plaisir intellectuel et en consequence d'un interet profond pour les mat
 
 \section{Figure de la mecanique harmonique du chaos discret}
 
-Cette figure est le schema sur lequel l'auteur applique un raisonnement intuitif 
-qui lui permet de determiner la possibilite d'une invariance geometrique nouvelle. 
-Cette invariance est relative, tout comme la relativite ou la position de l'observateur 
-influence la mesure. Dans la mecanique harmonique du chaos discret, 
+Cette figure est le schema sur lequel l'auteur applique un raisonnement intuitif
+qui lui permet de determiner la possibilite d'une invariance geometrique nouvelle.
+Cette invariance est relative, tout comme la relativite ou la position de l'observateur
+influence la mesure. Dans la mecanique harmonique du chaos discret,
 c'est l'unite choisie qui influence la mesure.
 
-L'auteur trace un parallele avec la constante d'Euler-Mascheroni, 
-ou plut\^ot avec l'interet lie a l'exactitude de cette constante, 
-qui devient plus precise \`a la quatrieme decimale lorsqu'elle est interpretee 
-en sens contraire de la lecture habituelle. 
-La constante d'Euler-Mascheroni, qu'il simplifie \`a la forme 
-\(0.5 / \sin 60^\circ\), est evoquee dans l'equation lui permettant 
-de determiner l'unite. Il emprunte une approche originale pour determiner 
-l'unite choisie par le produit du diametre du carre AEFG 
-par le rapport entre 0.5 et le resultat de l'arcsin de LM, 
+L'auteur trace un parallele avec la constante d'Euler-Mascheroni,
+ou plutot avec l'interet lie a l'exactitude de cette constante,
+qui devient plus precise a la quatrieme decimale lorsqu'elle est interpretee
+en sens contraire de la lecture habituelle.
+La constante d'Euler-Mascheroni, qu'il simplifie a la forme
+\(0.5 / \sin 60^\circ\), est evoquee dans l'equation lui permettant
+de determiner l'unite. Il emprunte une approche originale pour determiner
+l'unite choisie par le produit du diametre du carre AEFG
+par le rapport entre 0.5 et le resultat de l'arcsin de LM,
 soit : \texttt{AEFG * (0.5 / sin(angle))}.
 
 \vspace{0.8cm}
@@ -169,7 +159,6 @@ soit : \texttt{AEFG * (0.5 / sin(angle))}.
 % ============================================================
 % FIGURE TIKZ COMPLETE
 % ============================================================
-
 \begin{tikzpicture}[scale=1.8]
 
 % Couleurs
@@ -269,6 +258,7 @@ soit : \texttt{AEFG * (0.5 / sin(angle))}.
 \node at (M) [above left] {$M$};
 
 \end{tikzpicture}
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\textwidth]{cardan_blocage.png}
@@ -276,7 +266,7 @@ soit : \texttt{AEFG * (0.5 / sin(angle))}.
     \label{fig:cardan_blocage}
 \end{figure}
 
-\subsection{Produit alternatif pour l'unité $\sqrt{2}+1$}
+\subsection{Produit alternatif pour l'unite $\sqrt{2}+1$}
 
 \begin{align}
 2 \times 2(\mathrm{BE}) &= \mathrm{AL} \times \mathrm{JK} \\
@@ -286,7 +276,7 @@ soit : \texttt{AEFG * (0.5 / sin(angle))}.
 \mathrm{BE} &= (\mathrm{AL})^{2}
 \end{align}
 
-\noindent\textbf{Unité :}
+\noindent\textbf{Unite :}
 \[
 \arcsin\left(\frac{\mathrm{AL}}{2}\right) = 26.06176717^\circ
 \]
@@ -295,7 +285,7 @@ soit : \texttt{AEFG * (0.5 / sin(angle))}.
 \frac{\sqrt{4.5} \times 0.5}{\sin(26.06176717^\circ)} = \sqrt{2} + 1
 \]
 
-\subsection{Produit alternatif pour l'unité $\sqrt{3}+1$}
+\subsection{Produit alternatif pour l'unite $\sqrt{3}+1$}
 
 \begin{align}
 3 \times (\mathrm{BE}) &= \mathrm{AL} \times \mathrm{EC} \\
@@ -305,7 +295,7 @@ soit : \texttt{AEFG * (0.5 / sin(angle))}.
 \mathrm{BE} &= (\mathrm{AL})^{2}
 \end{align}
 
-\noindent\textbf{Unité :}
+\noindent\textbf{Unite :}
 \[
 \arcsin\left(\frac{\mathrm{AL}}{2}\right) = 22.84432053^\circ
 \]
@@ -314,7 +304,7 @@ soit : \texttt{AEFG * (0.5 / sin(angle))}.
 \frac{\sqrt{4.5} \times 0.5}{\sin(22.84432053^\circ)} = \sqrt{3} + 1
 \]
 
-\subsection{Produit alternatif pour l'unité $\sqrt{5}+1$}
+\subsection{Produit alternatif pour l'unite $\sqrt{5}+1$}
 
 \begin{align}
 5 \times (\mathrm{BE}) &= \mathrm{AL} \times \left(\frac{\mathrm{LM} \times 1}{2}\right) / 10 \\
@@ -323,7 +313,7 @@ soit : \texttt{AEFG * (0.5 / sin(angle))}.
 \mathrm{BE} &= 2(\mathrm{AL})^{2}
 \end{align}
 
-\noindent\textbf{Unité :}
+\noindent\textbf{Unite :}
 \[
 \arcsin\left(\frac{\mathrm{AL}}{2}\right) = 19.13299528^\circ
 \]
@@ -331,56 +321,55 @@ soit : \texttt{AEFG * (0.5 / sin(angle))}.
 \[
 \frac{\sqrt{4.5} \times 0.5}{\sin(19.13299528^\circ)} = \sqrt{5} + 1
 \]
-
 \subsection{Lecture des trois exemples d'unites \texorpdfstring{$\sqrt{p} + 1$}{sqrt(p)+1}}
 
-Les trois exemples numériques présentés dans ce document pour les unités
-$\sqrt{2} + 1$, $\sqrt{3} + 1$ et $\sqrt{5} + 1$ illustrent concrètement
-la mécanique harmonique du chaos discret.
+Les trois exemples numeriques presentes dans ce document pour les unites
+$\sqrt{2} + 1$, $\sqrt{3} + 1$ et $\sqrt{5} + 1$ illustrent concretement
+la mecanique harmonique du chaos discret.
 
 \begin{itemize}
-  \item \textbf{Unité $\sqrt{2} + 1$} :\\
-  La configuration géométrique associée à $p = 2$ met en évidence un produit
-  alternatif où les longueurs issues de la figure (segments comme $AL$, $JK$,
-  $BE$, etc.) satisfont une relation d'égalité non triviale. Cette égalité
-  est cohérente avec la structure générale formalisée dans Isabelle/HOL :
-  l'unité abstraite $u(2) = \sqrt{2} + 1$ est compatible avec l'unité
-  géométrique obtenue à partir de $AL_{\text{nat}}(2)$.
+  \item \textbf{Unite $\sqrt{2} + 1$} :\\
+  La configuration geometrique associee a $p = 2$ met en evidence un produit
+  alternatif ou les longueurs issues de la figure (segments comme $AL$, $JK$,
+  $BE$, etc.) satisfont une relation d'egalite non triviale. Cette egalite
+  est coherente avec la structure generale formalisee dans Isabelle/HOL :
+  l'unite abstraite $u(2) = \sqrt{2} + 1$ est compatible avec l'unite
+  geometrique obtenue a partir de $AL_{\text{nat}}(2)$.
 
-  \item \textbf{Unité $\sqrt{3} + 1$} :\\
-  Pour $p = 3$, l'exemple met en lumière un autre produit alternatif, avec
-  des longueurs et des angles différents, mais une structure relationnelle
-  analogue. La valeur numérique change, mais la forme de la relation reste
-  la même. C'est précisément ce que capture l'axiome
+  \item \textbf{Unite $\sqrt{3} + 1$} :\\
+  Pour $p = 3$, l'exemple met en lumiere un autre produit alternatif, avec
+  des longueurs et des angles differents, mais une structure relationnelle
+  analogue. La valeur numerique change, mais la forme de la relation reste
+  la meme. C'est precisement ce que capture l'axiome
   \texttt{ratio\_axiom} dans le script HOL : le rapport demi-base / hauteur
-  est toujours relié à $\sqrt{p}$, et l'unité géométrique reste égale à
+  est toujours relie a $\sqrt{p}$, et l'unite geometrique reste egale a
   $\sqrt{p} + 1$.
 
-  \item \textbf{Unité $\sqrt{5} + 1$} :\\
-  Le cas $p = 5$ montre que même lorsque les longueurs deviennent plus
-  complexes et que les valeurs numériques semblent moins « simples », la
-  structure d'invariance persiste. Les égalités obtenues numériquement
-  dans les produits alternatifs sont des manifestations particulières
-  d'une loi générale : la figure encode une unité géométrique qui coïncide
-  avec l'unité abstraite $u(5) = \sqrt{5} + 1$.
+  \item \textbf{Unite $\sqrt{5} + 1$} :\\
+  Le cas $p = 5$ montre que meme lorsque les longueurs deviennent plus
+  complexes et que les valeurs numeriques semblent moins « simples », la
+  structure d'invariance persiste. Les egalites obtenues numeriquement
+  dans les produits alternatifs sont des manifestations particulieres
+  d'une loi generale : la figure encode une unite geometrique qui coincide
+  avec l'unite abstraite $u(5) = \sqrt{5} + 1$.
 \end{itemize}
 
-Ces trois exemples ne sont donc pas des cas isolés, mais des instances
-particulières d'une même loi universelle, que le script Isabelle/HOL
-formalise et généralise à toutes les unités admissibles $p$.
+Ces trois exemples ne sont donc pas des cas isoles, mais des instances
+particulieres d'une meme loi universelle, que le script Isabelle/HOL
+formalise et generalise a toutes les unites admissibles $p$.
 
-\subsection{Exemple d'invariance géométrique et lien avec la formalisation Isabelle/HOL}
+\subsection{Exemple d'invariance geometrique et lien avec la formalisation Isabelle/HOL}
 
-Dans la mécanique harmonique du chaos discret, l'idée centrale de l'invariance
-géométrique est la suivante : pour chaque unité admissible
+Dans la mecanique harmonique du chaos discret, l'idee centrale de l'invariance
+geometrique est la suivante : pour chaque unite admissible
 \[
   u(p) = \sqrt{p} + 1,
 \]
-la configuration géométrique associée (carrés emboîtés, triangle inscrit,
+la configuration geometrique associee (carres emboites, triangle inscrit,
 demi-triangle rectangle) encode une relation stable entre les longueurs, qui
-se traduit par une égalité structurelle indépendante des détails numériques.
+se traduit par une egalite structurelle independante des details numeriques.
 
-Dans le script Isabelle/HOL, cette idée est capturée par les définitions
+Dans le script Isabelle/HOL, cette idee est capturee par les definitions
 suivantes (voir \texttt{mecanique\_discret.thy}) :
 \begin{itemize}
   \item la longueur de base du triangle inscrit :
@@ -399,8 +388,8 @@ suivantes (voir \texttt{mecanique\_discret.thy}) :
   \]
 \end{itemize}
 
-L'axiome fondamental de la mécanique harmonique du chaos discret est alors
-formalisé par :
+L'axiome fondamental de la mecanique harmonique du chaos discret est alors
+formalise par :
 \[
   \texttt{ratio\_axiom} :
   \quad \texttt{admissible\_unit}\ p \wedge n \ge 1
@@ -413,7 +402,7 @@ En particulier, pour $n = 1$, on obtient :
   \frac{\texttt{base\_length}\ 1\ p}{\texttt{height\_length}\ 1\ p}
   = 2 \sqrt{\texttt{real}\ p},
 \]
-ce qui est formalisé dans Isabelle par la définition :
+ce qui est formalise dans Isabelle par la definition :
 \[
   \texttt{invariant\_geom}\ p =
     \frac{\texttt{base\_length}\ 1\ p}{\texttt{height\_length}\ 1\ p}
@@ -425,22 +414,21 @@ et le lemme :
   \Longrightarrow
   \texttt{invariant\_geom}\ p = 2 \sqrt{\texttt{real}\ p}.
 \]
+Cet invariant geometrique, bien que dependant de $p$ dans sa valeur numerique,
+est \emph{structurellement} le meme pour toutes les unites admissibles : la
+forme de la relation est stable, et c'est cette stabilite qui permet de
+relier la geometrie a l'unite abstraite $u(p) = \sqrt{p} + 1$.
 
-Cet invariant géométrique, bien que dépendant de $p$ dans sa valeur numérique,
-est \emph{structurellement} le même pour toutes les unités admissibles : la
-forme de la relation est stable, et c'est cette stabilité qui permet de
-relier la géométrie à l'unité abstraite $u(p) = \sqrt{p} + 1$.
-
-Pour relier cette structure à l'unité géométrique, on introduit le segment
-$AL_{\text{nat}}(p)$, défini de sorte que :
+Pour relier cette structure a l'unite geometrique, on introduit le segment
+$AL_{\text{nat}}(p)$, defini de sorte que :
 \[
-  U(p) = \frac{\sqrt{4{,}5}}{AL_{\text{nat}}(p)}
+  U(p) = \frac{\sqrt{4.5}}{AL_{\text{nat}}(p)}
 \]
-soit égal à l'unité abstraite $\sqrt{p} + 1$. Dans Isabelle/HOL, cela donne :
+soit egal a l'unite abstraite $\sqrt{p} + 1$. Dans Isabelle/HOL, cela donne :
 \[
-  \texttt{AL\_nat}\ p = \frac{\sqrt{4{,}5}}{\sqrt{\texttt{real}\ p} + 1},
+  \texttt{AL\_nat}\ p = \frac{\sqrt{4.5}}{\sqrt{\texttt{real}\ p} + 1},
   \qquad
-  \texttt{geometric\_unit}\ p = \frac{\sqrt{4{,}5}}{\texttt{AL\_nat}\ p}.
+  \texttt{geometric\_unit}\ p = \frac{\sqrt{4.5}}{\texttt{AL\_nat}\ p}.
 \]
 Le lemme
 \[
@@ -449,12 +437,12 @@ Le lemme
   \Longrightarrow
   \texttt{geometric\_unit}\ p = \sqrt{\texttt{real}\ p} + 1
 \]
-formalise exactement l'égalité
+formalise exactement l'egalite
 \[
   U(p) = \sqrt{p} + 1.
 \]
 
-Enfin, en définissant l'unité abstraite
+Enfin, en definissant l'unite abstraite
 \[
   \texttt{u\_nat}\ p = \sqrt{\texttt{real}\ p} + 1,
 \]
@@ -465,29 +453,29 @@ on obtient le lemme d'invariance :
   \Longrightarrow
   \texttt{geometric\_unit}\ p = \texttt{u\_nat}\ p,
 \]
-qui exprime que, pour toute unité admissible $p$, l'unité géométrique
-définie par la figure coïncide avec l'unité abstraite $\sqrt{p} + 1$.
-Cette égalité est le cœur de l'invariance géométrique : la figure encode
-la même loi pour toutes les unités $p$.
+qui exprime que, pour toute unite admissible $p$, l'unite geometrique
+definie par la figure coincide avec l'unite abstraite $\sqrt{p} + 1$.
+Cette egalite est le coeur de l'invariance geometrique : la figure encode
+la meme loi pour toutes les unites $p$.
 
-\section{Exemple complet : Construction des trois matrices de la mécanique harmonique du chaos discret}
+\section{Exemple complet : Construction des trois matrices de la mecanique harmonique du chaos discret}
 
 Dans cette section, nous illustrons la construction des trois matrices fondamentales
-de la mécanique harmonique du chaos discret : la matrice issue des mesures du plan
-(M1), la matrice de transition (M2) et la matrice à dérivée première simplifiée (M3).
-Ces trois matrices sont directement reliées aux définitions formalisées dans le
+de la mecanique harmonique du chaos discret : la matrice issue des mesures du plan
+(M1), la matrice de transition (M2) et la matrice a derivee premiere simplifiee (M3).
+Ces trois matrices sont directement reliees aux definitions formalisees dans le
 script Isabelle/HOL (\texttt{mecanique\_discret.thy}).
 
 \subsection{1. Matrice M1 : mesures du plan}
 
 La matrice M1 est obtenue en regroupant les longueurs fondamentales du cardan
-sans blocage. Dans Isabelle/HOL, ces longueurs sont stockées dans un enregistrement
+sans blocage. Dans Isabelle/HOL, ces longueurs sont stockees dans un enregistrement
 \texttt{cardan\_lengths} contenant les champs :
 \[
   AD,\ AB,\ BD,\ AG,\ AC,\ CG,\ DG,\ EF,\ DE,\ FG.
 \]
 
-Les coefficients de la matrice sont définis par :
+Les coefficients de la matrice sont definis par :
 \[
   C_1 = AD,\quad C_2 = AB,\quad C_3 = BD,
 \]
@@ -505,7 +493,7 @@ Les trois lignes de la matrice M1 sont alors :
   R_3 = C_7 + C_8 + C_9.
 \]
 
-La structure matricielle imposée par la géométrie est :
+La structure matricielle imposee par la geometrie est :
 \[
   \begin{aligned}
     C_1 \cdot \mathrm{diam\_eq} + C_2 \cdot \mathrm{diam\_eq} + C_3 \cdot \mathrm{diam\_eq}
@@ -517,17 +505,16 @@ La structure matricielle imposée par la géométrie est :
   \end{aligned}
 \]
 
-Cette matrice encode la structure géométrique brute issue des mesures du plan.
-
+Cette matrice encode la structure geometrique brute issue des mesures du plan.
 \subsection{2. Matrice M2 : matrice de transition}
 
-La matrice M2 est une version abstraite de M1, où les longueurs sont remplacées
+La matrice M2 est une version abstraite de M1, ou les longueurs sont remplacees
 par des variables symboliques :
 \[
   C_1', C_2', C_3',\dots,C_9',\qquad R_1', R_2', R_3'.
 \]
 
-La structure imposée est :
+La structure imposee est :
 \[
   C_1' + C_2' + C_3' = R_1',\qquad
   C_4' + C_5' + C_6' = R_2',\qquad
@@ -541,19 +528,19 @@ Et les relations internes sont :
   R_3' = 2\, C_6' \cdot u_{3.375}'.
 \]
 
-Cette matrice représente la structure relationnelle indépendante des valeurs
-numériques : elle est l'ossature logique du système.
+Cette matrice represente la structure relationnelle independante des valeurs
+numeriques : elle est l'ossature logique du systeme.
 
-\subsection{3. Matrice M3 : matrice à dérivée première simplifiée}
+\subsection{3. Matrice M3 : matrice a derivee premiere simplifiee}
 
-La matrice M3 est une version entièrement normalisée, où :
+La matrice M3 est une version entierement normalisee, ou :
 \begin{itemize}
   \item les coefficients sont des nombres premiers,
-  \item les pondérations sont toutes de la forme \(7 / k\),
+  \item les ponderations sont toutes de la forme \(7 / k\),
   \item l'unique inconnue est \(u = \sqrt{3.375}\).
 \end{itemize}
 
-Les trois lignes simplifiées sont :
+Les trois lignes simplifiees sont :
 \[
   37x + 31x + 29x = 41x,
 \]
@@ -564,7 +551,7 @@ Les trois lignes simplifiées sont :
    7z +  5z +  3z = 11z.
 \]
 
-La version pondérée est :
+La version pondered est :
 \[
   37\left(\frac{7}{48.5}\right)u
   + 31\left(\frac{7}{48.5}\right)u
@@ -584,8 +571,8 @@ La version pondérée est :
   = 11\left(\frac{7}{5.5}\right)u.
 \]
 
-Cette matrice est la forme la plus épurée du système : elle révèle la structure
-arithmétique profonde du cardan sans blocage.
+Cette matrice est la forme la plus epuree du systeme : elle revele la structure
+arithmetique profonde du cardan sans blocage.
 
 \subsection{Comment construire les trois matrices}
 
@@ -593,32 +580,32 @@ La construction des matrices M1, M2 et M3 suit une logique progressive allant
 du concret vers l'abstrait.
 
 \paragraph{1. Matrice M1 : mesures du plan}
-On part des longueurs réelles mesurées dans la figure du cardan sans blocage.
-Ces longueurs sont regroupées dans un enregistrement \texttt{cardan\_lengths}.
-Les coefficients \(C_1\) à \(C_9\) sont des projections directes de ces longueurs.
+On part des longueurs reelles mesurees dans la figure du cardan sans blocage.
+Ces longueurs sont regroupees dans un enregistrement \texttt{cardan\_lengths}.
+Les coefficients \(C_1\) a \(C_9\) sont des projections directes de ces longueurs.
 Les lignes \(R_1\), \(R_2\), \(R_3\) sont des sommes de trois coefficients chacune.
-Les relations imposées (égalité entre une somme pondérée et un double produit)
-proviennent directement de la géométrie.
+Les relations imposees (egalite entre une somme ponderee et un double produit)
+proviennent directement de la geometrie.
 
 \paragraph{2. Matrice M2 : matrice de transition}
-On remplace les longueurs réelles par des variables symboliques.
-La structure de M1 est conservée, mais les valeurs numériques disparaissent.
-Cette matrice représente la structure logique du système, indépendante de la
-géométrie particulière.
+On remplace les longueurs reelles par des variables symboliques.
+La structure de M1 est conservee, mais les valeurs numeriques disparaissent.
+Cette matrice represente la structure logique du systeme, independante de la
+geometrie particuliere.
 
-\paragraph{3. Matrice M3 : matrice à dérivée première}
-On normalise complètement la matrice M2 :
+\paragraph{3. Matrice M3 : matrice a derivee premiere}
+On normalise completement la matrice M2 :
 \begin{itemize}
   \item les coefficients deviennent des nombres premiers,
-  \item les pondérations sont toutes de la forme \(7/k\),
+  \item les ponderations sont toutes de la forme \(7/k\),
   \item l'unique inconnue est \(u = \sqrt{3.375}\).
 \end{itemize}
-Cette matrice révèle la structure arithmétique profonde du système et constitue
-la forme la plus abstraite de la mécanique harmonique du chaos discret.
+Cette matrice revele la structure arithmetique profonde du systeme et constitue
+la forme la plus abstraite de la mecanique harmonique du chaos discret.
 
-\subsection{Facteur trigonométrique alternatif pour les nombres premiers}
+\subsection{Facteur trigonometrique alternatif pour les nombres premiers}
 
-Soit $p > 0$. On définit la fonction
+Soit $p > 0$. On definit la fonction
 \[
 F(p)
 = \sqrt{4p}\,\times
@@ -633,23 +620,22 @@ Pour un nombre premier $p$, on appellera
 \[
 w(p) := F(p)
 \]
-le \emph{facteur trigonométrique alternatif} associé à $p$.
+le \emph{facteur trigonometrique alternatif} associe a $p$.
 
-
-On introduit la fonction intermédiaire
+On introduit la fonction intermediaire
 \[
 X(p)
 := \frac{\tfrac{1}{2}}{(\sqrt{p}+1)/\sqrt{18}} \times \frac{1}{2}
 = \frac{1}{4}\,\frac{\sqrt{18}}{\sqrt{p}+1}.
 \]
 
-On a alors, par définition,
+On a alors, par definition,
 \[
 F(p) = \sqrt{4p}\,\sin\bigl(\arcsin(X(p))\bigr)^{2}.
 \]
 
-\begin{lemma}[Domaine de définition pour les nombres premiers]
-Pour tout nombre premier $p \ge 2$, on a $|X(p)| \le 1$, donc $F(p)$ est bien défini.
+\begin{lemma}[Domaine de definition pour les nombres premiers]
+Pour tout nombre premier $p \ge 2$, on a $|X(p)| \le 1$, donc $F(p)$ est bien defini.
 \end{lemma}
 
 \begin{proof}
@@ -663,10 +649,10 @@ Or
 \[
 \frac{\sqrt{18}}{4(\sqrt{2}+1)} < 1,
 \]
-d'où $|X(p)| \le 1$ pour tout $p \ge 2$. L'argument de $\arcsin$ est donc dans $[-1,1]$, et $F(p)$ est bien défini pour tout nombre premier $p$.
+d'ou $|X(p)| \le 1$ pour tout $p \ge 2$. L'argument de $\arcsin$ est donc dans $[-1,1]$, et $F(p)$ est bien defini pour tout nombre premier $p$.
 \end{proof}
 
-\begin{lemma}[Forme fermée de $F$]
+\begin{lemma}[Forme fermee de $F$]
 Pour tout $p > 0$, on a
 \[
 F(p)
@@ -692,16 +678,16 @@ F(p)
 \]
 \end{proof}
 
-\begin{lemma}[Décroissance de $F$]
+\begin{lemma}[Decroissance de $F$]
 La fonction
 \[
 p \mapsto F(p) = \frac{9}{4}\,\frac{\sqrt{p}}{(\sqrt{p}+1)^{2}}
 \]
-est strictement décroissante pour $p \ge 2$.
+est strictement decroissante pour $p \ge 2$.
 \end{lemma}
 
 \begin{proof}
-Posons $x = \sqrt{p}$, avec $x \ge \sqrt{2}$, et considérons
+Posons $x = \sqrt{p}$, avec $x \ge \sqrt{2}$, et considerons
 \[
 g(x) := \frac{x}{(x+1)^{2}}.
 \]
@@ -710,12 +696,11 @@ On calcule
 g'(x)
 = \frac{(x+1)^{2} - x \cdot 2(x+1)}{(x+1)^{4}}
 = \frac{(x+1)\bigl((x+1) - 2x\bigr)}{(x+1)^{4}}
-= \frac{(x+1)(1 - x)}{(x+1)^{4}}
+= \frac{(x+1)(1 - x)}{(x+1)^{3}}
 = \frac{1 - x}{(x+1)^{3}}.
 \]
-Pour $x \ge \sqrt{2} > 1$, on a $1 - x < 0$, donc $g'(x) < 0$. Ainsi $g$ est strictement décroissante sur $[\sqrt{2},+\infty)$, et donc $F(p)$ est strictement décroissante pour $p \ge 2$.
+Pour $x \ge \sqrt{2} > 1$, on a $1 - x < 0$, donc $g'(x) < 0$. Ainsi $g$ est strictement decroissante sur $[\sqrt{2},+\infty)$, et donc $F(p)$ est strictement decroissante pour $p \ge 2$.
 \end{proof}
-
 \begin{corollary}
 Si $p$ et $q$ sont des nombres premiers avec $p < q$, alors
 \[
@@ -728,7 +713,7 @@ On a
 \[
 \lim_{p \to +\infty} \sqrt{p}\,F(p) = \frac{9}{4},
 \]
-c'est-à-dire
+c'est-a-dire
 \[
 F(p) \sim \frac{9}{4}\,\frac{1}{\sqrt{p}}
 \quad \text{quand } p \to +\infty.
@@ -736,7 +721,7 @@ F(p) \sim \frac{9}{4}\,\frac{1}{\sqrt{p}}
 \end{lemma}
 
 \begin{proof}
-On écrit
+On ecrit
 \[
 F(p)
 = \frac{9}{4}\,\frac{\sqrt{p}}{(\sqrt{p}+1)^{2}}
@@ -747,7 +732,7 @@ Or
 \frac{\sqrt{p}}{\sqrt{p}+1} \longrightarrow 1
 \quad \text{quand } p \to +\infty,
 \]
-d'où
+d'ou
 \[
 \sqrt{p}\,F(p)
 = \frac{9}{4}\left(\frac{\sqrt{p}}{\sqrt{p}+1}\right)^{2}
@@ -755,19 +740,17 @@ d'où
 \]
 \end{proof}
 
-Soit $\mathcal{P}$ l'ensemble des nombres premiers. On peut alors définir un produit alternatif de la forme
+Soit $\mathcal{P}$ l'ensemble des nombres premiers. On peut alors definir un produit alternatif de la forme
 \[
 \prod_{p \in \mathcal{P}} \Phi\bigl(F(p)\bigr),
 \]
-où $\Phi$ est une fonction choisie en accord avec la mécanique harmonique du chaos discret.
-La décroissance
+ou $\Phi$ est une fonction choisie en accord avec la mecanique harmonique du chaos discret.
+La decroissance
 \[
 F(p) \sim \frac{9}{4}\,\frac{1}{\sqrt{p}}
 \]
-assure que la contribution de chaque premier est régulée par un facteur trigonométrique
-décroissant, cohérent avec la progression observée numériquement dans le produit alternatif.
-
-
+assure que la contribution de chaque premier est regulee par un facteur trigonometrique
+decroissant, coherent avec la progression observee numeriquement dans le produit alternatif.
 
 % ============================================================
 % SECTION : SCRIPT ISABELLE HOL
@@ -855,34 +838,34 @@ text "
 
   ou b(n,p) est une longueur strictement positive dependant du niveau n et du
   nombre premier p.
-
-  Lorsque la diagonale AC(n) coupe la base du triangle inscrit, celui-ci est
-  divise en deux triangles rectangles. Dans chacun de ces triangles rectangles,
-  la demi-base vaut b(n,p)/2 et la hauteur vaut h(n,p). Le rapport geometrique
-  fondamental de la mecanique harmonique du chaos discret est :
+"
+Lorsque la diagonale AC(n) coupe la base du triangle inscrit, celui-ci est
+divise en deux triangles rectangles. Dans chacun de ces triangles rectangles,
+la demi-base vaut b(n,p)/2 et la hauteur vaut h(n,p). Le rapport geometrique
+fondamental de la mecanique harmonique du chaos discret est :
 
       (b(n,p) / 2) / h(n,p) = sqrt(p)
 
-  ou p est un nombre premier definissant l'unite admissible.
+ou p est un nombre premier definissant l'unite admissible.
 
-  Ce rapport ne concerne donc pas le triangle complet, mais le demi-triangle
-  rectangle issu de la coupure par la diagonale AC(n). Ce point est essentiel :
-  c'est ce demi-triangle rectangle qui porte l'information geometrique
-  fondamentale de l'unite p.
+Ce rapport ne concerne donc pas le triangle complet, mais le demi-triangle
+rectangle issu de la coupure par la diagonale AC(n). Ce point est essentiel :
+c'est ce demi-triangle rectangle qui porte l'information geometrique
+fondamentale de l'unite p.
 
-  Le rapport ci-dessus determine l'angle theta(p) du triangle rectangle par :
+Le rapport ci-dessus determine l'angle theta(p) du triangle rectangle par :
 
       tan(theta(p)) = sqrt(p)
       theta(p) = arctan(sqrt(p))
 
-  Cet angle joue un role central dans les chapitres B et C, notamment dans la
-  matrice a derive premiere et dans la structure du prisme matriciel.
+Cet angle joue un role central dans les chapitres B et C, notamment dans la
+matrice a derivee premiere et dans la structure du prisme matriciel.
 "
 
 subsubsection "A1.1 Unites admissibles"
 
 definition prime_nat :: "nat => bool" where
-  "prime_nat p <-> (p > 1 \wedge  (\forall m. m dvd p --> m = 1 \vee  m = p))"
+  "prime_nat p <-> (p > 1 & (ALL m. m dvd p --> m = 1 | m = p))"
 
 definition admissible_unit :: "nat => bool" where
   "admissible_unit p <-> prime_nat p"
@@ -892,7 +875,7 @@ definition unit :: "nat => real" where
 
 subsubsection "A1.2 Carres emboites"
 
-type_synonym point = "real \times  real"
+type_synonym point = "real * real"
 
 definition side :: "nat => real" where
   "side n = (1.5 :: real) ^ n"
@@ -913,7 +896,7 @@ text "
   ou la base repose sur les axes et le sommet est C(n).
 "
 
-definition base_param :: "nat => nat=> real" where
+definition base_param :: "nat => nat => real" where
   "base_param n p = (side n) / (sqrt (real p) + 0.5)"
 
 definition P1 :: "nat => nat => point" where
@@ -940,7 +923,7 @@ definition ratio_halfbase_height :: "nat => nat => real" where
 
 axiomatization where
   ratio_axiom:
-    "⟦ admissible_unit p; n >= 1 ⟧
+    "admissible_unit p ==> n >= 1
      ==> ratio_halfbase_height n p = sqrt (real p)"
 
 subsubsection "A1.5 Angle associe a l'unite p"
@@ -948,7 +931,7 @@ subsubsection "A1.5 Angle associe a l'unite p"
 definition angle_rect :: "nat => real" where
   "angle_rect p = arctan (sqrt (real p))"
 
-subsubsection "A1.3 Triangles inscrits"
+ subsubsection "A1.3 Triangles inscrits"
 
 text "
   Le triangle inscrit dans le carre de niveau n et associe a l'unite p possede
@@ -959,7 +942,7 @@ text "
   ou la base repose sur les axes et le sommet est C(n).
 "
 
-definition base_param :: "nat => nat=> real" where
+definition base_param :: "nat => nat => real" where
   "base_param n p = (side n) / (sqrt (real p) + 0.5)"
 
 definition P1 :: "nat => nat => point" where
@@ -986,7 +969,7 @@ definition ratio_halfbase_height :: "nat => nat => real" where
 
 axiomatization where
   ratio_axiom:
-    "⟦ admissible_unit p; n >= 1 ⟧
+    "admissible_unit p ==> n >= 1
      ==> ratio_halfbase_height n p = sqrt (real p)"
 
 subsubsection "A1.5 Angle associe a l'unite p"
@@ -1008,11 +991,11 @@ text "
 
       theta(p) = arctan(sqrt(p))
 
-  Cette fonction joue un role central dans la matrice a derive premiere.
+  Cette fonction joue un role central dans la matrice a derivee premiere.
 "
 
 
-subsection "B2.1 Angle oppose pour la matrice a derive premiere"
+subsection "B2.1 Angle oppose pour la matrice a derivee premiere"
 
 text "
   Nous reutilisons la fonction angle_rect definie dans le Chapitre A.
@@ -1071,7 +1054,6 @@ text "
   coincide avec l'unite abstraite sqrt(p) + 1.
 "
 
-(* Definition correcte de l'unite abstraite *)
 definition u_nat :: "nat => real" where
   "u_nat p = sqrt (real p) + 1"
 
@@ -1086,8 +1068,6 @@ proof -
   thus ?thesis
     by (simp add: u_nat_def)
 qed
-
-
 subsection "B1.0 Cardan sans blocage (formalise)"
 
 definition pol :: "real => real => point" where
@@ -1119,10 +1099,10 @@ definition card_G2 :: point where "card_G2 = pol CG_len (ang_BDE - ang_BAC - ang
 
 
 chapter C
-section "C1.0 Matrice a derive premiere"
+section "C1.0 Matrice a derivee premiere"
 
 text "
-  Formalisation de la matrice a derive premiere associee au cardan sans blocage.
+  Formalisation de la matrice a derivee premiere associee au cardan sans blocage.
 "
 
 type_synonym length = real
@@ -1165,17 +1145,17 @@ definition R3 :: "cardan_lengths => length" where
 subsection "1. Matrice deduite des mesures du plan"
 
 definition M1_L1 :: "cardan_lengths => bool" where
-  "M1_L1 L <-> 
+  "M1_L1 L <->
      C1 L * diam_eq L + C2 L * diam_eq L + C3 L * diam_eq L
        = 2 * C1 L * diam_eq L"
 
 definition M1_L2 :: "cardan_lengths => bool" where
-  "M1_L2 L <-> 
+  "M1_L2 L <->
      C4 L * u15 L + C5 L * u15 L + C6 L * u15 L
        = 2 * C4 L * u15 L"
 
 definition M1_L3 :: "cardan_lengths => bool" where
-  "M1_L3 L <-> 
+  "M1_L3 L <->
      C7 L * u3375 L + C8 L * u3375 L + C9 L * u3375 L
        = 2 * C7 L * u3375 L"
 
@@ -1223,7 +1203,7 @@ definition M2_structure :: "drift_transition => bool" where
      R2' T = 2 * C3' T * u15' T &
      R3' T = 2 * C6' T * u3375' T"
 
-  subsection "3. Matrice a derive premiere simplifiee"
+  subsection "3. Matrice a derivee premiere simplifiee"
 
 text "
   Matrice simplifiee (nombres premiers) :
@@ -1277,8 +1257,8 @@ subsection "D1.0 Generalisation du facteur trigonometrique alternatif"
 
 text "
   Definitions et lemmes liant l'expression trigonometrique alt_factor au
-   rapport geometrique hauteur/demi-base = 1 / sqrt p. On introduit aussi la
-   notion de diametre equivalent au carre.
+  rapport geometrique hauteur/demi-base = 1 / sqrt p. On introduit aussi la
+  notion de diametre equivalent au carre.
 "
 
 definition inv_ratio_height_halfbase :: "nat => nat => real" where
@@ -1299,7 +1279,7 @@ definition alt_factor :: "nat => real" where
 
 axiomatization where
   alt_factor_axiom:
-    "⟦ admissible_unit p; prime_nat p; (n :: nat) >= 1 ⟧
+    "admissible_unit p ==> prime_nat p ==> (n :: nat) >= 1
      ==> alt_factor p = inv_ratio_height_halfbase n p"
 
 lemma alt_factor_for_primes:
@@ -1307,9 +1287,9 @@ lemma alt_factor_for_primes:
   assumes "admissible_unit p" "prime_nat p" "n >= 1"
   shows "alt_factor p = 1 / sqrt (real p)"
 proof -
-  from alt_factor_axiom[OF "admissible_unit p" "prime_nat p" "n >= 1"]
+  from alt_factor_axiom[OF assms]
   have eq1: "alt_factor p = inv_ratio_height_halfbase n p" .
-  from inv_ratio_height_halfbase_simpl[OF "admissible_unit p" "n >= 1"]
+  from inv_ratio_height_halfbase_simpl[OF assms(1) assms(3)]
   have eq2: "inv_ratio_height_halfbase n p = 1 / sqrt (real p)" .
   from eq1 eq2 show ?thesis by simp
 qed
@@ -1321,7 +1301,7 @@ lemma diam_equiv_sq_for_primes:
   fixes n :: nat
   assumes "admissible_unit p" "prime_nat p" "n >= 1"
   shows "diam_equiv_sq p = 1 / sqrt (real p)"
-  using alt_factor_for_primes[OF "admissible_unit p" "prime_nat p" "n >= 1"]
+  using alt_factor_for_primes[OF assms]
   unfolding diam_equiv_sq_def
   by simp
 
@@ -1332,11 +1312,11 @@ lemma alt_factor_explicit_for_primes:
     "sqrt (4 * real p) *
        (sin (arcsin (((1 / 2) / ((sqrt (real p) + 1) / sqrt 18)) * (1 / 2)))) ^ 2
      = 1 / sqrt (real p)"
-  using alt_factor_for_primes[OF "admissible_unit p" "prime_nat p" "n >= 1"]
+  using alt_factor_for_primes[OF assms]
   unfolding alt_factor_def
   by simp
 
-  text "
+text "
 -------------------------------------------------------------------------------
                            CREDITS ET LICENCE
 -------------------------------------------------------------------------------
@@ -1347,7 +1327,7 @@ Date   : 10 mars 2026
 Lieu   : Levis, Chaudieres-Appalaches, Canada
 
 Ce travail est distribue sous la licence Apache 2.0.
-
+"
 -------------------------------------------------------------------------------
 LICENCE APACHE 2.0 (TEXTE COMPLET)
 -------------------------------------------------------------------------------
@@ -1360,37 +1340,37 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
 1. Definitions.
 
-   \"License\" shall mean the terms and conditions for use, reproduction,
+   "License" shall mean the terms and conditions for use, reproduction,
    and distribution as defined by Sections 1 through 9 of this document.
 
-   \"Licensor\" shall mean the copyright owner or entity authorized by
+   "Licensor" shall mean the copyright owner or entity authorized by
    the copyright owner that is granting the License.
 
-   \"Legal Entity\" shall mean the union of the acting entity and all
+   "Legal Entity" shall mean the union of the acting entity and all
    other entities that control, are controlled by, or are under common
    control with that entity. For the purposes of this definition,
-   \"control\" means (i) the power, direct or indirect, to cause the
+   "control" means (i) the power, direct or indirect, to cause the
    direction or management of such entity, whether by contract or
    otherwise, or (ii) ownership of fifty percent (50%) or more of the
    outstanding shares, or (iii) beneficial ownership of such entity.
 
-   \"You\" (or \"Your\") shall mean an individual or Legal Entity
+   "You" (or "Your") shall mean an individual or Legal Entity
    exercising permissions granted by this License.
 
-   \"Source\" form shall mean the preferred form for making modifications,
+   "Source" form shall mean the preferred form for making modifications,
    including but not limited to software source code, documentation source,
    and configuration files.
 
-   \"Object\" form shall mean any form resulting from mechanical
+   "Object" form shall mean any form resulting from mechanical
    transformation or translation of a Source form, including but not
    limited to compiled object code, generated documentation, and
    conversions to other media types.
 
-   \"Work\" shall mean the work of authorship, whether in Source or
+   "Work" shall mean the work of authorship, whether in Source or
    Object form, made available under the License, as indicated by a
    copyright notice that is included in or attached to the work.
 
-   \"Derivative Works\" shall mean any work, whether in Source or Object
+   "Derivative Works" shall mean any work, whether in Source or Object
    form, that is based on (or derived from) the Work and for which the
    editorial revisions, annotations, elaborations, or other modifications
    represent, as a whole, an original work of authorship. For the purposes
@@ -1398,14 +1378,14 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
    separable from, or merely link (or bind by name) to the interfaces of,
    the Work and Derivative Works thereof.
 
-   \"Contribution\" shall mean any work of authorship, including the
+   "Contribution" shall mean any work of authorship, including the
    original version of the Work and any modifications or additions to
    that Work or Derivative Works thereof, that is intentionally submitted
    to Licensor for inclusion in the Work by the copyright owner or by an
    individual or Legal Entity authorized to submit on behalf of the
    copyright owner.
 
-   \"Contributor\" shall mean Licensor and any individual or Legal Entity
+   "Contributor" shall mean Licensor and any individual or Legal Entity
    on behalf of whom a Contribution has been received by Licensor and
    subsequently incorporated within the Work.
 
@@ -1457,7 +1437,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
    Unless required by applicable law or agreed to in writing, Licensor
    provides the Work (and each Contributor provides its Contributions)
-   on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.
+   on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.
 
 8. Limitation of Liability.
 
@@ -1479,41 +1459,42 @@ end
 
 \section{Conclusion}
 
-La mécanique harmonique du chaos discret présentée dans ce document constitue
-le résultat d'une démarche intuitive, personnelle et indépendante. Bien que
-l'auteur, Philippe Thomas Savard, ne provienne pas du milieu académique et ne
-dispose d'aucune formation spécialisée en mathématiques, il demeure convaincu
-que les structures mises en lumière ici révèlent des régularités profondes et
-cohérentes, en résonance avec certains thèmes connus des sciences modernes.
+La mecanique harmonique du chaos discret presentee dans ce document constitue
+le resultat d'une demarche intuitive, personnelle et independante. Bien que
+l'auteur, Philippe Thomas Savard, ne provienne pas du milieu academique et ne
+dispose d'aucune formation specialisee en mathematiques, il demeure convaincu
+que les structures mises en lumiere ici revelent des regularites profondes et
+coherentes, en resonance avec certains themes connus des sciences modernes.
 
-L'un des points centraux de cette exploration est l'idée d'une \emph{invariance
-géométrique}, concept encore jeune et imparfaitement défini, mais porteur
-d'un potentiel remarquable. À travers les constructions géométriques, les
-produits alternatifs, les unités de la forme $\sqrt{p} + 1$ et la formalisation
-rigoureuse effectuée dans Isabelle/HOL, une même structure relationnelle
-apparaît, stable et universelle. Cette stabilité évoque, pour l'auteur, une
+L'un des points centraux de cette exploration est l'idee d'une invariance
+geometrique, concept encore jeune et imparfaitement defini, mais porteur
+d'un potentiel remarquable. A travers les constructions geometriques, les
+produits alternatifs, les unites de la forme $\sqrt{p} + 1$ et la formalisation
+rigoureuse effectuee dans Isabelle/HOL, une meme structure relationnelle
+apparait, stable et universelle. Cette stabilite evoque, pour l'auteur, une
 possible analogie avec la violation de l'invariance par renversement, un sujet
-bien établi dans la physique contemporaine.
+bien etabli dans la physique contemporaine.
 
-La formalisation dans Isabelle/HOL, loin d'être un simple exercice technique,
-a permis de valider plusieurs intuitions fondamentales : cohérence interne des
-définitions, compatibilité des invariants, et existence d'une unité géométrique
-qui coïncide systématiquement avec l'unité abstraite $\sqrt{p} + 1$. Ces
-résultats, bien que modestes, renforcent l'idée que cette mécanique harmonique
+La formalisation dans Isabelle/HOL, loin d'etre un simple exercice technique,
+a permis de valider plusieurs intuitions fondamentales : coherence interne des
+definitions, compatibilite des invariants, et existence d'une unite geometrique
+qui coincide systematiquement avec l'unite abstraite $\sqrt{p} + 1$. Ces
+resultats, bien que modestes, renforcent l'idee que cette mecanique harmonique
 du chaos discret pourrait constituer un domaine fertile, riche en structures
 nouvelles et en pistes de recherche.
 
 L'auteur demeure conscient que son approche est encore embryonnaire et que
-beaucoup reste à clarifier, préciser et approfondir. Toutefois, il conserve la
-conviction intime que cette théorie, née d'une intuition sincère et d'un
-plaisir intellectuel authentique, possède un avenir certain. Elle ouvre la
-porte à un espace de réflexion où la géométrie, l'arithmétique et la dynamique
-se rencontrent, et où de nouvelles formes d'invariance pourraient émerger.
+beaucoup reste a clarifier, preciser et approfondir. Toutefois, il conserve la
+conviction intime que cette theorie, nee d'une intuition sincere et d'un
+plaisir intellectuel authentique, possede un avenir certain. Elle ouvre la
+porte a un espace de reflexion ou la geometrie, l'arithmetique et la dynamique
+se rencontrent, et ou de nouvelles formes d'invariance pourraient emerger.
 
-Ce document n'est donc pas une fin, mais un début : une invitation à poursuivre
-l'exploration, à questionner, à formaliser davantage, et à laisser la mécanique
-harmonique du chaos discret révéler progressivement toute sa profondeur.
-\section{Licence Apach 2.0}
+Ce document n'est donc pas une fin, mais un debut : une invitation a poursuivre
+l'exploration, a questionner, a formaliser davantage, et a laisser la mecanique
+harmonique du chaos discret reveler progressivement toute sa profondeur.
+
+\section{Licence Apache 2.0}
 \bigskip
 \noindent\textbf{Licence Apache 2.0 (texte complet)}
 
