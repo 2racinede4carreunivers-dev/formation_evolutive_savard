@@ -2783,73 +2783,55 @@ text "
 % SECTION 7 : TABLEAUX COMPLETS DES SUITES
 % ============================================================================
 
-\subsection*{Modele geometrique des aires sur la droite critique}
+\begin{tcolorbox}[colback=white,colframe=black,title={Quadrature de la parabole et zéros critiques}]
+La figure intitulée \emph{Quadrature de la parabole -- Pesé d'Archimède} illustre la relation
+géométrique entre l’aire d’une parabole et l’aire d’un triangle associé, appliquée ici à
+l’interprétation géométrique des zéros critiques de la fonction zêta.
 
-Nous considerons la droite critique $\Re(s)=\tfrac{1}{2}$, tronquee a une
-hauteur finie $H$, que nous representons par un rectangle vertical d'aire
-totale $T$. Une sous-aire $T/n$ correspond a une portion tronquee de cette
-droite, associee a un intervalle fini de nombres premiers. Dans cette zone,
-la structure combinatoire des ecarts mixtes entre nombres premiers confere
-a l'intervalle une valeur relative plus grande que sa longueur brute, ce
-qui se traduit geometriquement par une courbure effective de la droite
-critique.
+Dans la quadrature classique d’Archimède, l’aire de la région parabolique est donnée par :
+\[
+\text{Aire}_{\text{parabole}} = \frac{4}{3}\,\text{Aire}_{\text{triangle}}.
+\]
 
-L'aire restante $T_{\text{rest}} = T - T/n$ est alors mise en correspondance
-avec l'aire situee entre la droite critique reelle et la courbe deformee
-induite par cette valeur relative accrue. Lorsque ces deux aires
-complementaires sont egales, le modele suggere que la masse totale des
-zeros est entierement portee par la droite critique, ce qui est interprete
-comme une condition geometrique equivalente a la conjecture de Riemann,
-sans toutefois constituer une preuve analytique.
+Dans la construction présentée, on compare deux produits géométriques :
+\[
+\text{Aire}_{\text{parabole}} \times OE
+\qquad\text{et}\qquad
+\text{Aire}_{\text{triangle}} \times OH.
+\]
 
-\begin{figure}[h]
-  \centering
-  \begin{tikzpicture}[scale=1.1]
-    % Axes
-    \draw[->] (0,0) -- (0,5) node[above] {$\Im(s)$};
-    \draw (0,0) -- (3,0);
-    \node[below] at (0,0) {$\Re(s)=\tfrac{1}{2}$};
+L’égalité intuitive
+\[
+\text{Aire}_{\text{parabole}} \times OE = \text{Aire}_{\text{triangle}} \times OH
+\]
+n’est pas satisfaite. Le calcul montre au contraire :
+\[
+\frac{\text{Aire}_{\text{triangle}} \times OH}{\text{Aire}_{\text{parabole}} \times OE}
+= \frac{1}{4}.
+\]
 
-    % Rectangle total T
-    \draw[thick] (0,0) rectangle (1.5,4.5);
-    \node at (0.75,4.7) {$T$};
+Ainsi, seule une fraction d’environ \(\tfrac{1}{4}\) de la zone considérée est incluse dans l’aire
+définie par la droite critique réelle \(R = \tfrac{1}{2}\), si l’on exclut l’écart mixte défini dans
+le script Isabelle/HOL. La zone restante correspond à la droite des zéros critiques « relative »,
+celle qui inclut cet écart mixte.
 
-    % Sous-aire T/n
-    \fill[blue!10] (0,0) rectangle (1.5,2);
-    \draw[thick,blue] (0,0) rectangle (1.5,2);
-    \node[blue] at (0.75,1) {$T/n$};
+Ce résultat est cohérent avec la méthode de Philippôt validée par Isabelle/HOL :  
+la structure spectrale \(1/2\) est bien présente, mais d’autres rapports spectraux non triviaux
+apparaissent également lorsque la méthode est appliquée à d’autres suites. La figure de la
+pesée d’Archimède montre visuellement que les zéros critiques ne se limitent pas tous à
+\(R = \tfrac{1}{2}\), mais qu’une proportion significative occupe une zone géométrique dont le
+rapport effectif est quatre fois plus grand que celui attendu par la pesée idéale.
 
-    % Aire restante T_rest
-    \fill[gray!10] (0,2) rectangle (1.5,4.5);
-    \draw[thick,gray] (0,2) rectangle (1.5,4.5);
-    \node[gray!70!black] at (0.75,3.25) {$T_{\text{rest}}$};
+Cette lecture géométrique renforce l’idée que la droite critique réelle ne capture qu’une
+partie de la structure complète des zéros, tandis que la droite relative (incluant l’écart mixte)
+reflète une organisation plus riche, cohérente avec les validations formelles Isabelle/HOL.
+\end{tcolorbox}
 
-    % Courbe relative (deformation)
-    \draw[red,thick,domain=0:2,smooth,variable=\y]
-      plot ({1.5+0.5*exp(-(\y-1)^2)},\y);
-    \node[red] at (2.3,1.8) {courbe relative};
-
-    % Aire sous la courbe (symbolique)
-    \fill[red!10,opacity=0.5]
-      (1.5,0) --
-      plot[domain=0:2,smooth,variable=\y]
-        ({1.5+0.5*exp(-(\y-1)^2)},\y) --
-      (1.5,2) -- cycle;
-
-    \node[red!70!black] at (2.4,0.7) {$A_{\text{mixte}}$};
-
-  \end{tikzpicture}
-  \caption{Modele geometrique des aires sur la droite critique : $T$,
-  $T/n$, $T_{\text{rest}}$ et l'aire relative $A_{\text{mixte}}$ induite
-  par les ecarts mixtes.}
-\end{figure}
-
-\begin{figure}[h]
-  \centering
-  % (reprendre exactement le meme tikzpicture que ci-dessus)
-  \caption{Geometric model of areas on the critical line: $T$, $T/n$,
-  $T_{\text{rest}}$ and the relative area $A_{\text{mixte}}$ induced by
-  mixed gaps.}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{quadrature_parabole_zero_critique.png}
+    \caption{Quadrature de la parabole — zéros critiques (bloc 1)}
+    \label{fig:quadrature_parabole_bloc1}
 \end{figure}
 
 \newpage
