@@ -1,0 +1,4 @@
+session univers_carre = HOL +
+  options [document = false]
+  theories
+    postulat_carre
