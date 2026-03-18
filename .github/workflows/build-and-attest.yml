@@ -1,4 +1,4 @@
-name: Compilation Isabelle + LaTeX (Optimisé)
+name: Build Isabelle + LaTeX (Optimisé)
 
 on:
   push:
@@ -14,12 +14,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Fix .texx extension
+    # Correction automatique des .texx
+    - name: Fix .texx extensions
       run: |
-        if [ -f postulat_univers_carre.texx ]; then
-          mv postulat_univers_carre.texx postulat_univers_carre.tex
-        fi
+        for f in *.texx; do
+          mv "$f" "${f%.texx}.tex"
+        done
 
+    # Installation rapide de LaTeX (pas texlive-full)
     - name: Install minimal TeX Live
       run: |
         sudo apt-get update
@@ -30,6 +32,7 @@ jobs:
           texlive-fonts-recommended \
           latexmk
 
+    # Installation Isabelle
     - name: Install Isabelle
       run: |
         wget https://isabelle.in.tum.de/website-Isabelle2024/dist/Isabelle2024_linux.tar.gz
@@ -37,14 +40,16 @@ jobs:
         mv Isabelle2024 isabelle
         echo "$PWD/isabelle/bin" >> $GITHUB_PATH
 
-    - name: Compile all LaTeX files
+    # Compilation de tous les .tex
+    - name: Compile all LaTeX documents
       run: |
         for file in *.tex; do
           echo "Compilation de $file"
-          latexmk -pdf -interaction=nonstopmode "$file"
+          latexmk -pdf -interaction=nonstopmode -f "$file"
         done
 
-    - name: Isabelle certification
+    # Certification Isabelle
+    - name: Isabelle build
       run: |
         if [ -f ROOT ]; then
           isabelle build -D .
@@ -55,7 +60,8 @@ jobs:
           done
         fi
 
-    - name: Upload generated PDFs
+    # Upload des PDF générés
+    - name: Upload PDFs
       uses: actions/upload-artifact@v4
       with:
         name: pdfs
