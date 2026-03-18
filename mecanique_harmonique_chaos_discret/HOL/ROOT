@@ -1,4 +1,0 @@
-session "mecanique_discret" = HOL +
-  options [document = false]
-  theories
-    mecanique_discret
