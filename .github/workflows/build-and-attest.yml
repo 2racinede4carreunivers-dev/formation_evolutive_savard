@@ -1,0 +1,56 @@
+name: Compilation Isabelle + LaTeX
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Fix .texx extension
+      run: |
+        if [ -f postulat_univers_carre.texx ]; then
+          mv postulat_univers_carre.texx postulat_univers_carre.tex
+        fi
+
+    - name: Install TeX Live
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-full latexmk
+
+    - name: Install Isabelle
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y isabelle
+
+    - name: Compile all LaTeX files
+      run: |
+        for file in *.tex; do
+          echo "Compilation de $file"
+          latexmk -pdf -interaction=nonstopmode "$file"
+        done
+
+    - name: Isabelle certification
+      run: |
+        if [ -f ROOT ]; then
+          isabelle build -D .
+        else
+          for thy in *.thy; do
+            echo "Certification de $thy"
+            isabelle build -b -d . "$thy"
+          done
+        fi
+
+    - name: Upload generated PDFs
+      uses: actions/upload-artifact@v4
+      with:
+        name: pdfs
+        path: |
+          *.pdf
