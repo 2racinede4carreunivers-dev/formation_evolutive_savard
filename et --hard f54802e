@@ -1,0 +1,39 @@
+[33mc91b1bc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Ajout du workflow GitHub Actions (Isabelle + LaTeX incrémental)
+[33mf54802e[m Restructuration du projet : adoption du ROOT universel + nettoyage des anciens dossiers HOL
+[33m8baab52[m Sauvegarde complète avant optimisation du workflow - 18 mars 2026
+[33me172a4c[m Réorganisation complète des fichiers LaTeX et HOL + nouveaux noms de sauvegarde
+[33m0582e45[m Préambule corrigé et stabilisé
+[33m58c344a[m Déplacement des .tex et .png à la racine
+[33m672a9e7[m Mise à jour : ajout des encadrés quadrature parabole FR/EN, ajustements LaTeX géométrie spectre, intégration figures
+[33me26c792[m Ajout du projet univers_carre
+[33mba4761a[m[33m ([m[1;33mtag: [m[1;33mv2.1.2[m[33m)[m Mise a jour du projet : modifications LaTeX, .thy, PDF, README
+[33m8278e2a[m Premier commit : ajout du document LaTeX complet
+[33m520a9a7[m Ajout du PDF final harmonique + mise à jour LaTeX
+[33m0bd1332[m Ajout du .gitignore et inclusion du PDF final
+[33mdbaaa52[m Mise à jour LaTeX, ajout conclusion, table des matières, corrections HOL
+[33m0f5c03b[m Updated README and user guides (EN/FR)
+[33m6c408b3[m Mise à jour du .gitignore
+[33m43afb2c[m Restructuration du dépôt + mise à jour des documents LaTeX
+[33mf6c03bf[m[33m ([m[1;33mtag: [m[1;33mv2.1.0[m[33m)[m Réorganisation des dossiers et mise à jour de la structure du projet
+[33mb93d041[m Migration complète vers minted, suppression de listings, stabilisation UTF-8 et compilation réussie
+[33mf4cec47[m Fusion des historiques local et distant (merge main)
+[33m01eda1d[m Nettoyage: suppression du depot Git interne et integration propre de l'arborescence
+[33mb66fee3[m[33m ([m[1;33mtag: [m[1;33mv1.1.2[m[33m)[m Mise à jour des documents générés aujourd'hui
+[33m3af88ba[m[33m ([m[1;33mtag: [m[1;33mv1.1.1[m[33m)[m Mise à jour LaTeX : ajout de masse_zero_critique.png et réorganisation du dossier images
+[33mddbd155[m[33m ([m[1;33mtag: [m[1;33mv1.1.0[m[33m, [m[1;33mtag: [m[1;33mVersion_1.0_original[m[33m)[m Déplacement des fichiers .tex dans le dossier LaTeX
+[33m9cde725[m Réorganisation de l'arborescence + déplacement des PDF
+[33m6d9dc87[m Ajout du fichier index.md pour GitHub Pages
+[33mc5a9716[m Ajout de la section BitTorrent (FR/EN) dans le README
+[33me89cfdf[m Mise à jour locale du README avant rebase
+[33md6ea4be[m Ajout du sous-module pour l'application IA emergent.sh
+[33m34763af[m message_securite.md
+[33mc67b977[m Certification de compilation (Isabelle2025-2 + LaTeX) et mise à jour du README
+[33md05bc05[m Ajout des versions FR et EN du document
+[33m1128105[m Retrait du script Python inutile
+[33md199e6b[m Ajout du PDF et du fichier LaTeX
+[33me57e4e9[m Ajout du fichier guide_methode_de_philippot.md : méthodologie complète de la méthode de Philippôt
+[33m0363554[m Ajout du fichier guide_methode_spectral.md : méthodologie complète de la méthode spectrale
+[33mf737356[m Ajout du README professionnel
+[33maaccdb6[m Ajout des fichiers LaTeX, HOL, images et PDF
+[33md47bd60[m Version initiale complète
+[33mbe7dbce[m Initial commit
