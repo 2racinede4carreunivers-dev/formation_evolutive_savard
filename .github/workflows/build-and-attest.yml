@@ -27,8 +27,10 @@ jobs:
 
     - name: Install Isabelle
       run: |
-        sudo apt-get update
-        sudo apt-get install -y isabelle
+        wget https://isabelle.in.tum.de/website-Isabelle2024/dist/Isabelle2024_linux.tar.gz
+        tar -xzf Isabelle2024_linux.tar.gz
+        mv Isabelle2024 isabelle
+        echo "$PWD/isabelle/bin" >> $GITHUB_PATH
 
     - name: Compile all LaTeX files
       run: |
