@@ -31,7 +31,7 @@ jobs:
         mv Isabelle2024 isabelle
         echo "$PWD/isabelle/bin" >> $GITHUB_PATH
 
-    - name: Isabelle build + export HOL
+    - name: Isabelle build
       run: |
         if [ -f ROOT ]; then
           isabelle build -D .
@@ -42,9 +42,6 @@ jobs:
             isabelle build -b -d . "$thy" || true
           done
         fi
-
-        # Export HOL vers LaTeX
-        isabelle export -d . -o latex .
 
     - name: Compile all LaTeX documents (minted + TOC)
       run: |
