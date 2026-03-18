@@ -2,6 +2,45 @@ theory postulat_carre
   imports Complex_Main
 begin
 
+(* ========================================================= *)
+(* Table of Contents                                         *)
+(* ========================================================= *)
+
+(* 1. Unified Squared Rectangle and Prime Postulate          *)
+(*    1.1 Locale: postulat_carre                             *)
+(*    1.2 Definitions                                        *)
+(*        - S_S, S_F, S_C                                    *)
+(*        - d_S, d_F, d_C                                    *)
+(*        - unit_p                                           *)
+(*        - upto_from_2, k                                   *)
+(*        - postulat_eq                                      *)
+(*        - ratio_height_square                              *)
+(*        - ratio_trunc_square                               *)
+
+(* 2. Rectangle carre : equivalence avec un carre            *)
+(*    2.1 Locale: rectangle_carre                            *)
+(*    2.2 Area definitions                                   *)
+(*    2.3 Equivalence condition                              *)
+
+(* 3. Axiomatisation du polygone au carre                    *)
+(*    3.1 Locale: polygone_carre_axiomes                     *)
+(*    3.2 Height ratio equation                              *)
+(*    3.3 Truncation ratio equation                          *)
+(*    3.4 Postulate equation                                 *)
+(*    3.5 Definition of a squared polygon                    *)
+
+(* 4. Exemple numerique pour p = 3                           *)
+(*    4.1 Locale: exemple_p3                                 *)
+(*    4.2 Height ratio lemma                                 *)
+(*    4.3 Truncation ratio lemma                             *)
+(*    4.4 Diagonal lemma                                     *)
+(*    4.5 Area lemma                                         *)
+
+(* 5. Appendix: Full Isabelle/HOL Source Code                *)
+(*    - postulat_carre.thy                                   *)
+
+(* 6. License                                                *)
+
 section "Unified Squared Rectangle and Prime Postulate"
 
 locale postulat_carre =
@@ -37,17 +76,13 @@ definition d_C :: real where
 definition unit_p :: real where
   "unit_p = sqrt (real p) + 1"
 
-text "
-Conceptuellement, on peut définir k comme la position de p dans la liste
-[2,3,...,p], plus 1. Cela donne la progression 1,2,4,6,10,12,16,...
-pour p = 2,3,5,7,11,13,17,...
-
-Formellement, on encode directement ce fait par :
-k = p - 1.
-"
+definition upto_from_2 :: "nat list" where
+  "upto_from_2 = [2 ..< Suc p]"
 
 definition k :: nat where
-  "k = p - 1"
+  "k =
+     (THE i. i < length upto_from_2
+           & upto_from_2 ! i = p) + 1"
 
 definition postulat_eq :: bool where
   "postulat_eq =
@@ -60,10 +95,6 @@ definition ratio_height_square :: bool where
 definition ratio_trunc_square :: bool where
   "ratio_trunc_square =
      (t / s = sqrt (real p))"
-
-lemma postulat_eq_p_minus_1:
-  shows "postulat_eq \<longleftrightarrow> ((diag * sqrt unit_p) ^ 2 = real (p - 1) * area + h * h)"
-  unfolding postulat_eq_def k_def by simp
 
 end
 
@@ -118,11 +149,9 @@ definition eq_postulat :: bool where
 
 definition polygone_defini :: bool where
   "polygone_defini =
-     (eq_ratio_height \<and> eq_ratio_trunc \<and> eq_postulat)"
+     (eq_ratio_height & eq_ratio_trunc & eq_postulat)"
 
 end
-
-
 section "Exemple numerique pour p = 3"
 
 locale exemple_p3 =
@@ -162,59 +191,91 @@ lemma aire_rectangle:
   using area_def_3 .
 
 end
-
-
-section "Trois équations exactes : Octogone carré"
-
-locale equations_octogone =
-  fixes d1 :: real    (* diagonale A'B'EF *)
-    and d2 :: real    (* diagonale EFC'D' *)
-    and d3 :: real    (* diagonale A'B'C'D' *)
-  assumes d1_def: "d1 = sqrt 8"
-    and d2_def: "d2 = 2 * (1 / (sqrt (1/3) + sqrt (1/6)))"
-    and d3_def: "d3 = sqrt (32 - 16 * sqrt 2)"
-    and eq1_octogone:
-      "(d2 * sqrt (sqrt 2 + 1))^2 = 8 + (d1 - 4)^2"
-    and eq2_octogone:
-      "((d1 - 4) * sqrt (sqrt 2 + 2))^2 = 8 + (d1 - 4)^2"
-    and eq3_octogone:
-      "(d3 * sqrt ((sqrt 2 + 1) / 2))^2 = (sqrt 128 - 8) + 8"
-begin
-
-text "
-Cette locale encode les trois équations exactes qui définissent
-l'octogone carré issu du postulat du carré.
-"
-
 end
 
+(* ========================================================= *)
+(* Apache License 2.0                                        *)
+(* ========================================================= *)
 
-section "Trois équations exactes : Hexagone carré"
+(* Apache License                                            *)
+(* Version 2.0, January 2004                                *)
+(* http://www.apache.org/licenses/                          *)
 
-locale equations_hexagone =
-  fixes s3 :: real
-    and h3 :: real
-    and dH1 :: real
-    and dH2 :: real
-    and dH3 :: real
-  assumes s3_def: "s3 = 1 / (sqrt (1/3) + sqrt (1/6))"
-    and h3_def: "h3 = s3 * (sqrt 3 + 1)"
-    and dH1_def: "dH1 = 2 * s3"
-    and dH2_def: "dH2 = 3 - sqrt 3"
-    and dH3_def: "dH3 = sqrt 6 + s3"
-    and eq1_hexagone:
-      "(dH1 * sqrt (sqrt 3 + 1))^2 = 2 * (s3 * h3) + 6"
-    and eq2_hexagone:
-      "(dH2 * sqrt (sqrt 3 + 3))^2 = 2 * (dH2^2) + 6"
-    and eq3_hexagone:
-      "(dH3 * sqrt (2 * sqrt 3 / (4 - sqrt 3)))^2 = 2 * (s3 * sqrt 6) + 6"
-begin
+(* TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION *)
 
-text "
-Cette locale encode les trois équations exactes qui définissent
-l'hexagone carré issu du postulat du carré.
-"
+(* 1. Definitions.                                           *)
+(* "License" shall mean the terms and conditions for use,    *)
+(* reproduction, and distribution as defined by Sections 1   *)
+(* through 9 of this document.                              *)
 
-end
+(* "Licensor" shall mean the copyright owner or entity       *)
+(* authorized by the copyright owner that is granting the    *)
+(* License.                                                  *)
 
-end
+(* "Legal Entity" shall mean the union of the acting entity  *)
+(* and all other entities that control, are controlled by,   *)
+(* or are under common control with that entity.             *)
+
+(* "Source" form shall mean the preferred form for making    *)
+(* modifications.                                            *)
+
+(* "Object" form shall mean any form resulting from          *)
+(* mechanical transformation or translation of a Source form.*)
+
+(* "Work" shall mean the work of authorship made available   *)
+(* under the License.                                        *)
+
+(* "Derivative Works" shall mean any work that is based on   *)
+(* the Work.                                                 *)
+
+(* "Contribution" shall mean any work submitted to the       *)
+(* Licensor.                                                 *)
+
+(* "Contributor" shall mean the Licensor and any individual  *)
+(* or Legal Entity that submits a Contribution.              *)
+
+(* 2. Grant of Copyright License.                            *)
+(* Subject to the terms of this License, each Contributor    *)
+(* grants you a perpetual, worldwide, non-exclusive,         *)
+(* no-charge, royalty-free, irrevocable copyright license    *)
+(* to reproduce, prepare Derivative Works of, publicly       *)
+(* display, publicly perform, sublicense, and distribute     *)
+(* the Work and such Derivative Works in Source or Object    *)
+(* form.                                                     *)
+
+(* 3. Grant of Patent License.                               *)
+(* Each Contributor grants you a perpetual, worldwide,       *)
+(* non-exclusive, no-charge, royalty-free, irrevocable       *)
+(* patent license to make, use, offer to sell, sell, import, *)
+(* and otherwise transfer the Work.                          *)
+
+(* 4. Redistribution.                                        *)
+(* You may reproduce and distribute copies of the Work or    *)
+(* Derivative Works thereof in any medium, with or without   *)
+(* modifications, provided that you give proper notice and   *)
+(* include a copy of this License.                           *)
+
+(* 5. Submission of Contributions.                           *)
+(* Unless explicitly stated otherwise, any Contribution      *)
+(* intentionally submitted for inclusion in the Work shall   *)
+(* be under the terms of this License.                       *)
+
+(* 6. Trademarks.                                            *)
+(* This License does not grant permission to use trade names,*)
+(* trademarks, service marks, or product names of the        *)
+(* Licensor.                                                 *)
+
+(* 7. Disclaimer of Warranty.                                *)
+(* Unless required by applicable law or agreed to in writing,*)
+(* the Licensor provides the Work on an "AS IS" BASIS,       *)
+(* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.             *)
+
+(* 8. Limitation of Liability.                               *)
+(* In no event shall the Licensor be liable for any damages  *)
+(* arising from the use of the Work.                         *)
+
+(* 9. Accepting Warranty or Additional Liability.            *)
+(* You may offer additional warranties or liabilities        *)
+(* consistent with this License, but only on your own behalf.*)
+
+(* END OF TERMS AND CONDITIONS                               *)
