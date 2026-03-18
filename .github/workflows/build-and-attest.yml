@@ -1,4 +1,4 @@
-name: Build Isabelle + LaTeX (HOL + minted + TOC)
+name: Build Isabelle + LaTeX (version courte)
 
 on:
   push:
@@ -24,18 +24,20 @@ jobs:
           texlive-fonts-recommended \
           python3-pygments
 
-    - name: Install Isabelle
+    - name: Install Isabelle 2024
       run: |
         wget https://isabelle.in.tum.de/website-Isabelle2024/dist/Isabelle2024_linux.tar.gz
         tar -xzf Isabelle2024_linux.tar.gz
         mv Isabelle2024 isabelle
         echo "$PWD/isabelle/bin" >> $GITHUB_PATH
 
-    - name: Isabelle build
+    - name: Isabelle build (certification HOL)
       run: |
         if [ -f ROOT ]; then
+          echo "ROOT détecté — compilation complète"
           isabelle build -D .
         else
+          echo "Pas de ROOT — certification des .thy individuels"
           shopt -s nullglob
           for thy in *.thy; do
             echo "Certification de $thy"
@@ -43,7 +45,7 @@ jobs:
           done
         fi
 
-    - name: Compile all LaTeX documents (minted + TOC)
+    - name: Compile LaTeX (minted + sml + TOC)
       run: |
         shopt -s nullglob
         for file in *.tex; do
@@ -57,5 +59,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: pdfs
-        path: |
-          *.pdf
+        path: "*.pdf"
