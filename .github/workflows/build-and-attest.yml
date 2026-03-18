@@ -1,4 +1,4 @@
-name: Compilation Isabelle + LaTeX
+name: Compilation Isabelle + LaTeX (Optimisé)
 
 on:
   push:
@@ -20,10 +20,15 @@ jobs:
           mv postulat_univers_carre.texx postulat_univers_carre.tex
         fi
 
-    - name: Install TeX Live
+    - name: Install minimal TeX Live
       run: |
         sudo apt-get update
-        sudo apt-get install -y texlive-full latexmk
+        sudo apt-get install -y \
+          texlive-latex-base \
+          texlive-latex-recommended \
+          texlive-latex-extra \
+          texlive-fonts-recommended \
+          latexmk
 
     - name: Install Isabelle
       run: |
