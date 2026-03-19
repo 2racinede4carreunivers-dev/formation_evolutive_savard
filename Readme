@@ -1,0 +1,870 @@
+## Table des matières
+
+1. [Introduction](#introduction)
+2. [Contenu du dépôt](#contenu-du-dépôt)
+   - [Documents mathématiques et géométriques](#documents-mathématiques-et-géométriques)
+   - [Journal d’évolution](#journal-dévolution)
+   - [Automatisation professionnelle](#automatisation-professionnelle)
+   - [Documentation](#documentation)
+3. [Contexte : formation en dessin industriel](#contexte--formation-en-dessin-industriel)
+4. [Méthode d’utilisation du dépôt](#méthode-dutilisation-du-dépôt)
+5. [Licence Apache 20](#licence-apache-20)
+6. [Conclusion](#conclusion)
+7. [Liens directs vers les fichiers du dépôt](#liens-directs-vers-les-fichiers-du-dépôt)
+
+#  formation_evolutive_savard  
+### Un dépôt vivant documentant l’évolution de mes compétences en dessin industriel, géométrie et modélisation
+
+---
+
+##  Introduction
+
+Ce dépôt a été conçu comme un **journal professionnel évolutif**, destiné à présenter aux recruteurs et collaborateurs l’ensemble de mon parcours technique, créatif et académique.  
+Il documente à la fois :
+
+- mon **passe-temps mathématique et géométrique**,  
+- mon apprentissage continu des outils de **DAO/CAO** (AutoCAD Web, Rhino, etc.),  
+- et mon cheminement dans la **formation en dessin industriel** au Centre de formation professionnelle Neufchâtel.
+
+L’objectif est simple : offrir une **vision chronologique, transparente et authentique** de l’évolution de mes compétences, illustrée par des travaux concrets, des scripts certifiés, des documents techniques et un historique détaillé des mises à jour.
+
+---
+
+##  Contenu du dépôt
+
+Ce dépôt contient :
+
+### 🔹 1. Documents mathématiques et géométriques  
+- Fichiers **LaTeX (.tex)**  
+- Documents **PDF** générés automatiquement  
+- Scripts **Isabelle/HOL (.thy)** certifiés par GitHub Actions  
+- Théorie personnelle : *L’univers est au carré*
+
+### 🔹 2. Journal d’évolution  
+- Un fichier **CHANGELOG.md** détaillé  
+- Une chronologie complète de mes progrès  
+- Les influences directes de ma formation en dessin industriel sur mes travaux mathématiques
+
+### 🔹 3. Automatisation professionnelle  
+- Compilation automatique des `.tex`  
+- Certification automatique des `.thy`  
+- Génération des PDF via GitHub Actions  
+- Un pipeline propre, stable et reproductible
+
+### 🔹 4. Documentation  
+- Ce fichier **README.md**  
+- La licence **Apache 2.0** (version originale + traduction non officielle)
+
+---
+
+##  Contexte : formation en dessin industriel
+
+Depuis mars 2026, je suis officiellement admis au **CFP Neufchâtel** en dessin industriel.  
+Cette formation influence directement :
+
+- ma compréhension des volumes,  
+- ma précision géométrique,  
+- ma maîtrise des outils de modélisation,  
+- et la qualité de mes travaux mathématiques.
+
+Ce dépôt sert donc de **traceur d’évolution** :  
+chaque mise à jour reflète un apprentissage, une compétence acquise ou une amélioration technique.
+
+Les recruteurs peuvent ainsi suivre, en temps réel, l’évolution de mes compétences et de ma rigueur professionnelle.
+
+---
+
+##  Méthode d’utilisation du dépôt
+
+Les utilisateurs — recruteurs, enseignants, collaborateurs ou curieux — peuvent :
+
+1. **Explorer les dossiers** pour consulter les `.tex`, `.pdf` et `.thy`.  
+2. **Lire le CHANGELOG.md** pour suivre l’évolution chronologique du projet.  
+3. **Observer les workflows GitHub Actions** pour vérifier la certification et la compilation.  
+4. **Télécharger ou cloner le dépôt** pour examiner les fichiers localement.  
+5. **Contribuer ou proposer des améliorations**, conformément à la licence Apache 2.0.
+
+###  Liberté d’utilisation  
+L’utilisateur est libre d’employer le dépôt comme bon lui semble.  
+Selon les permissions de la licence **Apache 2.0**, il est permis de :
+
+- modifier,  
+- partager,  
+- réutiliser,  
+- et contribuer au projet.
+
+---
+
+### 7. Sous-module : geometrie_spectre_premier/app/frontend
+
+#### Fichiers de configuration
+- [frontend/.gitignore](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/.gitignore)
+- [frontend/package.json](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/package.json)
+- [frontend/jsconfig.json](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/jsconfig.json)
+- [frontend/craco.config.js](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/craco.config.js)
+- [frontend/postcss.config.js](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/postcss.config.js)
+- [frontend/tailwind.config.js](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/tailwind.config.js)
+
+#### Fichiers publics (HTML et images)
+- [frontend/public/index.html](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/index.html)
+
+##### Schémas (images)
+- [4_cubes_zeta.jpg](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/4_cubes_zeta.jpg)
+- [5_cube_zeta.jpg.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/5_cube_zeta.jpg.png)
+- [analyse_numerique_metrique_philippot_3d.jpg.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/analyse_numerique_metrique_philippot_3d.jpg.png)
+- [cardan_sans_blocage.jpg.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/cardan_sans_blocage.jpg.png)
+- [carre_gabriel_rectangle_scalene.jpg.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/carre_gabriel_rectangle_scalene.jpg.png)
+- [cercles_denis.jpg.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/cercles_denis.jpg.png)
+- [escalier_philippot.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/escalier_philippot.png)
+- [escalier_philippot_1_4.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/escalier_philippot_1_4.png)
+- [espace_harmonique.jpg](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/espace_harmonique.jpg)
+- [espace_philippot_harmonique.jpg](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/espace_philippot_harmonique.jpg)
+- [exemples_calculs_entre_premiers.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/exemples_calculs_entre_premiers.png)
+- [exemples_calculs_premiers_corriges_1.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/exemples_calculs_premiers_corriges_1.png)
+- [exemples_calculs_premiers_corriges_2.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/exemples_calculs_premiers_corriges_2.png)
+- [formules_premiers_positifs_negatifs.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/formules_premiers_positifs_negatifs.png)
+- [formules_suite_2_positive_negative.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/formules_suite_2_positive_negative.png)
+- [formules_symetriques_multiples.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/formules_symetriques_multiples.png)
+- [formules_symetriques_ordonnees_chaotiques.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/formules_symetriques_ordonnees_chaotiques.png)
+- [interwoven_triangles.jpg](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/interwoven_triangles.jpg)
+- [spirale_inverse_temps.jpg](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/spirale_inverse_temps.jpg)
+- [tableau_rapport_1_2.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/tableau_rapport_1_2.png)
+- [tableau_rapport_1_3.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/tableau_rapport_1_3.png)
+- [tableau_rapport_1_7.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/tableau_rapport_1_7.png)
+- [terre_angles.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/terre_angles.png)
+- [tesseract_fonction_zeta_philippot.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/tesseract_fonction_zeta_philippot.png)
+- [tesseract_zeta.png](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/tesseract_zeta.png)
+- [univers_carre_philippot.jpg](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/public/schemas/univers_carre_philippot.jpg)
+
+#### Code source (React / JavaScript)
+- [frontend/src/App.css](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/App.css)
+- [frontend/src/App.js](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/App.js)
+- [frontend/src/index.css](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/index.css)
+- [frontend/src/index.js](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/index.js)
+- [frontend/src/hooks/use-toast.js](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/hooks/use-toast.js)
+- [frontend/src/lib/utils.js](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/lib/utils.js)
+- [frontend/src/utils/DOMManager.js](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/utils/DOMManager.js)
+
+#### Composants UI (React)
+*(liste complète des composants UI)*  
+- [accordion.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/accordion.jsx)
+- [alert-dialog.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/alert-dialog.jsx)
+- [alert.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/alert.jsx)
+- [aspect-ratio.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/aspect-ratio.jsx)
+- [avatar.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/avatar.jsx)
+- [badge.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/badge.jsx)
+- [breadcrumb.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/breadcrumb.jsx)
+- [button.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/button.jsx)
+- [calendar.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/calendar.jsx)
+- [card.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/card.jsx)
+- [carousel.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/carousel.jsx)
+- [checkbox.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/checkbox.jsx)
+- [collapsible.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/collapsible.jsx)
+- [command.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/command.jsx)
+- [context-menu.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/context-menu.jsx)
+- [dialog.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/dialog.jsx)
+- [drawer.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/drawer.jsx)
+- [dropdown-menu.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/dropdown-menu.jsx)
+- [form.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/form.jsx)
+- [hover-card.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/hover-card.jsx)
+- [input-otp.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/input-otp.jsx)
+- [input.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/input.jsx)
+- [label.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/label.jsx)
+- [menubar.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/menubar.jsx)
+- [navigation-menu.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/navigation-menu.jsx)
+- [pagination.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/pagination.jsx)
+- [popover.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/popover.jsx)
+- [progress.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/progress.jsx)
+- [radio-group.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/radio-group.jsx)
+- [resizable.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/resizable.jsx)
+- [scroll-area.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/scroll-area.jsx)
+- [select.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/select.jsx)
+- [separator.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/separator.jsx)
+- [sheet.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/sheet.jsx)
+- [skeleton.jsx](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/geometrie_spectre_premier/app/frontend/src/components/ui/skeleton.jsx)
+- [slider.jsx](https://github.com/2racinede4carreunivers-dev
+
+## Documents certifiés et fichiers clés
+
+Les fichiers suivants ont été compilés et certifiés avec succès via GitHub Actions.  
+Ils constituent une base solide pour évaluer la qualité de mon travail technique et documentaire.
+
+### PDF générés (LaTeX)
+
+- geometrie_du_spectre_premier.pdf  
+- geometry_prime_spectrum.pdf  
+- mecanique_chaos_discret.pdf  
+- philosophy_geometry_prime_number.pdf  
+- postulat_univers_carre.pdf  
+- teleosemantique_analogiste_spectre_premier.pdf  
+
+### Fichiers Isabelle/HOL (.thy) certifiés
+
+- methode_spectral.thy  
+- methode_de_philippot.thy  
+- mecanique_discret.thy  
+- postulat_carre.thy  
+
+## Workflow GitHub Actions de compilation
+
+Le dépôt contient un workflow GitHub Actions dans le fichier :
+
+- .github/workflows/build-and-attest.yml
+
+Ce workflow a pour objectif de :
+
+- compiler automatiquement les fichiers LaTeX en PDF,  
+- vérifier et certifier les fichiers Isabelle/HOL (.thy),  
+- produire des artefacts reproductibles.
+
+Pour éviter des compilations inutiles à chaque push, le workflow est configuré pour ne pas se lancer automatiquement.  
+Il peut être réactivé manuellement lorsque nécessaire.
+
+## Gestion du workflow GitHub Actions
+
+Le fichier `.github/workflows/build-and-attest.yml` contient deux versions du workflow :
+
+### 1. Version neutralisée (active par défaut)
+
+Cette version empêche toute compilation automatique.  
+Elle est définie par le bloc suivant :
+
+```
+jobs:
+  build-and-attest:
+    if: false
+```
+
+Tant que cette ligne est présente, aucune compilation ne peut être déclenchée.
+
+### 2. Version active (désactivée par défaut)
+
+Le fichier `.yml` contient également une version complète du workflow, commentée.  
+Pour l’activer :
+
+1. Ouvrir `.github/workflows/build-and-attest.yml`
+2. Commenter le bloc neutralisé (ajouter `#` devant chaque ligne)
+3. Décommenter le bloc actif (retirer les `#`)
+4. Committer et pousser la modification
+5. Aller dans l’onglet **Actions** et cliquer sur **Run workflow**
+
+### 3. Remettre le workflow en mode neutralisé
+
+Une fois la compilation terminée :
+
+1. Re-commenter le bloc actif  
+2. Décommenter le bloc neutralisé  
+3. Committer et pousser
+
+Cela garantit que le workflow ne se déclenche jamais par erreur.
+
+ ## Descriptif des différents chapitres constituant le dépôt formation_evolutive_savard
+
+## La Géométrie du Spectre des Nombres Premiers  
+### Contenu du document
+
+1. **Informations générales**
+   - Titre : La Géométrie du Spectre des Nombres Premiers  
+   - Auteur : Philippe Thomas Savard  
+   - Lieu : Lévis, Chaudière-Appalaches, Québec  
+   - Date originale : 8 novembre 2025  
+   - Révision : 18 janvier 2026  
+   - Compilation HOL : Février 2026  
+   - Le document inclut des validations formelles Isabelle/HOL.
+
+2. **Résumé (Abstract)**
+   - Présentation d’une méthode originale pour étudier la distribution des nombres premiers.
+   - Utilisation de suites fractionnaires, rapports triangulaires et analyse numérique métrique.
+   - Toutes les démonstrations sont validées en Isabelle/HOL.
+
+3. **Introduction**
+   - Coordonnées de l’auteur.
+   - Déclaration personnelle sur la démarche intellectuelle.
+   - Contexte non académique de la recherche.
+   - Motivation profonde et historique de la réflexion.
+
+4. **Première partie : Géométrie du spectre des nombres premiers**
+   - Mouvement du plan cartésien et représentation du tesseract.
+   - Analyse du produit alternatif symétrique.
+   - Analyse du produit alternatif asymétrique.
+   - Interprétation géométrique du mouvement de l’hypercube.
+
+5. **Analyse numérique métrique**
+   - Représentations 3D et 2D.
+   - Interprétation granulométrique des nombres.
+   - Introduction du Digamma et justification de son rôle.
+   - Géométrie des suites et trapèzes successifs.
+   - Mise en évidence d’un rapport constant de 2 entre les aires.
+
+6. **Méthode de Philippot (validation Isabelle/HOL)**
+   - Scripts HOL complets pour :
+     - methode_de_philippot.thy  
+     - methode_spectral.thy  
+   - Définition des suites fractionnaires pour les étapes 1, 2 et 3.
+   - Règles de substitution.
+   - Propriétés spectrales générales.
+   - Lemme fondamental sur les puissances de deux.
+   - Tableaux fractionnaires détaillés pour chaque étape.
+
+7. **Exemples numériques**
+   - Détermination de nombres premiers (exemples : 5, 29, 31).
+   - Vérifications multiples.
+   - Analyse des incohérences et axiomatisation.
+
+8. **Tableaux complets**
+   - Tableaux des suites pour différents nombres premiers.
+   - Tableaux des étapes 2 et 3.
+   - Tableaux pour 8 termes et plus.
+
+### Lien vers le PDF
+
+[Accéder au document geometrie_du_spectre_premier.pdf](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/LaTeX/geometrie_spectre_premier_fr.pdf)
+
+## Mécanique harmonique du chaos discret  
+### Contenu du document
+
+1. **Informations générales**
+   - Titre : Mécanique harmonique du chaos discret  
+   - Auteur : Philippe Thomas Savard  
+   - Lieu : Lévis, Chaudière-Appalaches, Québec  
+   - Date : 8 mars 2026  
+   - Licence : Apache 2.0  
+   - Le document inclut une formalisation complète en Isabelle/HOL.
+
+2. **Introduction**
+   - Démarche intuitive et personnelle de l’auteur.
+   - Absence de formation académique formelle en mathématiques.
+   - Importance de la liberté intellectuelle dans la construction de la théorie.
+   - Présentation de l’idée centrale : une invariance géométrique dépendant de l’unité choisie.
+
+3. **Figure centrale : mécanique harmonique du chaos discret**
+   - Description d’une figure géométrique complexe (cardan sans blocage).
+   - Interprétation intuitive de l’invariance géométrique.
+   - Lien avec la constante d’Euler-Mascheroni.
+   - Définition de l’unité via un produit géométrique impliquant arcsin et sin.
+
+4. **Produits alternatifs pour les unités p + 1**
+   - Étude de trois cas particuliers :
+     - unité pour p = 2  
+     - unité pour p = 3  
+     - unité pour p = 5  
+   - Vérification numérique des égalités géométriques.
+   - Mise en évidence d’une structure relationnelle stable.
+   - Correspondance entre :
+     - unité géométrique obtenue par la figure  
+     - unité abstraite formalisée dans Isabelle/HOL : sqrt(p) + 1  
+
+5. **Lecture et interprétation des trois unités**
+   - Analyse détaillée des relations géométriques.
+   - Mise en évidence d’une loi universelle valable pour tout p premier.
+   - Lien direct avec l’axiome ratio_axiom dans Isabelle/HOL.
+   - Importance de la stabilité structurelle des relations.
+
+6. **Lien avec la formalisation Isabelle/HOL**
+   - Définitions formelles :
+     - base_length  
+     - height_length  
+     - ratio_halfbase_height  
+   - Axiome fondamental :  
+     ratio_halfbase_height n p = sqrt(p)
+   - Définition de l’unité géométrique AL_nat(p).
+   - Lemme d’invariance :  
+     geometric_unit p = sqrt(p) + 1  
+   - Correspondance parfaite entre géométrie et abstraction.
+
+7. **Construction complète des trois matrices fondamentales**
+   - **M1 : matrice issue des mesures du plan**
+     - Longueurs réelles du cardan sans blocage.
+     - Coefficients C1 à C9.
+     - Trois lignes R1, R2, R3.
+     - Relations géométriques imposées.
+
+   - **M2 : matrice de transition**
+     - Version symbolique de M1.
+     - Structure relationnelle indépendante des valeurs numériques.
+
+   - **M3 : matrice à dérivée première simplifiée**
+     - Coefficients remplacés par des nombres premiers.
+     - Pondérations de la forme 7/k.
+     - Inconnue unique : u = 13.375.
+     - Structure arithmétique profonde révélée.
+
+8. **Facteur trigonométrique alternatif pour les nombres premiers**
+   - Définition de F(p) pour p premier.
+   - Définition de X(p) comme fonction intermédiaire.
+   - Lemme 1 : domaine de définition.
+   - Lemme 2 : forme fermée de F(p).
+   - Lemme 3 : décroissance stricte de F(p).
+   - Lemme 4 : comportement asymptotique.
+   - Interprétation :  
+     F(p) décroît comme 1 / sqrt(p), ce qui régule la contribution de chaque nombre premier.
+
+9. **Script Isabelle/HOL : mecanique_discret.thy**
+   - Formalisation complète de la mécanique harmonique du chaos discret.
+   - Validée par le moteur de preuve Isabelle.
+   - Compilation via :  
+     isabelle build -D .
+
+10. **Conclusion**
+    - Importance de l’invariance géométrique.
+    - Cohérence entre intuition géométrique et formalisation logique.
+    - Potentiel de recherche future.
+    - Document présenté comme un début d’exploration.
+
+11. **Licence Apache 2.0**
+    - Texte complet inclus à la fin du document.
+
+### Lien vers le PDF
+
+[Accéder au document mecanique_chaos_discret.pdf](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/mecanique_chaos_discret.pdf)
+
+## L’univers est au carré – Le Postulat du Squaring  
+### Contenu du document
+
+1. **Informations générales**
+   - Titre : L’univers est au carré – Chapitre : Le Postulat du Squaring  
+   - Auteur : Philippe Thomas Savard  
+   - Lieu : Lévis, Chaudière-Appalaches, Québec  
+   - Date : 13 mars 2026  
+   - Le document inclut une structure formalisée en Isabelle/HOL.
+
+2. **Note de l’auteur**
+   - L’auteur précise ne pas avoir de formation académique reconnue.
+   - Le travail est réalisé sans financement ni soutien institutionnel.
+   - Le document est produit par curiosité intellectuelle et liberté créative.
+   - Les thèmes abordés relèvent de la géométrie et des mathématiques explorées de manière indépendante.
+
+3. **Explication mathématique du postulat du squaring**
+   - Étude d’un rectangle initial ABCD avec :
+     - AB = CD = sqrt(2) − 1  
+     - AD = BC = 1  
+   - Périmètre du rectangle : sqrt(8)
+   - Application du postulat : élévation du périmètre au carré.
+   - Rectangle transformé A’B’C’D’ :
+     - A’B’ = C’D’ = 4 − sqrt(8)  
+     - A’D’ = B’C’ = sqrt(8)
+
+4. **Carré maximal inscrit dans le rectangle transformé**
+   - Aire du carré inscrit : (4 − sqrt(8))²  
+   - Aire du rectangle complet : (4 − sqrt(8)) × sqrt(8)  
+   - Rapport des aires : sqrt(2) + 1  
+   - Cette valeur devient l’unité symbolique du système.
+
+5. **Décomposition interne du rectangle transformé**
+   - Le rectangle se divise en deux sous-figures :
+     - A’B’EF  
+     - EFC’D’  
+   - Vérification des aires :
+     - Aire totale = somme des deux sous-aires  
+   - Dimensions internes :
+     - EF = 4 − sqrt(8)  
+     - C’D’ = sqrt(32) − 4  
+
+6. **Les trois diagonales fondamentales**
+   - Diagonale du carré inscrit : sqrt(32) − 4  
+   - Diagonale du rectangle résiduel : expression combinant sqrt(3) et sqrt(5)  
+   - Diagonale du rectangle complet : 3.061467459  
+   - Cette valeur correspond au périmètre d’un octogone régulier inscrit dans un disque de diamètre 1.
+
+7. **Les trois équations de l’octogone carré**
+   - Trois équations reliant :
+     - les aires internes  
+     - les diagonales  
+     - l’unité sqrt(2) + 1  
+   - Ces équations définissent la structure géométrique du squaring.
+
+8. **Appendix : Structure Isabelle/HOL**
+   - Présentation d’un extrait du script formalisé.
+   - Figures illustrant les longueurs utilisées dans la formalisation.
+   - Le script encode les relations géométriques du postulat du squaring.
+
+9. **Unité symbolique sqrt(3) + 1 : rectangle carré et hexagone carré**
+   - Nouvelle famille géométrique basée sur l’unité sqrt(3) + 1.
+   - Construction d’un rectangle initial dont le périmètre est la racine carrée du périmètre transformé.
+   - Rectangle transformé A’B’C’D’ :
+     - A’B’ = 0.8965754715  
+     - A’D’ = sqrt(6)  
+     - EF = A’B’  
+     - B’F = 1.552914271  
+   - Décomposition en deux régions : rectangle carré et rectangle résiduel.
+   - Trois équations reliant :
+     - unité sqrt(3) + 1  
+     - diagonale du rectangle transformé  
+     - périmètre d’un hexagone régulier inscrit dans un disque de diamètre 1 (valeur 3)
+
+10. **Théorème du carré de Gabriel**
+    - Application du théorème à un triangle rectangle.
+    - Aire totale et aires secondaires.
+    - Vérification des relations :
+      - version avec carrés  
+      - version avec cubes  
+    - Le carré inscrit agit comme invariant géométrique.
+
+11. **Théorème de Gabriel – Triangle scalène**
+    - Aire totale du triangle scalène ADG.
+    - Aires secondaires A, B, C.
+    - Vérification des équations fondamentales.
+    - Mise en évidence de rapports remarquables impliquant sqrt(2) + 1.
+
+### Lien vers le PDF
+
+[Accéder au document postulat_univers_carre.pdf](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/postulat_univers_carre.pdf)
+
+## Philosophie derrière la Géométrie du Spectre des Nombres Premiers  
+### Contenu du document
+
+1. **Informations générales**
+   - Titre : Philosophie derrière la Géométrie du Spectre des Nombres Premiers  
+   - Auteur : Philippe Thomas Savard  
+   - Nature du document : réflexion autobiographique, philosophique et phénoménologique  
+   - Licence : Apache 2.0 (texte complet en fin de document)
+
+2. **Autobiographie et parcours scolaire**
+   - Parcours scolaire marqué par des difficultés en mathématiques.
+   - Réussite inattendue à l’examen ministériel de mathématiques 536.
+   - Expérience au cégep en génie civil : réussite d’un examen conçu pour être échoué.
+   - Importance de l’apprentissage autodidacte et de la pratique personnelle des mathématiques.
+
+3. **Réflexions sur la pulsion de vie, l’esprit géométrique et l’analogiste**
+   - Distinction entre :
+     - esprit géométrique (rigueur, démonstration, causalité)
+     - esprit de finesse (intuition, pulsion de vie, compréhension humaine)
+   - Analyse des comportements humains face aux difficultés.
+   - Critique des discours qui dévalorisent les réussites personnelles.
+   - Définition personnelle de la pulsion de vie.
+
+4. **Définition et analyse de l’idioschizophrénie**
+   - Concept proposé par l’auteur.
+   - Origine historique : comportements malhonnêtes et manipulation sociale.
+   - Parallèle avec les diagnostics modernes de schizophrénie.
+   - Perte d’identité, déresponsabilisation et conséquences sociales.
+   - Réflexion sur la stigmatisation et la marginalisation.
+
+5. **Phénoménologie de l’idioschizophrénie**
+   - Description de la rupture entre réalité et imaginaire.
+   - Analyse de l’action psychophysique : attribution d’intentions à une tierce personne.
+   - Construction d’une économie de l’inconduite.
+   - Rôle de l’autoréférence et de la chiralité dans les comportements déviants.
+   - Réflexion sur la cybernétique comme science de la communication.
+
+6. **Préambule philosophique : Le savoir**
+   - Trois lois du savoir, inspirées des lois de Newton :
+     1. La conscience  
+     2. L’inverse du savoir (la compréhension)  
+     3. Les figures semblables  
+   - Le savoir comme substance ressentie, analogue à un chiasme.
+   - Importance du point fixe de l’ignorance reconnue.
+
+7. **L’esprit analogiste**
+   - Définition de l’analogiste : grammairien qui voit la grammaire comme une mathématique.
+   - Référence à Aristote et Platon comme analogistes.
+   - Distinction entre analogiste et anomaliste.
+   - Rôle de l’analogiste dans la société : éliminer les biais algorithmiques.
+
+8. **L’isossophie**
+   - Définition : méthode analogiste visant à retirer un biais.
+   - Étymologie : iso (égal) + sophie (savoir).
+   - Analogie avec une cohomologie géométrique des figures impossibles.
+   - Déduction de ce qui est caché derrière un obstacle conceptuel.
+   - Enregistrement et élimination des comportements trompeurs dans la mémoire collective.
+
+9. **Rupture entre réalité et imaginaire**
+   - Analyse de la dépersonnalisation.
+   - Confusion entre soi, l’autre et une tierce personne imaginaire.
+   - Risques sociaux et psychologiques associés.
+
+10. **Conséquences de la communication auto-proclamée**
+    - Analyse des discours autoréférentiels.
+    - Risques de dérive dans la perception de soi et des autres.
+
+11. **L’esprit analogiste et l’esprit de finesse : une lecture narrée**
+    - Introduction à une lecture plus littéraire du concept.
+    - L’esprit de finesse comme carte intérieure du réel.
+    - Le rôle du langage (lalangue) dans la relation au corps.
+    - Le réseau neuronal comme miroir de la société.
+    - Le rôle de l’analogiste dans la réduction des biais.
+    - L’enregistrement des comportements nuisibles.
+    - La machination et la croyance en un dialogue imaginaire.
+    - L’effet de retour : l’inconscient comme alarme.
+    - L’isossophie comme méthode pour retirer un biais.
+
+12. **Licence Apache 2.0**
+    - Texte complet inclus à la fin du document.
+
+### Lien vers le PDF
+
+[Accéder au document telosemantique_analogiste_spectre_premier.pdf](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/blob/main/telosemantique_analogiste_spectre_premier.pdf)
+
+## Application web Emergent.sh : Système de trois IA autonomes
+
+Le dépôt contient également une application web développée sur la plateforme Emergent.sh.  
+Cette application regroupe trois intelligences artificielles distinctes, chacune ayant pour mandat d’aider l’utilisateur à explorer, questionner et comprendre la théorie de « L’univers est au carré », conçue par Philippe Thomas Savard.
+
+### 1. IA collaborative  
+Cette IA a été entraînée à partir de 55 documents portant sur la théorie de l’univers est au carré, incluant deux validations formelles Isabelle/HOL (.thy).  
+Elle permet à l’utilisateur de poser des questions directement liées au contenu théorique, aux démonstrations, aux structures géométriques et aux scripts HOL.  
+Son rôle est de fournir des réponses cohérentes, structurées et fidèles au matériel source.
+
+### 2. IA évolutive  
+Cette IA repose sur une banque de 23 questions et réponses évolutives.  
+Elle s’adapte progressivement aux interactions des utilisateurs.  
+Chaque question posée et chaque réponse générée enrichissent la base de connaissances, améliorant ainsi les trois IA du système.  
+Elle sert de moteur d’apprentissage continu, permettant d’affiner la compréhension globale de la théorie.
+
+### 3. IA enrichie  
+Cette IA est conçue pour challenger le raisonnement de l’utilisateur.  
+Elle analyse les questions sous un angle conceptuel et analogique, afin d’approfondir la réflexion de l’utilisateur sur les fondements de la théorie.  
+Elle aide à clarifier les concepts, à identifier les incohérences possibles et à renforcer la compréhension personnelle de l’utilisateur.
+
+### 4. Contenu intégré dans l’application  
+L’application comprend également :  
+- plusieurs résumés courts des chapitres de la théorie,  
+- des extraits explicatifs,  
+- des représentations visuelles et schémas,  
+- des liens vers les documents principaux,  
+- des éléments pédagogiques facilitant la navigation dans la théorie.
+
+### 5. Objectif général de l’application  
+L’objectif de cette application web est de fournir un environnement interactif où l’utilisateur peut :  
+- poser des questions,  
+- explorer les concepts,  
+- tester ses intuitions,  
+- approfondir sa compréhension,  
+- et interagir avec trois IA complémentaires.
+
+Elle constitue un outil d’accompagnement pour toute personne souhaitant étudier la théorie de l’univers est au carré, qu’il s’agisse d’un lecteur curieux, d’un étudiant, d’un chercheur ou d’un recruteur souhaitant évaluer la portée du travail.
+
+### 6. Accès à l’application  
+L’application est disponible à l’adresse suivante :  
+https://docschemagal.emergent.host/
+
+##  Licence Apache 2.0
+
+### 🔹 Version originale (anglais)  
+La version complète et officielle de la licence Apache 2.0 est incluse dans le fichier `LICENSE`.
+
+### 🔹 Traduction non officielle (français)  
+Une traduction française est fournie à titre informatif uniquement.  
+Elle n’a **aucune valeur légale** et ne remplace pas la version anglaise.
+
+---
+
+##  Conclusion
+
+Ce dépôt est bien plus qu’un simple ensemble de fichiers :  
+c’est un **portfolio évolutif**, un **outil pédagogique**, et un **témoignage de mon engagement** envers le dessin industriel, la géométrie et la rigueur technique.
+
+Chaque mise à jour représente un pas de plus dans mon parcours professionnel.
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License.
+
+      Subject to the terms and conditions of this License, each Contributor
+      hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
+      royalty-free, irrevocable copyright license to reproduce, prepare
+      Derivative Works of, publicly display, publicly perform, sublicense,
+      and distribute the Work and such Derivative Works in Source or Object
+      form.
+
+   3. Grant of Patent License.
+
+      Subject to the terms and conditions of this License, each Contributor
+      hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
+      royalty-free, irrevocable (except as stated in this section) patent
+      license to make, have made, use, offer to sell, sell, import, and
+      otherwise transfer the Work, where such license applies only to those
+      patent claims licensable by such Contributor that are necessarily
+      infringed by their Contribution(s) alone or by combination of their
+      Contribution(s) with the Work to which such Contribution(s) was
+      submitted. If You institute patent litigation against any entity
+      (including a cross-claim or counterclaim in a lawsuit) alleging that
+      the Work or a Contribution incorporated within the Work constitutes
+      direct or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate as of
+      the date such litigation is filed.
+
+   4. Redistribution.
+
+      You may reproduce and distribute copies of the Work or Derivative
+      Works thereof in any medium, with or without modifications, and in
+      Source or Object form, provided that You meet the following conditions:
+
+      (a) You must give any other recipients of the Work or Derivative Works
+          a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works that
+          You distribute, all copyright, patent, trademark, and attribution
+          notices from the Source form of the Work, excluding those notices
+          that do not pertain to any part of the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one of
+          the following places: within a NOTICE text file distributed as
+          part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and do not
+          modify the License. You may add Your own attribution notices
+          within Derivative Works that You distribute, alongside or as an
+          addendum to the NOTICE text from the Work, provided that such
+          additional attribution notices cannot be construed as modifying
+          the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions for
+      use, reproduction, or distribution of Your modifications, or for any
+      such Derivative Works as a whole, provided Your use, reproduction,
+      and distribution of the Work otherwise complies with the conditions
+      stated in this License.
+
+   5. Submission of Contributions.
+
+      Unless You explicitly state otherwise, any Contribution intentionally
+      submitted for inclusion in the Work by You to the Licensor shall be
+      under the terms and conditions of this License, without any additional
+      terms or conditions. Notwithstanding the above, nothing herein shall
+      supersede or modify the terms of any separate license agreement you
+      may have executed with Licensor regarding such Contributions.
+
+   6. Trademarks.
+
+      This License does not grant permission to use the trade names,
+      trademarks, service marks, or product names of the Licensor, except
+      as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty.
+
+      Unless required by applicable law or agreed to in writing, Licensor
+      provides the Work (and each Contributor provides its Contributions)
+      on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+      either express or implied, including, without limitation, any
+      warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY,
+      or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for
+      determining the appropriateness of using or redistributing the Work
+      and assume any risks associated with Your exercise of permissions
+      under this License.
+
+   8. Limitation of Liability.
+
+      In no event and under no legal theory, whether in tort (including
+      negligence), contract, or otherwise, unless required by applicable
+      law (such as deliberate and grossly negligent acts) or agreed to in
+      writing, shall any Contributor be liable to You for damages,
+      including any direct, indirect, special, incidental, or consequential
+      damages of any character arising as a result of this License or out
+      of the use or inability to use the Work (including but not limited to
+      damages for loss of goodwill, work stoppage, computer failure or
+      malfunction, or any and all other commercial damages or losses), even
+      if such Contributor has been advised of the possibility of such
+      damages.
+
+   9. Accepting Warranty or Additional Liability.
+
+      While redistributing the Work or Derivative Works thereof, You may
+      choose to offer, and charge a fee for, acceptance of support,
+      warranty, indemnity, or other liability obligations and/or rights
+      consistent with this License. However, in accepting such obligations,
+      You may act only on Your own behalf and on Your sole responsibility,
+      not on behalf of any other Contributor, and only if You agree to
+      indemnify, defend, and hold each Contributor harmless for any
+      liability incurred by, or claims asserted against, such Contributor
+      by reason of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [2026] [name of copyright owner:Philippe Thomas Savard.]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
