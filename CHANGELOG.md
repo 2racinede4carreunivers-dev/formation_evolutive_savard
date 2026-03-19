@@ -154,3 +154,38 @@ dans le respect des conditions de la licence.
 
 **Cette version constitue un jalon important dans l’évolution du dépôt, marquant une étape de maturité technique et de cohérence structurelle.**
 
+
+## [2026-03-19] Mise à jour majeure de la documentation et intégration de l’application IA
+
+### Ajouts principaux
+- Ajout des fiches descriptives complètes pour les documents PDF suivants :
+  - geometrie_du_spectre_premier.pdf  
+  - mecanique_chaos_discret.pdf  
+  - postulat_univers_carre.pdf  
+  - telosemantique_analogiste_spectre_premier.pdf  
+- Chaque fiche inclut un résumé structuré, une description détaillée du contenu et un hyperlien direct vers le fichier correspondant.
+
+### Documentation de l’application Emergent.sh
+- Ajout d’une section dédiée dans le README décrivant l’application web créée sur Emergent.sh.
+- Présentation des trois IA autonomes :
+  - IA collaborative (entraînement sur 55 documents et 2 scripts HOL)
+  - IA évolutive (banque de 23 questions/réponses adaptatives)
+  - IA enrichie (analyse conceptuelle et approfondissement du raisonnement)
+- Ajout d’un descriptif clair des objectifs, du fonctionnement et du rôle pédagogique de l’application.
+
+### Améliorations du README
+- Ajout d’une section complète sur la structure du dépôt avec hyperliens vers tous les fichiers.
+- Ajout d’une section expliquant le fonctionnement du workflow GitHub Actions :
+  - version neutralisée (active par défaut)
+  - version active (commentée)
+  - procédure d’activation/désactivation
+- Clarification du rôle du workflow dans la compilation des fichiers .tex, .thy et .pdf.
+
+### Nettoyage et organisation
+- Harmonisation du style Markdown dans l’ensemble du README.
+- Mise à jour des liens internes et externes.
+- Révision de la structure générale pour faciliter la navigation des recruteurs et utilisateurs.
+
+### Notes
+Cette mise à jour constitue une étape importante dans la professionnalisation du dépôt.  
+Elle améliore la lisibilité, la reproductibilité et l’accessibilité de l’ensemble du projet, tout en intégrant la dimension interactive offerte par l’application Emergent.sh.
