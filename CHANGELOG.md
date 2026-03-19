@@ -79,3 +79,78 @@
 - Commit : Résolution des conflits et fusion complète avec formation_evolutive_savard
 - Mise à jour de lancement : Bienvenue sur le fichier CHANGELOG.md qui permet de suivre les mises à jour du dépôt formation_evolutive_savard. Bonjour à tous!
 
+# 📝 Journal de mise à jour — Certification complète du projet  
+**Horodatage : Dix-huit mars deux mille vingt-six — vingt-et-une heures trente-sept**
+
+Au cours des derniers jours, une série de mises à jour intensives a été réalisée afin de stabiliser, structurer et certifier l’ensemble du projet. Ces opérations avaient pour objectif d’assurer la compilation cohérente et la certification des fichiers **Isabelle/HOL (.thy)**, des documents **LaTeX (.tex)** et des **PDF générés**.
+
+---
+
+## ✔️ Certification Isabelle/HOL
+
+La session universelle `Univers_Carre` a été entièrement reconstruite et nettoyée.  
+Le fichier `ROOT` a été unifié et repositionné correctement, permettant enfin la certification complète des quatre théories :
+
+- `mecanique_discret.thy`  
+- `methode_de_philippot.thy`  
+- `methode_spectral.thy`  
+- `postulat_carre.thy`
+
+Le pipeline GitHub Actions confirme désormais :
+
+- la détection correcte du ROOT,  
+- la compilation intégrale de la session,  
+- et la certification réussie de l’ensemble des scripts HOL.
+
+---
+
+## ✔️ Compilation LaTeX et génération PDF
+
+Les fichiers `.tex` associés se compilent maintenant sans erreur, et les PDF générés sont disponibles dans les artefacts du pipeline GitHub Actions.  
+Les utilisateurs peuvent consulter :
+
+- les sources `.tex`,  
+- les PDF produits,  
+- et les fichiers `.thy` certifiés.
+
+---
+
+## ✔️ Contexte des mises à jour
+
+Les nombreuses mises à jour précédant ce message reflètent le travail nécessaire pour :
+
+- nettoyer plusieurs ROOT conflictuels,  
+- stabiliser la structure du dépôt,  
+- configurer correctement GitHub Actions,  
+- et obtenir une certification Isabelle reproductible.
+
+Ce processus a exigé plusieurs essais, ajustements et validations successives, tous visibles dans l’historique du dépôt.
+
+---
+
+## ✔️ Version stable et conforme
+
+Cette version représente désormais une **référence stable**, conforme et certifiée du projet.  
+Elle reflète fidèlement :
+
+- le travail soutenu de l’auteur,  
+- son évolution technique,  
+- et son engagement dans un apprentissage rigoureux, notamment en parallèle de sa formation en dessin industriel au CFP Neufchâtel.
+
+---
+
+## ✔️ Licence et contributions
+
+Le projet est distribué sous licence **Apache 2.0**, permettant :
+
+- l’utilisation,  
+- la modification,  
+- la contribution,  
+- et le partage du projet,  
+
+dans le respect des conditions de la licence.
+
+---
+
+**Cette version constitue un jalon important dans l’évolution du dépôt, marquant une étape de maturité technique et de cohérence structurelle.**
+
