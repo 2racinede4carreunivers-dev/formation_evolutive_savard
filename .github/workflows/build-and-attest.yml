@@ -1,62 +1,77 @@
-name: Build Isabelle + LaTeX (version courte)
+name: Build Isabelle + LaTeX (version courte active et neutralisée)
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  workflow_dispatch:   # Lancement manuel uniquement
+  # push:
+  #   branches:
+  #     - main          # Décommenter pour activer le déclenchement automatique
 
+# ---------------------------------------------------------
+# VERSION NEUTRALISÉE (active par défaut)
+# ---------------------------------------------------------
 jobs:
-  build:
+  build-and-attest:
+    if: false   # Neutralisation totale du workflow
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Neutralisation
+        run: echo "Workflow neutralisé. Voir README pour l'activer."
 
-    - name: Install minimal TeX Live + pygments
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y \
-          texlive-latex-base \
-          texlive-latex-recommended \
-          texlive-latex-extra \
-          texlive-fonts-recommended \
-          python3-pygments
+# ---------------------------------------------------------
+# VERSION ACTIVE (désactivée par défaut)
+# Pour activer : décommenter ce bloc et commenter le bloc neutralisé
+# ---------------------------------------------------------
 
-    - name: Install Isabelle 2024
-      run: |
-        wget https://isabelle.in.tum.de/website-Isabelle2024/dist/Isabelle2024_linux.tar.gz
-        tar -xzf Isabelle2024_linux.tar.gz
-        mv Isabelle2024 isabelle
-        echo "$PWD/isabelle/bin" >> $GITHUB_PATH
-
-    - name: Isabelle build (certification HOL)
-      run: |
-        if [ -f ROOT ]; then
-          echo "ROOT détecté — compilation complète"
-          isabelle build -D .
-        else
-          echo "Pas de ROOT — certification des .thy individuels"
-          shopt -s nullglob
-          for thy in *.thy; do
-            echo "Certification de $thy"
-            isabelle build -b -d . "$thy" || true
-          done
-        fi
-
-    - name: Compile LaTeX (minted + sml + TOC)
-      run: |
-        shopt -s nullglob
-        for file in *.tex; do
-          echo "Compilation de $file"
-          pdflatex -shell-escape -interaction=nonstopmode "$file" || true
-          pdflatex -shell-escape -interaction=nonstopmode "$file" || true
-          pdflatex -shell-escape -interaction=nonstopmode "$file" || true
-        done
-
-    - name: Upload PDFs
-      uses: actions/upload-artifact@v4
-      with:
-        name: pdfs
-        path: "*.pdf"
+# jobs:
+#   build-and-attest:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+#
+#       - name: Install minimal TeX Live + pygments
+#         run: |
+#           sudo apt-get update
+#           sudo apt-get install -y \
+#             texlive-latex-base \
+#             texlive-latex-recommended \
+#             texlive-latex-extra \
+#             texlive-fonts-recommended \
+#             python3-pygments
+#
+#       - name: Install Isabelle 2024
+#         run: |
+#           wget https://isabelle.in.tum.de/website-Isabelle2024/dist/Isabelle2024_linux.tar.gz
+#           tar -xzf Isabelle2024_linux.tar.gz
+#           mv Isabelle2024 isabelle
+#           echo "$PWD/isabelle/bin" >> $GITHUB_PATH
+#
+#       - name: Isabelle build (certification HOL)
+#         run: |
+#           if [ -f ROOT ]; then
+#             echo "ROOT détecté — compilation complète"
+#             isabelle build -D .
+#           else
+#             echo "Pas de ROOT — certification des .thy individuels"
+#             shopt -s nullglob
+#             for thy in *.thy; do
+#               echo "Certification de $thy"
+#               isabelle build -b -d . "$thy" || true
+#             done
+#           fi
+#
+#       - name: Compile LaTeX (minted + sml + TOC)
+#         run: |
+#           shopt -s nullglob
+#           for file in *.tex; do
+#             echo "Compilation de $file"
+#             pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+#             pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+#             pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+#           done
+#
+#       - name: Upload PDFs
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: pdfs
+#           path: "*.pdf"
