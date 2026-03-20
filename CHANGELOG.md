@@ -189,3 +189,33 @@ dans le respect des conditions de la licence.
 ### Notes
 Cette mise à jour constitue une étape importante dans la professionnalisation du dépôt.  
 Elle améliore la lisibilité, la reproductibilité et l’accessibilité de l’ensemble du projet, tout en intégrant la dimension interactive offerte par l’application Emergent.sh.
+
+## [2026-03-20 04:16] Mise à jour — Ajout de la méthodologie des 4 scripts HOL
+
+Cette mise à jour contient **l’algorithme complet** et la **méthodologie détaillée** permettant de reproduire les quatre méthodes validées par les scripts HOL sous Isabelle/HOL.
+
+Les scripts concernés sont :
+
+- **methode_spectral.thy**  
+  *Méthode spectrale de la géométrie du spectre des nombres premiers.*
+
+- **methode_de_philippot.thy**  
+  *Méthode complémentaire incluse dans la géométrie du spectre des nombres premiers.*
+
+- **mecanique_discret.thy**  
+  *Validation du chapitre de la théorie unifiée « L’univers est au carré — La mécanique harmonique du chaos discret ». *
+
+- **postulat_carre.thy**  
+  *Validation du chapitre « Le postulat de l’univers est au carré ». *
+
+### Contenu de la mise à jour
+
+- Description complète de la **méthodologie à appliquer** pour reproduire les résultats des scripts de validation.  
+- Explications destinées à **faciliter les projets personnels** des utilisateurs souhaitant réutiliser ou adapter les méthodes.  
+- Clarification des étapes nécessaires pour **répliquer les démonstrations**, **exécuter les scripts**, et **comprendre la logique interne** des quatre méthodes.
+
+### Licence
+
+L’utilisateur est invité à réutiliser et adapter cette méthodologie conformément aux permissions de la **licence Apache 2.0**.
+
+---
