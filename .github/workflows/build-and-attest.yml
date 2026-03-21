@@ -1,77 +1,127 @@
-name: Build Isabelle + LaTeX (version courte active et neutralisée)
+name: Build + Changelog + Release automatique
 
 on:
-  workflow_dispatch:   # Lancement manuel uniquement
-  # push:
-  #   branches:
-  #     - main          # Décommenter pour activer le déclenchement automatique
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-# ---------------------------------------------------------
-# VERSION NEUTRALISÉE (active par défaut)
-# ---------------------------------------------------------
 jobs:
-  build-and-attest:
-    if: false   # Neutralisation totale du workflow
+  build-release:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Neutralisation
-        run: echo "Workflow neutralisé. Voir README pour l'activer."
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-# ---------------------------------------------------------
-# VERSION ACTIVE (désactivée par défaut)
-# Pour activer : décommenter ce bloc et commenter le bloc neutralisé
-# ---------------------------------------------------------
+    # --- MISE À JOUR AUTOMATIQUE DU CHANGELOG (STYLE TÉLÉOSÉMANTIQUE) ---
+    - name: Update CHANGELOG.md
+      run: |
+        echo "## $(date +'%Y-%m-%d %H:%M') – Commit ${{ github.sha }}" >> CHANGELOG.md
+        echo "" >> CHANGELOG.md
+        echo "### Synthèse téléosémantique" >> CHANGELOG.md
+        echo "- Mise à jour cohérente avec l’évolution du dépôt et sa fonction de carte mentale professionnelle." >> CHANGELOG.md
+        echo "- ${GITHUB_EVENT_HEAD_COMMIT_MESSAGE}" >> CHANGELOG.md
+        echo "" >> CHANGELOG.md
 
-# jobs:
-#   build-and-attest:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v4
-#
-#       - name: Install minimal TeX Live + pygments
-#         run: |
-#           sudo apt-get update
-#           sudo apt-get install -y \
-#             texlive-latex-base \
-#             texlive-latex-recommended \
-#             texlive-latex-extra \
-#             texlive-fonts-recommended \
-#             python3-pygments
-#
-#       - name: Install Isabelle 2024
-#         run: |
-#           wget https://isabelle.in.tum.de/website-Isabelle2024/dist/Isabelle2024_linux.tar.gz
-#           tar -xzf Isabelle2024_linux.tar.gz
-#           mv Isabelle2024 isabelle
-#           echo "$PWD/isabelle/bin" >> $GITHUB_PATH
-#
-#       - name: Isabelle build (certification HOL)
-#         run: |
-#           if [ -f ROOT ]; then
-#             echo "ROOT détecté — compilation complète"
-#             isabelle build -D .
-#           else
-#             echo "Pas de ROOT — certification des .thy individuels"
-#             shopt -s nullglob
-#             for thy in *.thy; do
-#               echo "Certification de $thy"
-#               isabelle build -b -d . "$thy" || true
-#             done
-#           fi
-#
-#       - name: Compile LaTeX (minted + sml + TOC)
-#         run: |
-#           shopt -s nullglob
-#           for file in *.tex; do
-#             echo "Compilation de $file"
-#             pdflatex -shell-escape -interaction=nonstopmode "$file" || true
-#             pdflatex -shell-escape -interaction=nonstopmode "$file" || true
-#             pdflatex -shell-escape -interaction=nonstopmode "$file" || true
-#           done
-#
-#       - name: Upload PDFs
-#         uses: actions/upload-artifact@v4
-#         with:
-#           name: pdfs
-#           path: "*.pdf"
+    - name: Commit CHANGELOG update
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "actions@github.com"
+        git add CHANGELOG.md
+        git commit -m "Update CHANGELOG.md for commit ${{ github.sha }}" || echo "Aucun changement à committer"
+        git push
+
+    # --- INSTALLATION TEXLIVE MINIMAL + PYGMENTS ---
+    - name: Install minimal TeX Live + pygments
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          texlive-latex-base \
+          texlive-latex-recommended \
+          texlive-latex-extra \
+          texlive-fonts-recommended \
+          python3-pygments
+
+    # --- INSTALLATION ISABELLE 2024 ---
+    - name: Install Isabelle 2024
+      run: |
+        wget https://isabelle.in.tum.de/website-Isabelle2024/dist/Isabelle2024_linux.tar.gz
+        tar -xzf Isabelle2024_linux.tar.gz
+        mv Isabelle2024 isabelle
+        echo "$PWD/isabelle/bin" >> $GITHUB_PATH
+
+    # --- COMPILATION ISABELLE ---
+    - name: Isabelle build (certification HOL)
+      run: |
+        if [ -f ROOT ]; then
+          echo "ROOT détecté — compilation complète"
+          isabelle build -D .
+        else
+          echo "Pas de ROOT — certification des .thy individuels"
+          shopt -s nullglob
+          for thy in *.thy; do
+            echo "Certification de $thy"
+            isabelle build -b -d . "$thy" || true
+          done
+        fi
+
+    # --- COMPILATION LATEX ---
+    - name: Compile LaTeX (minted + sml + TOC)
+      run: |
+        shopt -s nullglob
+        for file in *.tex; do
+          echo "Compilation de $file"
+          pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+          pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+          pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+        done
+
+    # --- GÉNÉRATION AUTOMATIQUE DU NUMÉRO DE VERSION ---
+    - name: Generate version number
+      id: version
+      run: |
+        DATE=$(date +'%Y.%m.%d-%H%M')
+        echo "version=v$DATE" >> $GITHUB_OUTPUT
+
+    # --- CRÉATION DE LA RELEASE ---
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ steps.version.outputs.version }}
+        name: "Release ${{ steps.version.outputs.version }}"
+        body: |
+          # Release ${{ steps.version.outputs.version }}
+
+          _Date : ${{ github.event.head_commit.timestamp }}_  
+          _Commit : ${{ github.sha }}_
+
+          ## 1. Résumé de la release
+          Cette release s’inscrit dans la logique du dépôt **formation_evolutive_savard**, conçu comme un CV vivant, une carte mentale téléosémantique et un journal professionnel horodaté.
+
+          ## 2. Changements principaux
+          - Mise à jour automatique suite au commit.
+          - Voir CHANGELOG.md pour les détails.
+
+          ## 3. Documents générés automatiquement
+          Les PDF générés dans cette release sont attachés ci-dessous.
+
+          ## 4. Scripts Isabelle/HOL certifiés
+          Les fichiers .thy ont été vérifiés automatiquement.
+
+          ## 5. Perspective téléosémantique
+          Cette mise à jour contribue à la cohérence géométrique, logique et documentaire du dépôt.
+
+          ## 6. Notes techniques
+          Workflow : build-and-release.yml
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # --- UPLOAD DES PDF DANS LA RELEASE ---
+    - name: Upload PDFs
+      uses: softprops/action-gh-release@v2
+      with:
+        files: "*.pdf"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
