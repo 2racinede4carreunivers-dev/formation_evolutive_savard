@@ -396,8 +396,21 @@ Cette section présente une analyse numérique métrique en lien avec la fonctio
 \end{figure}
 
 \begin{resume}
-\textbf{Visualisez} un monticule de granulats, comme celui qu'on analyse en granulométrie. Imaginez que chaque grain, même les plus infimes poussières, porte un nombre distinct. Ce monticule représente l'ensemble des nombres de zéro à l'infini. L'analyse numérique métrique fonctionne comme un tamisage mathématique de ces nombres
-ou les nombre premiers et composés ces deux entitées distinct justifie la substitution effectué dans la suite B qui est toujours a la positon du 6ième termes.
+L'analyse numerique metrique est une creation originale de l'auteur. Inspiree par un parallele avec l'analyse granulometrique, cette approche constitue le fondement de sa methode : une transposition conceptuelle ou la structure des tamis devient un outil pour comprendre la distribution des grandeurs numeriques.
+
+Visuellement, l'auteur -- Philippe Thomas Savard -- represente cette idee par une serie de parallelogrammes successifs. Une droite centrale traverse chacun d'eux, tandis que deux autres droites, tangentes aux sommets formes par les angles obtus, encadrent la figure. Dans une analyse granulometrique classique, chaque tamis impose une limite de passant correspondant a une taille de maille precise. La masse retenue sur chaque tamis doit respecter une valeur determinee, et l'ensemble des resultats peut etre represente sous forme de courbe ou de zone ombree definissant les limites acceptables.
+
+Dans l'analyse numerique metrique, cette zone ombree correspond a l'espace compris entre les deux droites tangentes aux sommets obtus des parallelogrammes. Ces sommets representent, en alternance, la position de la suite A et de la suite B. Comme nous le verrons plus loin, le nombre de termes dans ces deux suites determine la position du nombre premier associe au rapport spectral 1/2. Cette alternance est analogue au produit alternatif ou le perimetre du carre A multiplie par le diametre du carre B est egal au diametre du carre A multiplie par le perimetre du carre B.
+
+Chaque parallelogramme possede deux sommets obtus, et chacun de ces sommets correspond successivement a la position de la suite A ou de la suite B. Cette alternance structure l'ensemble de la progression.
+
+Lorsqu'une analyse granulometrique est effectuee sur un sol de calibre 0 mm a 20 mm, la serie de tamis utilisee est simple : tous les tamis sont inferieurs ou egaux a 20 mm. En revanche, pour un sol de calibre 0 mm a 56 mm, deux types de sols sont presents : un premier de 0 mm a 20 mm, et un second jusqu'a 56 mm. Dans ce cas, une substitution doit etre effectuee dans la serie de tamis afin d'eviter que l'operateur n'ait l'impression que les granulats "remontent" les tamis. Il faut donc remplacer un tamis de la serie 0--20 mm par celui de la serie 0--56 mm situe immediatement au-dessus.
+
+L'auteur note egalement une analogie interessante observee dans le systeme de numeration grecque : la lettre zeta vaut 7 bien qu'elle occupe la sixieme position, en raison de l'ancienne presence du digamma entre l'epsilon et le zeta (reference : Encyclopedie libre Wikipedia, lettre grecque Zeta). Cette observation souleve une question similaire pour les nombres premiers, qui appartiennent a l'ensemble des entiers mais se distinguent des nombres composes. Deux types de nombres entrent donc en jeu.
+
+Pour aborder l'enigme de Riemann, l'auteur imagine un monticule de cailloux plus haut que lui-meme, ou chaque caillou -- meme les poussieres -- porte un nombre, de 0 a l'infini. L'echantillon representatif utilise est constitue des dix chiffres 0 a 9, qui permettent de composer tous les nombres possibles. Lors du prelevement, la circonference et la hauteur du monticule sont mesurees. Grace a la normalisation des tamis et a l'espacement constant entre eux, il devient alors possible de retrouver la position exacte de chaque caillou dans le monticule.
+
+L'analyse numerique metrique transpose cette logique : une serie de parallelogrammes se succedent, chacun defini par deux petites diagonales opposees. Ces diagonales entretiennent entre elles un rapport constant de 1/2, de l'interieur vers l'exterieur. En trois dimensions, cette structure devient une serie de paires de cubes, formant un volume analogue a un tesseract -- un hypercube en deformation continue.
 \end{resume}
 
 \subsection{Analyse numérique métrique en 3 dimensions}
@@ -753,26 +766,22 @@ $\frac{1}{1536}$ & $\frac{1}{768}$ & $\frac{1}{512}$ & $\frac{1}{256}$ & $\frac{
 % TABLEAUX METHODE DE PHILIPPÔT - =ETAPES 2 ET 3 (CORRECTION AJOUTEE)
 % ============================================================================
 
-\subsection{Methode de Philippôt -- Tableaux des Etapes 2 et 3}
+\subsection{Methode de Philippot -- Tableau des Etapes 2 et 3}
 \begin{center}
 \scriptsize
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-\textbf{Pos.} & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & \textbf{Somme} \\
+11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & Pos. & Som. \\
 \hline
-& & & & & & & & \(\frac{1}{6}\) & \(\frac{1}{3}\) & \(\frac{1}{2}\) & & = 1 \\
+ &  &  &  &  &  &  &  & 1/12 & + 1/6 & + 1/4 &  & = 1 - 1/2 \\
 \hline
-& & & & & & & \(\frac{1}{12}\) & \(\frac{1}{6}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
+ &  &  &  &  &  &  & 1/24 & + 1/12 & + 1/8 & + 1/2 &  & = 1 - 1/4 \\
 \hline
-& & & & & & \(\frac{1}{24}\) & \(\frac{1}{12}\) & \(\frac{1}{8}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
+ &  &  &  &  &  & 1/48 & + 1/24 & + 1/16 & + 1/4 & + 1/2 &  & = 1 - 1/8 \\
 \hline
-& & & & & \(\frac{1}{48}\) & \(\frac{1}{24}\) & \(\frac{1}{16}\) & \(\frac{1}{8}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
+ &  &  &  &  & 1/96 & + 1/48 & + 1/32 & + 1/8 & + 1/4 & + 1/2 &  & = 1 - 1/16 \\
 \hline
-& & & & \(\frac{1}{96}\) & \(\frac{1}{48}\) & \(\frac{1}{32}\) & \(\frac{1}{16}\) & \(\frac{1}{8}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
-\hline
-& & & \(\frac{1}{192}\) & \(\frac{1}{96}\) & \(\frac{1}{64}\) & \(\frac{1}{32}\) & \(\frac{1}{16}\) & \(\frac{1}{8}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
-\hline
-& & \(\frac{1}{384}\) & \(\frac{1}{192}\) & \(\frac{1}{128}\) & \(\frac{1}{64}\) & \(\frac{1}{32}\) & \(\frac{1}{16}\) & \(\frac{1}{8}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
+ &  &  &  & 1/192 & + 1/96 & + 1/64 & + 1/16 & + 1/8 & + 1/4 & + 1/2 &  & = 1 - 1/32 \\
 \hline
 \end{tabular}
 \end{center}
@@ -2783,55 +2792,73 @@ text "
 % SECTION 7 : TABLEAUX COMPLETS DES SUITES
 % ============================================================================
 
-\begin{tcolorbox}[colback=white,colframe=black,title={Quadrature de la parabole et zéros critiques}]
-La figure intitulée \emph{Quadrature de la parabole -- Pesé d'Archimède} illustre la relation
-géométrique entre l’aire d’une parabole et l’aire d’un triangle associé, appliquée ici à
-l’interprétation géométrique des zéros critiques de la fonction zêta.
+\subsection*{Modele geometrique des aires sur la droite critique}
 
-Dans la quadrature classique d’Archimède, l’aire de la région parabolique est donnée par :
-\[
-\text{Aire}_{\text{parabole}} = \frac{4}{3}\,\text{Aire}_{\text{triangle}}.
-\]
+Nous considerons la droite critique $\Re(s)=\tfrac{1}{2}$, tronquee a une
+hauteur finie $H$, que nous representons par un rectangle vertical d'aire
+totale $T$. Une sous-aire $T/n$ correspond a une portion tronquee de cette
+droite, associee a un intervalle fini de nombres premiers. Dans cette zone,
+la structure combinatoire des ecarts mixtes entre nombres premiers confere
+a l'intervalle une valeur relative plus grande que sa longueur brute, ce
+qui se traduit geometriquement par une courbure effective de la droite
+critique.
 
-Dans la construction présentée, on compare deux produits géométriques :
-\[
-\text{Aire}_{\text{parabole}} \times OE
-\qquad\text{et}\qquad
-\text{Aire}_{\text{triangle}} \times OH.
-\]
+L'aire restante $T_{\text{rest}} = T - T/n$ est alors mise en correspondance
+avec l'aire situee entre la droite critique reelle et la courbe deformee
+induite par cette valeur relative accrue. Lorsque ces deux aires
+complementaires sont egales, le modele suggere que la masse totale des
+zeros est entierement portee par la droite critique, ce qui est interprete
+comme une condition geometrique equivalente a la conjecture de Riemann,
+sans toutefois constituer une preuve analytique.
 
-L’égalité intuitive
-\[
-\text{Aire}_{\text{parabole}} \times OE = \text{Aire}_{\text{triangle}} \times OH
-\]
-n’est pas satisfaite. Le calcul montre au contraire :
-\[
-\frac{\text{Aire}_{\text{triangle}} \times OH}{\text{Aire}_{\text{parabole}} \times OE}
-= \frac{1}{4}.
-\]
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[scale=1.1]
+    % Axes
+    \draw[->] (0,0) -- (0,5) node[above] {$\Im(s)$};
+    \draw (0,0) -- (3,0);
+    \node[below] at (0,0) {$\Re(s)=\tfrac{1}{2}$};
 
-Ainsi, seule une fraction d’environ \(\tfrac{1}{4}\) de la zone considérée est incluse dans l’aire
-définie par la droite critique réelle \(R = \tfrac{1}{2}\), si l’on exclut l’écart mixte défini dans
-le script Isabelle/HOL. La zone restante correspond à la droite des zéros critiques « relative »,
-celle qui inclut cet écart mixte.
+    % Rectangle total T
+    \draw[thick] (0,0) rectangle (1.5,4.5);
+    \node at (0.75,4.7) {$T$};
 
-Ce résultat est cohérent avec la méthode de Philippôt validée par Isabelle/HOL :  
-la structure spectrale \(1/2\) est bien présente, mais d’autres rapports spectraux non triviaux
-apparaissent également lorsque la méthode est appliquée à d’autres suites. La figure de la
-pesée d’Archimède montre visuellement que les zéros critiques ne se limitent pas tous à
-\(R = \tfrac{1}{2}\), mais qu’une proportion significative occupe une zone géométrique dont le
-rapport effectif est quatre fois plus grand que celui attendu par la pesée idéale.
+    % Sous-aire T/n
+    \fill[blue!10] (0,0) rectangle (1.5,2);
+    \draw[thick,blue] (0,0) rectangle (1.5,2);
+    \node[blue] at (0.75,1) {$T/n$};
 
-Cette lecture géométrique renforce l’idée que la droite critique réelle ne capture qu’une
-partie de la structure complète des zéros, tandis que la droite relative (incluant l’écart mixte)
-reflète une organisation plus riche, cohérente avec les validations formelles Isabelle/HOL.
-\end{tcolorbox}
+    % Aire restante T_rest
+    \fill[gray!10] (0,2) rectangle (1.5,4.5);
+    \draw[thick,gray] (0,2) rectangle (1.5,4.5);
+    \node[gray!70!black] at (0.75,3.25) {$T_{\text{rest}}$};
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.85\textwidth]{quadrature_parabole_zero_critique.png}
-    \caption{Quadrature de la parabole — zéros critiques (bloc 1)}
-    \label{fig:quadrature_parabole_bloc1}
+    % Courbe relative (deformation)
+    \draw[red,thick,domain=0:2,smooth,variable=\y]
+      plot ({1.5+0.5*exp(-(\y-1)^2)},\y);
+    \node[red] at (2.3,1.8) {courbe relative};
+
+    % Aire sous la courbe (symbolique)
+    \fill[red!10,opacity=0.5]
+      (1.5,0) --
+      plot[domain=0:2,smooth,variable=\y]
+        ({1.5+0.5*exp(-(\y-1)^2)},\y) --
+      (1.5,2) -- cycle;
+
+    \node[red!70!black] at (2.4,0.7) {$A_{\text{mixte}}$};
+
+  \end{tikzpicture}
+  \caption{Modele geometrique des aires sur la droite critique : $T$,
+  $T/n$, $T_{\text{rest}}$ et l'aire relative $A_{\text{mixte}}$ induite
+  par les ecarts mixtes.}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  % (reprendre exactement le meme tikzpicture que ci-dessus)
+  \caption{Geometric model of areas on the critical line: $T$, $T/n$,
+  $T_{\text{rest}}$ and the relative area $A_{\text{mixte}}$ induced by
+  mixed gaps.}
 \end{figure}
 
 \newpage
