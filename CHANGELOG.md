@@ -328,9 +328,6 @@ La branche avait divergé, ce qui provoquait des erreurs de type *non-fast-forwa
 
 Cette mise à niveau réaligne l’historique, restaure la cohérence du dépôt et permet au workflow de fonctionner normalement.
 
-## 2026-03-22 13:46 – Commit 6c6661b2d77080ca43df0fe65daec9606b1095bc
+### Commit de mise à niveau
 
-### Synthèse téléosémantique
-- Mise à jour cohérente avec l’évolution du dépôt.
-- 
-
+Ce commit corrige une désynchronisation entre la branche locale et la branche distante (`main`), qui empêchait le déclenchement du workflow GitHub Actions.
