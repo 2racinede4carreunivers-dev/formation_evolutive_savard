@@ -315,4 +315,9 @@ Cette section marque officiellement le **début du projet évolutif**.
 ### To‑Do
 - Finaliser la gestion automatique des tags dans GitHub Actions.  
 - Stabiliser la génération des releases automatiques.  
-- Vérifier la cohérence entre le tag généré et celui utilisé par l’action `softprops/action-gh-release`.
+- Vérifier la cohérence entre le tag généré et celui utilisé par l’action `softprops/action-gh-release`.## 2026-03-22 13:38 – Commit ed9b7a15c64417bfdc53c7fce260917db2443db4
+
+### Synthèse téléosémantique
+- Mise à jour cohérente avec l’évolution du dépôt.
+- 
+
