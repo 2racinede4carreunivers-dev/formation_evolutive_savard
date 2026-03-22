@@ -321,3 +321,10 @@ Cette section marque officiellement le **début du projet évolutif**.
 - Mise à jour cohérente avec l’évolution du dépôt.
 - 
 
+### Commit de mise à niveau
+
+Ce commit corrige une désynchronisation entre la branche locale et la branche distante (`main`), qui empêchait le déclenchement du workflow GitHub Actions.  
+La branche avait divergé, ce qui provoquait des erreurs de type *non-fast-forward* et bloquait l’exécution automatique du pipeline de build.
+
+Cette mise à niveau réaligne l’historique, restaure la cohérence du dépôt et permet au workflow de fonctionner normalement.
+
