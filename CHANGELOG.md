@@ -331,3 +331,9 @@ Cette mise à niveau réaligne l’historique, restaure la cohérence du dépôt
 ### Commit de mise à niveau
 
 Ce commit corrige une désynchronisation entre la branche locale et la branche distante (`main`), qui empêchait le déclenchement du workflow GitHub Actions.
+## Version 1.0.1 – 2026-03-22 16:10
+
+### Synthèse téléosémantique
+- Mise à jour cohérente avec l’évolution du dépôt.
+- Commit : chore: suppression du workflow build-and-attest123.yml
+
