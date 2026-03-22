@@ -1,0 +1,107 @@
+name: Build + Changelog + Release automatique
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # --- MISE À JOUR AUTOMATIQUE DU CHANGELOG ---
+    - name: Update CHANGELOG.md
+      run: |
+        echo "## $(date +'%Y-%m-%d %H:%M') – Commit ${{ github.sha }}" >> CHANGELOG.md
+        echo "" >> CHANGELOG.md
+        echo "### Synthèse téléosémantique" >> CHANGELOG.md
+        echo "- Mise à jour cohérente avec l’évolution du dépôt." >> CHANGELOG.md
+        echo "- ${GITHUB_EVENT_HEAD_COMMIT_MESSAGE}" >> CHANGELOG.md
+        echo "" >> CHANGELOG.md
+
+    - name: Commit CHANGELOG update
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "actions@github.com"
+        git add CHANGELOG.md
+        git commit -m "Update CHANGELOG.md for commit ${{ github.sha }}" || echo "Aucun changement"
+        git push
+
+    # --- INSTALLATION TEXLIVE ---
+    - name: Install TeX Live + pygments
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          texlive-latex-base \
+          texlive-latex-recommended \
+          texlive-latex-extra \
+          texlive-fonts-recommended \
+          python3-pygments
+
+    # --- INSTALLATION ISABELLE ---
+    - name: Install Isabelle 2024
+      run: |
+        wget https://isabelle.in.tum.de/website-Isabelle2024/dist/Isabelle2024_linux.tar.gz
+        tar -xzf Isabelle2024_linux.tar.gz
+        mv Isabelle2024 isabelle
+        echo "$PWD/isabelle/bin" >> $GITHUB_PATH
+
+    # --- COMPILATION ISABELLE ---
+    - name: Isabelle build
+      run: |
+        if [ -f ROOT ]; then
+          isabelle build -D .
+        else
+          shopt -s nullglob
+          for thy in *.thy; do
+            isabelle build -b -d . "$thy" || true
+          done
+        fi
+
+    # --- COMPILATION LATEX ---
+    - name: Compile LaTeX
+      run: |
+        shopt -s nullglob
+        for file in *.tex; do
+          pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+          pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+        done
+
+    # --- GÉNÉRATION DU TAG ---
+    - name: Generate version tag
+      id: version
+      run: |
+        TAG="v$(date +'%Y.%m.%d-%H%M%S')"
+        echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+    # --- CRÉATION + PUSH DU TAG ---
+    - name: Create and push tag
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "actions@github.com"
+        git tag ${{ steps.version.outputs.tag }}
+        git push origin ${{ steps.version.outputs.tag }}
+
+    # --- CRÉATION DE LA RELEASE ---
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ steps.version.outputs.tag }}
+        name: "Release ${{ steps.version.outputs.tag }}"
+        body: |
+          Release générée automatiquement.
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # --- UPLOAD DES PDF ---
+    - name: Upload PDFs
+      uses: softprops/action-gh-release@v2
+      with:
+        files: "*.pdf"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
