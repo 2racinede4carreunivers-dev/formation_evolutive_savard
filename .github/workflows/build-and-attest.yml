@@ -86,6 +86,14 @@ jobs:
         DATE=$(date +'%Y.%m.%d-%H%M')
         echo "version=v$DATE" >> $GITHUB_OUTPUT
 
+    # --- CRÉATION ET PUSH DU TAG (CORRECTION CRITIQUE) ---
+    - name: Create and push tag
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "actions@github.com"
+        git tag ${{ steps.version.outputs.version }}
+        git push origin ${{ steps.version.outputs.version }}
+
     # --- CRÉATION DE LA RELEASE ---
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
