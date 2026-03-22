@@ -93,11 +93,9 @@ jobs:
     - name: Isabelle build with detailed log
       run: |
         set -o pipefail
-        # Si tu as un ROOT, on l’utilise, sinon on cible les .thy listés
         if [ -f ROOT ]; then
           isabelle build -D . | tee isabelle_build.log
         else
-          # Compilation ciblée des fichiers .thy
           FILES="mecanique_discret.thy methode_de_philippot.thy methode_spectral.thy postulat_carre.thy"
           for thy in $FILES; do
             if [ -f "$thy" ]; then
@@ -107,7 +105,7 @@ jobs:
           done
         fi
 
-    # --- COMPILATION LATEX AVEC MINTED ---
+    # --- COMPILATION LATEX ---
     - name: Compile LaTeX
       run: |
         FILES="geometrie_du_spectre_premier.tex geometry_prime_spectrum.tex mecanique_chaos_discret.tex philosophy_geometry_prime_number.tex postulat_univers_carre.tex teleosemantique_analogiste_spectre_premier.tex"
@@ -119,15 +117,8 @@ jobs:
           fi
         done
 
-    # --- CRÉATION DU TAG ---
-    - name: Create tag
-      run: |
-        TAG="v-fos-${{ steps.bump.outputs.new_version }}"
-        git tag "$TAG"
-        git push origin "$TAG"
-
-    # --- CRÉATION DE LA RELEASE ---
-    - name: Create GitHub Release
+    # --- CRÉATION DU TAG + RELEASE + UPLOAD DES FICHIERS ---
+    - name: Create GitHub Release with assets
       uses: softprops/action-gh-release@v2
       with:
         tag_name: "v-fos-${{ steps.bump.outputs.new_version }}"
@@ -136,13 +127,6 @@ jobs:
           Release générée automatiquement.
           - Version : ${{ steps.bump.outputs.new_version }}
           - Commit : ${{ github.event.head_commit.id }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    # --- UPLOAD DES PDF + LOG ISABELLE ---
-    - name: Upload PDFs and Isabelle log
-      uses: softprops/action-gh-release@v2
-      with:
         files: |
           *.pdf
           isabelle_build.log
