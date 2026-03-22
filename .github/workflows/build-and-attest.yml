@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
   workflow_dispatch:
 
 jobs:
@@ -14,7 +16,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # --- MISE À JOUR AUTOMATIQUE DU CHANGELOG (STYLE TÉLÉOSÉMANTIQUE) ---
+    # --- MISE À JOUR AUTOMATIQUE DU CHANGELOG ---
     - name: Update CHANGELOG.md
       run: |
         echo "## $(date +'%Y-%m-%d %H:%M') – Commit ${{ github.sha }}" >> CHANGELOG.md
@@ -113,8 +115,7 @@ jobs:
           Cette mise à jour contribue à la cohérence géométrique, logique et documentaire du dépôt.
 
           ## 6. Notes techniques
-          Workflow : build-and-release.yml
-
+          Workflow : build-release.yml
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
