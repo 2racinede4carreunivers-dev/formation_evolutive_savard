@@ -345,46 +345,46 @@ Ce workflow a pour objectif de :
 - vérifier et certifier les fichiers Isabelle/HOL (.thy),  
 - produire des artefacts reproductibles.
 
-Pour éviter des compilations inutiles à chaque push, le workflow est configuré pour ne pas se lancer automatiquement.  
-Il peut être réactivé manuellement lorsque nécessaire.
+##  Automatisation des versions et des releases
 
-## Gestion du workflow GitHub Actions
+Ce dépôt utilise un workflow GitHub Actions entièrement automatisé pour générer les versions, les tags et les releases à chaque **commit manuel** envoyé sur la branche `main`.
 
-Le fichier `.github/workflows/build-and-attest.yml` contient deux versions du workflow :
+###  Fonctionnement général
 
-### 1. Version neutralisée (active par défaut)
+À chaque fois que vous effectuez un commit suivi d’un `git push`, le workflow :
 
-Cette version empêche toute compilation automatique.  
-Elle est définie par le bloc suivant :
+1. Analyse le message du commit pour déterminer le type d’incrémentation de version :
+   - `major:` → incrémentation majeure (X+1.0.0)
+   - `feat:` → incrémentation mineure (X.Y+1.0)
+   - `fix:` → incrémentation de correctif (X.Y.Z+1)
+   - tout autre message → incrémentation de correctif par défaut
 
-```
-jobs:
-  build-and-attest:
-    if: false
-```
+2. Génère automatiquement :
+   - un nouveau numéro de version
+   - un tag Git correspondant (`v-fos-X.Y.Z`)
+   - une release GitHub complète
 
-Tant que cette ligne est présente, aucune compilation ne peut être déclenchée.
+3. Compile automatiquement :
+   - les fichiers LaTeX du projet (PDF)
+   - les théories Isabelle (log de compilation)
 
-### 2. Version active (désactivée par défaut)
+4. Ajoute tous les artefacts à la release :
+   - PDF générés
+   - log Isabelle
+   - note de version temporaire basée sur le message du commit
 
-Le fichier `.yml` contient également une version complète du workflow, commentée.  
-Pour l’activer :
+###  Aucun secret, aucune action manuelle requise
 
-1. Ouvrir `.github/workflows/build-and-attest.yml`
-2. Commenter le bloc neutralisé (ajouter `#` devant chaque ligne)
-3. Décommenter le bloc actif (retirer les `#`)
-4. Committer et pousser la modification
-5. Aller dans l’onglet **Actions** et cliquer sur **Run workflow**
+Le système ne nécessite **aucun code secret**, aucune commande spéciale et aucune intervention dans GitHub Actions.
 
-### 3. Remettre le workflow en mode neutralisé
+Tout est déclenché **uniquement** par vos commits manuels.
 
-Une fois la compilation terminée :
+###  Exemple de workflow de travail
 
-1. Re-commenter le bloc actif  
-2. Décommenter le bloc neutralisé  
-3. Committer et pousser
-
-Cela garantit que le workflow ne se déclenche jamais par erreur.
+```bash
+git add .
+git commit -m "fix: correction du fichier README"
+git push
 
  ## Descriptif des différents chapitres constituant le dépôt formation_evolutive_savard
 
