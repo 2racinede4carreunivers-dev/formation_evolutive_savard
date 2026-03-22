@@ -14,14 +14,52 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    # --- LECTURE DE LA VERSION ACTUELLE ---
+    - name: Read current version
+      id: read_version
+      run: |
+        if [ ! -f VERSION ]; then echo "1.0.0" > VERSION; fi
+        echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
+
+    # --- DÉTECTION DU TYPE DE COMMIT ET INCRÉMENT SÉMANTIQUE ---
+    - name: Determine version bump
+      id: bump
+      run: |
+        MSG="${{ github.event.head_commit.message }}"
+        CURRENT="${{ steps.read_version.outputs.version }}"
+
+        IFS='.' read -r MAJ MIN PAT <<< "$CURRENT"
+
+        if echo "$MSG" | grep -qi "major:"; then
+          MAJ=$((MAJ+1)); MIN=0; PAT=0
+        elif echo "$MSG" | grep -qi "feat:"; then
+          MIN=$((MIN+1)); PAT=0
+        elif echo "$MSG" | grep -qi "fix:"; then
+          PAT=$((PAT+1))
+        else
+          PAT=$((PAT+1))
+        fi
+
+        NEW="$MAJ.$MIN.$PAT"
+        echo "$NEW" > VERSION
+        echo "new_version=$NEW" >> $GITHUB_OUTPUT
+
+    - name: Commit VERSION update
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "actions@github.com"
+        git add VERSION
+        git commit -m "Auto bump version to ${{ steps.bump.outputs.new_version }}" || echo "No changes"
+        git push
+
     # --- MISE À JOUR AUTOMATIQUE DU CHANGELOG ---
     - name: Update CHANGELOG.md
       run: |
-        echo "## $(date +'%Y-%m-%d %H:%M') – Commit ${{ github.sha }}" >> CHANGELOG.md
+        echo "## Version ${{ steps.bump.outputs.new_version }} – $(date +'%Y-%m-%d %H:%M')" >> CHANGELOG.md
         echo "" >> CHANGELOG.md
         echo "### Synthèse téléosémantique" >> CHANGELOG.md
         echo "- Mise à jour cohérente avec l’évolution du dépôt." >> CHANGELOG.md
-        echo "- ${GITHUB_EVENT_HEAD_COMMIT_MESSAGE}" >> CHANGELOG.md
+        echo "- Commit : ${{ github.event.head_commit.message }}" >> CHANGELOG.md
         echo "" >> CHANGELOG.md
 
     - name: Commit CHANGELOG update
@@ -29,10 +67,10 @@ jobs:
         git config --global user.name "github-actions"
         git config --global user.email "actions@github.com"
         git add CHANGELOG.md
-        git commit -m "Update CHANGELOG.md for commit ${{ github.sha }}" || echo "Aucun changement"
+        git commit -m "Update CHANGELOG.md for version ${{ steps.bump.outputs.new_version }}" || echo "No changes"
         git push
 
-    # --- INSTALLATION TEXLIVE ---
+    # --- INSTALLATION TEXLIVE (AVEC MINTED) ---
     - name: Install TeX Live + pygments
       run: |
         sudo apt-get update
@@ -43,7 +81,7 @@ jobs:
           texlive-fonts-recommended \
           python3-pygments
 
-    # --- INSTALLATION ISABELLE ---
+    # --- INSTALLATION ISABELLE 2024 ---
     - name: Install Isabelle 2024
       run: |
         wget https://isabelle.in.tum.de/website-Isabelle2024/dist/Isabelle2024_linux.tar.gz
@@ -51,57 +89,62 @@ jobs:
         mv Isabelle2024 isabelle
         echo "$PWD/isabelle/bin" >> $GITHUB_PATH
 
-    # --- COMPILATION ISABELLE ---
-    - name: Isabelle build
+    # --- COMPILATION ISABELLE AVEC RAPPORT DÉTAILLÉ ---
+    - name: Isabelle build with detailed log
       run: |
+        set -o pipefail
+        # Si tu as un ROOT, on l’utilise, sinon on cible les .thy listés
         if [ -f ROOT ]; then
-          isabelle build -D .
+          isabelle build -D . | tee isabelle_build.log
         else
-          shopt -s nullglob
-          for thy in *.thy; do
-            isabelle build -b -d . "$thy" || true
+          # Compilation ciblée des fichiers .thy
+          FILES="mecanique_discret.thy methode_de_philippot.thy methode_spectral.thy postulat_carre.thy"
+          for thy in $FILES; do
+            if [ -f "$thy" ]; then
+              echo "=== Building $thy ===" | tee -a isabelle_build.log
+              isabelle build -b -d . "$thy" 2>&1 | tee -a isabelle_build.log
+            fi
           done
         fi
 
-    # --- COMPILATION LATEX ---
+    # --- COMPILATION LATEX AVEC MINTED ---
     - name: Compile LaTeX
       run: |
-        shopt -s nullglob
-        for file in *.tex; do
-          pdflatex -shell-escape -interaction=nonstopmode "$file" || true
-          pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+        FILES="geometrie_du_spectre_premier.tex geometry_prime_spectrum.tex mecanique_chaos_discret.tex philosophy_geometry_prime_number.tex postulat_univers_carre.tex teleosemantique_analogiste_spectre_premier.tex"
+        for file in $FILES; do
+          if [ -f "$file" ]; then
+            echo "=== Compiling $file ==="
+            pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+            pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+          fi
         done
 
-    # --- GÉNÉRATION DU TAG ---
-    - name: Generate version tag
-      id: version
+    # --- CRÉATION DU TAG ---
+    - name: Create tag
       run: |
-        TAG="v$(date +'%Y.%m.%d-%H%M%S')"
-        echo "tag=$TAG" >> $GITHUB_OUTPUT
-
-    # --- CRÉATION + PUSH DU TAG ---
-    - name: Create and push tag
-      run: |
-        git config --global user.name "github-actions"
-        git config --global user.email "actions@github.com"
-        git tag ${{ steps.version.outputs.tag }}
-        git push origin ${{ steps.version.outputs.tag }}
+        TAG="v-fos-${{ steps.bump.outputs.new_version }}"
+        git tag "$TAG"
+        git push origin "$TAG"
 
     # --- CRÉATION DE LA RELEASE ---
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: ${{ steps.version.outputs.tag }}
-        name: "Release ${{ steps.version.outputs.tag }}"
+        tag_name: "v-fos-${{ steps.bump.outputs.new_version }}"
+        name: "Release v-fos-${{ steps.bump.outputs.new_version }}"
         body: |
           Release générée automatiquement.
+          - Version : ${{ steps.bump.outputs.new_version }}
+          - Commit : ${{ github.event.head_commit.id }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # --- UPLOAD DES PDF ---
-    - name: Upload PDFs
+    # --- UPLOAD DES PDF + LOG ISABELLE ---
+    - name: Upload PDFs and Isabelle log
       uses: softprops/action-gh-release@v2
       with:
-        files: "*.pdf"
+        files: |
+          *.pdf
+          isabelle_build.log
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
