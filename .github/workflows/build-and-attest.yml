@@ -91,7 +91,7 @@ jobs:
     # --- COMPILATION LATEX ---
     - name: Compile LaTeX
       run: |
-        FILES="geometrie_du_spectre_premier.tex geometry_prime_spectrum.tex mecanique_chaos_discret.tex philosophy_geometry_prime_number.tex postulat_univers_carre.tex teleosemantique_analogiste_spectre_premier.tex"
+        FILES="geometrie_du_spectre_premier.tex geometry_prime_spectrum.tex mecanique_chaos_discret.tex philosophy_geometry_prime_number.tex philosophy_geometry_of_prime_number.tex postulat_univers_carre.tex teleosemantique_analogiste_spectre_premier.tex"
         for file in $FILES; do
           if [ -f "$file" ]; then
             echo "=== Compiling $file ==="
