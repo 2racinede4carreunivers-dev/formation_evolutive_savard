@@ -207,33 +207,30 @@ Les scripts concernés sont :
 
 - **postulat_carre.thy**  
   *Validation du chapitre « Le postulat de l’univers est au carré ». *
-
 ### Contenu de la mise à jour
 
 - Description complète de la **méthodologie à appliquer** pour reproduire les résultats des scripts de validation.  
 - Explications destinées à **faciliter les projets personnels** des utilisateurs souhaitant réutiliser ou adapter les méthodes.  
-- Clarification des étapes nécessaires pour **répliquer les démonstrations**, **exécuter les scripts**, et **comprendre la logique interne** des quatre méthodes.
+- Clarification des étapes nécessaires pour **répliquer les démonstrations**, **exécuter les scripts** et **comprendre la logique interne** des quatre méthodes.
 
 ### Licence
 
 L’utilisateur est invité à réutiliser et adapter cette méthodologie conformément aux permissions de la **licence Apache 2.0**.
 
 ---
-## [2026-03-20 06:41] Lancement officiel du dépôt évolutif
-[============== LANCEMENT OFFICIEL DU Projet =============]
 
+## [2026-03-20 06:41] Lancement officiel du dépôt évolutif  
+**LANCEMENT OFFICIEL DU PROJET**
 
 ### Ajouts apportés
 
-- Mise à jour majeure du **README.md** incluant :
-  - la définition téléosémantique du dépôt,
-  - la description de son rôle pour les recruteurs,
-  - l’explication de sa structure analogiste (loxodromie / orthodromie),
-  - la présentation du dépôt comme carte mentale, réseau neuronal et CV évolutif,
-  - l’intégration du concept synthétique où **la cause connaît son effet**,
+- Mise à jour majeure du **README.md**, incluant :  
+  - la définition téléosémantique du dépôt,  
+  - la description de son rôle pour les recruteurs,  
+  - l’explication de sa structure analogiste (loxodromie / orthodromie),  
+  - la présentation du dépôt comme carte mentale, réseau neuronal et CV évolutif,  
+  - l’intégration du concept synthétique où **la cause connaît son effet**,  
   - la jonction entre l’évolution du dépôt et les besoins futurs des organisations.
-
-
 
 ### Signification de cette mise à jour
 
@@ -250,61 +247,72 @@ Cette section marque officiellement le **début du projet évolutif**.
 
 **Vingt mars deux mille vingt-six — 06 h 41**  
 **Lancement officiel du dépôt évolutif**  
-`<<<<<..... Philippe Thomas Savard .....>>>>>`
+**Philippe Thomas Savard**
 
-## [2026-03-21] Mise a jour du document LaTeX
+---
 
-- Ajout d'une definition complete concernant l'analyse numerique metrique dans `geometrie_du_spectre_premier.tex`.
-- Correction et remplacement du tableau de la deuxieme etape de la methode de Philippot.
+## [2026-03-21] Mise à jour du document LaTeX
+
+- Ajout d’une définition complète concernant l’analyse numérique métrique dans `geometrie_du_spectre_premier.tex`.  
+- Correction et remplacement du tableau de la deuxième étape de la méthode de Philippôt.  
 - Harmonisation du contenu avec les sections existantes du document.
+
+---
+
 ## 2026-03-21 23:54 – Commit c53fa0a2f7e138301dc59e6b757a9743bdce6b10
 
 ### Synthèse téléosémantique
 - Mise à jour cohérente avec l’évolution du dépôt et sa fonction de carte mentale professionnelle.
-- 
+
+---
 
 ## 2026-03-22 00:06 – Commit 14ade1c45c75e7c14dc014db0b42e7f95dd7553f
 
 ### Synthèse téléosémantique
 - Mise à jour cohérente avec l’évolution du dépôt et sa fonction de carte mentale professionnelle.
-- 
+
+---
 
 ## 2026-03-22 00:13 – Commit 68c1bd11b585f9fdeb2a1b8796d16c0473e23996
 
 ### Synthèse téléosémantique
 - Mise à jour cohérente avec l’évolution du dépôt et sa fonction de carte mentale professionnelle.
-- 
+
+---
 
 ## 2026-03-22 00:19 – Commit 3942b3621186346d23cc2e0d6193090ebdf1f2a9
 
 ### Synthèse téléosémantique
 - Mise à jour cohérente avec l’évolution du dépôt et sa fonction de carte mentale professionnelle.
-- 
+
+---
 
 ## 2026-03-22 00:28 – Commit 1cd85c9dd424dd4ea39b0b1962749a13129972ec
 
 ### Synthèse téléosémantique
 - Mise à jour cohérente avec l’évolution du dépôt.
-- 
+
+---
+
 ## 2026-03-21 – Journée de corrections et d’améliorations
 
 ### Améliorations du dépôt
-- Ajout d’un paragraphe améliorant le script et le PDF `geometrie_du_spectre_premier.tex`.
-- Correction d’un tableau faisant partie de la méthode de Philippôt.
+- Ajout d’un paragraphe améliorant le script et le PDF `geometrie_du_spectre_premier.tex`.  
+- Correction d’un tableau faisant partie de la méthode de Philippôt.  
 - Ajustements généraux pour renforcer la cohérence géométrique et documentaire.
 
 ### Améliorations du workflow GitHub Actions
-- Mise en place d’une automatisation pour la mise à jour du CHANGELOG à chaque commit.
-- Début de l’automatisation de la gestion des futures releases du dépôt.
+- Mise en place d’une automatisation pour la mise à jour du CHANGELOG à chaque commit.  
+- Début de l’automatisation de la gestion des futures releases du dépôt.  
 - Les releases seront générées automatiquement par GitHub Actions à partir du workflow, sans intervention manuelle.
 
 ### Problème en cours
-- Une erreur persistante liée au tag obligatoire pour chaque release empêche la compilation complète.
-- Le nom du tag généré automatiquement n’est pas encore correctement intégré dans le workflow `.yml`.
-- Les fichiers générés restent intacts malgré l’erreur.
+- Une erreur persistante liée au tag obligatoire pour chaque release empêche la compilation complète.  
+- Le nom du tag généré automatiquement n’est pas encore correctement intégré dans le workflow `.yml`.  
+- Les fichiers générés restent intacts malgré l’erreur.  
 - La correction du système de génération automatique des tags est toujours en développement.
 
 ### To‑Do
-- Finaliser la gestion automatique des tags dans GitHub Actions.
-- Stabiliser la génération des releases automatiques.
+- Finaliser la gestion automatique des tags dans GitHub Actions.  
+- Stabiliser la génération des releases automatiques.  
 - Vérifier la cohérence entre le tag généré et celui utilisé par l’action `softprops/action-gh-release`.
