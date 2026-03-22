@@ -286,4 +286,25 @@ Cette section marque officiellement le **début du projet évolutif**.
 ### Synthèse téléosémantique
 - Mise à jour cohérente avec l’évolution du dépôt.
 - 
+## 2026-03-21 – Journée de corrections et d’améliorations
 
+### Améliorations du dépôt
+- Ajout d’un paragraphe améliorant le script et le PDF `geometrie_du_spectre_premier.tex`.
+- Correction d’un tableau faisant partie de la méthode de Philippôt.
+- Ajustements généraux pour renforcer la cohérence géométrique et documentaire.
+
+### Améliorations du workflow GitHub Actions
+- Mise en place d’une automatisation pour la mise à jour du CHANGELOG à chaque commit.
+- Début de l’automatisation de la gestion des futures releases du dépôt.
+- Les releases seront générées automatiquement par GitHub Actions à partir du workflow, sans intervention manuelle.
+
+### Problème en cours
+- Une erreur persistante liée au tag obligatoire pour chaque release empêche la compilation complète.
+- Le nom du tag généré automatiquement n’est pas encore correctement intégré dans le workflow `.yml`.
+- Les fichiers générés restent intacts malgré l’erreur.
+- La correction du système de génération automatique des tags est toujours en développement.
+
+### To‑Do
+- Finaliser la gestion automatique des tags dans GitHub Actions.
+- Stabiliser la génération des releases automatiques.
+- Vérifier la cohérence entre le tag généré et celui utilisé par l’action `softprops/action-gh-release`.
