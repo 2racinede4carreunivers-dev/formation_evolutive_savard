@@ -1,4 +1,4 @@
-name: Build + Changelog + Release automatique
+name: Build + Release automatique (sans commit)
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
         if [ ! -f VERSION ]; then echo "1.0.0" > VERSION; fi
         echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
 
-    # --- DÉTECTION DU TYPE DE COMMIT ET INCRÉMENT SÉMANTIQUE ---
+    # --- CALCUL DE LA NOUVELLE VERSION (major/feat/fix) ---
     - name: Determine version bump
       id: bump
       run: |
@@ -41,36 +41,19 @@ jobs:
         fi
 
         NEW="$MAJ.$MIN.$PAT"
-        echo "$NEW" > VERSION
         echo "new_version=$NEW" >> $GITHUB_OUTPUT
 
-    - name: Commit VERSION update
+    # --- GÉNÉRATION D'UN CHANGELOG TEMPORAIRE ---
+    - name: Generate temporary CHANGELOG
+      id: changelog
       run: |
-        git config --global user.name "github-actions"
-        git config --global user.email "actions@github.com"
-        git add VERSION
-        git commit -m "Auto bump version to ${{ steps.bump.outputs.new_version }}" || echo "No changes"
-        git push
+        cp CHANGELOG.md CHANGELOG_TEMP.md
 
-    # --- MISE À JOUR AUTOMATIQUE DU CHANGELOG ---
-    - name: Update CHANGELOG.md
-      run: |
-        echo "## Version ${{ steps.bump.outputs.new_version }} – $(date +'%Y-%m-%d %H:%M')" >> CHANGELOG.md
-        echo "" >> CHANGELOG.md
-        echo "### Synthèse téléosémantique" >> CHANGELOG.md
-        echo "- Mise à jour cohérente avec l’évolution du dépôt." >> CHANGELOG.md
-        echo "- Commit : ${{ github.event.head_commit.message }}" >> CHANGELOG.md
-        echo "" >> CHANGELOG.md
+        echo "" >> CHANGELOG_TEMP.md
+        echo "## Version ${{ steps.bump.outputs.new_version }} — $(date +'%Y-%m-%d %H:%M')" >> CHANGELOG_TEMP.md
+        echo "- ${{ github.event.head_commit.message }}" >> CHANGELOG_TEMP.md
 
-    - name: Commit CHANGELOG update
-      run: |
-        git config --global user.name "github-actions"
-        git config --global user.email "actions@github.com"
-        git add CHANGELOG.md
-        git commit -m "Update CHANGELOG.md for version ${{ steps.bump.outputs.new_version }}" || echo "No changes"
-        git push
-
-    # --- INSTALLATION TEXLIVE (AVEC MINTED) ---
+    # --- INSTALLATION TEXLIVE ---
     - name: Install TeX Live + pygments
       run: |
         sudo apt-get update
@@ -81,7 +64,7 @@ jobs:
           texlive-fonts-recommended \
           python3-pygments
 
-    # --- INSTALLATION ISABELLE 2024 ---
+    # --- INSTALLATION ISABELLE ---
     - name: Install Isabelle 2024
       run: |
         wget https://isabelle.in.tum.de/website-Isabelle2024/dist/Isabelle2024_linux.tar.gz
@@ -89,8 +72,8 @@ jobs:
         mv Isabelle2024 isabelle
         echo "$PWD/isabelle/bin" >> $GITHUB_PATH
 
-    # --- COMPILATION ISABELLE AVEC RAPPORT DÉTAILLÉ ---
-    - name: Isabelle build with detailed log
+    # --- COMPILATION ISABELLE ---
+    - name: Isabelle build
       run: |
         set -o pipefail
         if [ -f ROOT ]; then
@@ -117,16 +100,13 @@ jobs:
           fi
         done
 
-    # --- CRÉATION DU TAG + RELEASE + UPLOAD DES FICHIERS ---
-    - name: Create GitHub Release with assets
+    # --- CRÉATION DU TAG + RELEASE + UPLOAD ---
+    - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
         tag_name: "v-fos-${{ steps.bump.outputs.new_version }}"
         name: "Release v-fos-${{ steps.bump.outputs.new_version }}"
-        body: |
-          Release générée automatiquement.
-          - Version : ${{ steps.bump.outputs.new_version }}
-          - Commit : ${{ github.event.head_commit.id }}
+        body_path: CHANGELOG_TEMP.md
         files: |
           *.pdf
           isabelle_build.log
