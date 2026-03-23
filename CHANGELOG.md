@@ -337,3 +337,11 @@ Ce commit corrige une désynchronisation entre la branche locale et la branche d
 - Mise à jour cohérente avec l’évolution du dépôt.
 - Commit : chore: suppression du workflow build-and-attest123.yml
 
+### Note de mise a jour
+
+La mise a jour actuelle conclut la journee de travail sur le workflow avec une derniere compilation de certification. Cette compilation automatique genere maintenant une release a chaque commit manuel, assurant ainsi une disponibilite immediate des PDF compiles.
+
+Le workflow GitHub Actions automatise desormais l'ensemble du processus : compilation des fichiers LaTeX (.tex) en PDF, certification de la compilation, creation de la release et ajout automatique d'une note dans le CHANGELOG a chaque commit pousse vers le depot.
+
+Le fichier README a egalement ete mis a jour afin d'expliquer en detail le fonctionnement du fichier `.yml`, du workflow, et du processus complet de generation des PDF et des releases.
+
