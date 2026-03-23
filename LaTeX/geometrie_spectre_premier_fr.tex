@@ -396,8 +396,21 @@ Cette section présente une analyse numérique métrique en lien avec la fonctio
 \end{figure}
 
 \begin{resume}
-\textbf{Visualisez} un monticule de granulats, comme celui qu'on analyse en granulométrie. Imaginez que chaque grain, même les plus infimes poussières, porte un nombre distinct. Ce monticule représente l'ensemble des nombres de zéro à l'infini. L'analyse numérique métrique fonctionne comme un tamisage mathématique de ces nombres
-ou les nombre premiers et composés ces deux entitées distinct justifie la substitution effectué dans la suite B qui est toujours a la positon du 6ième termes.
+L'analyse numerique metrique est une creation originale de l'auteur. Inspiree par un parallele avec l'analyse granulometrique, cette approche constitue le fondement de sa methode : une transposition conceptuelle ou la structure des tamis devient un outil pour comprendre la distribution des grandeurs numeriques.
+
+Visuellement, l'auteur -- Philippe Thomas Savard -- represente cette idee par une serie de parallelogrammes successifs. Une droite centrale traverse chacun d'eux, tandis que deux autres droites, tangentes aux sommets formes par les angles obtus, encadrent la figure. Dans une analyse granulometrique classique, chaque tamis impose une limite de passant correspondant a une taille de maille precise. La masse retenue sur chaque tamis doit respecter une valeur determinee, et l'ensemble des resultats peut etre represente sous forme de courbe ou de zone ombree definissant les limites acceptables.
+
+Dans l'analyse numerique metrique, cette zone ombree correspond a l'espace compris entre les deux droites tangentes aux sommets obtus des parallelogrammes. Ces sommets representent, en alternance, la position de la suite A et de la suite B. Comme nous le verrons plus loin, le nombre de termes dans ces deux suites determine la position du nombre premier associe au rapport spectral 1/2. Cette alternance est analogue au produit alternatif ou le perimetre du carre A multiplie par le diametre du carre B est egal au diametre du carre A multiplie par le perimetre du carre B.
+
+Chaque parallelogramme possede deux sommets obtus, et chacun de ces sommets correspond successivement a la position de la suite A ou de la suite B. Cette alternance structure l'ensemble de la progression.
+
+Lorsqu'une analyse granulometrique est effectuee sur un sol de calibre 0 mm a 20 mm, la serie de tamis utilisee est simple : tous les tamis sont inferieurs ou egaux a 20 mm. En revanche, pour un sol de calibre 0 mm a 56 mm, deux types de sols sont presents : un premier de 0 mm a 20 mm, et un second jusqu'a 56 mm. Dans ce cas, une substitution doit etre effectuee dans la serie de tamis afin d'eviter que l'operateur n'ait l'impression que les granulats "remontent" les tamis. Il faut donc remplacer un tamis de la serie 0--20 mm par celui de la serie 0--56 mm situe immediatement au-dessus.
+
+L'auteur note egalement une analogie interessante observee dans le systeme de numeration grecque : la lettre zeta vaut 7 bien qu'elle occupe la sixieme position, en raison de l'ancienne presence du digamma entre l'epsilon et le zeta (reference : Encyclopedie libre Wikipedia, lettre grecque Zeta). Cette observation souleve une question similaire pour les nombres premiers, qui appartiennent a l'ensemble des entiers mais se distinguent des nombres composes. Deux types de nombres entrent donc en jeu.
+
+Pour aborder l'enigme de Riemann, l'auteur imagine un monticule de cailloux plus haut que lui-meme, ou chaque caillou -- meme les poussieres -- porte un nombre, de 0 a l'infini. L'echantillon representatif utilise est constitue des dix chiffres 0 a 9, qui permettent de composer tous les nombres possibles. Lors du prelevement, la circonference et la hauteur du monticule sont mesurees. Grace a la normalisation des tamis et a l'espacement constant entre eux, il devient alors possible de retrouver la position exacte de chaque caillou dans le monticule.
+
+L'analyse numerique metrique transpose cette logique : une serie de parallelogrammes se succedent, chacun defini par deux petites diagonales opposees. Ces diagonales entretiennent entre elles un rapport constant de 1/2, de l'interieur vers l'exterieur. En trois dimensions, cette structure devient une serie de paires de cubes, formant un volume analogue a un tesseract -- un hypercube en deformation continue.
 \end{resume}
 
 \subsection{Analyse numérique métrique en 3 dimensions}
@@ -753,26 +766,22 @@ $\frac{1}{1536}$ & $\frac{1}{768}$ & $\frac{1}{512}$ & $\frac{1}{256}$ & $\frac{
 % TABLEAUX METHODE DE PHILIPPÔT - =ETAPES 2 ET 3 (CORRECTION AJOUTEE)
 % ============================================================================
 
-\subsection{Methode de Philippôt -- Tableaux des Etapes 2 et 3}
+\subsection{Methode de Philippot -- Tableau des Etapes 2 et 3}
 \begin{center}
 \scriptsize
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-\textbf{Pos.} & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & \textbf{Somme} \\
+11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & Pos. & Som. \\
 \hline
-& & & & & & & & \(\frac{1}{6}\) & \(\frac{1}{3}\) & \(\frac{1}{2}\) & & = 1 \\
+ &  &  &  &  &  &  &  & 1/12 & + 1/6 & + 1/4 &  & = 1 - 1/2 \\
 \hline
-& & & & & & & \(\frac{1}{12}\) & \(\frac{1}{6}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
+ &  &  &  &  &  &  & 1/24 & + 1/12 & + 1/8 & + 1/2 &  & = 1 - 1/4 \\
 \hline
-& & & & & & \(\frac{1}{24}\) & \(\frac{1}{12}\) & \(\frac{1}{8}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
+ &  &  &  &  &  & 1/48 & + 1/24 & + 1/16 & + 1/4 & + 1/2 &  & = 1 - 1/8 \\
 \hline
-& & & & & \(\frac{1}{48}\) & \(\frac{1}{24}\) & \(\frac{1}{16}\) & \(\frac{1}{8}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
+ &  &  &  &  & 1/96 & + 1/48 & + 1/32 & + 1/8 & + 1/4 & + 1/2 &  & = 1 - 1/16 \\
 \hline
-& & & & \(\frac{1}{96}\) & \(\frac{1}{48}\) & \(\frac{1}{32}\) & \(\frac{1}{16}\) & \(\frac{1}{8}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
-\hline
-& & & \(\frac{1}{192}\) & \(\frac{1}{96}\) & \(\frac{1}{64}\) & \(\frac{1}{32}\) & \(\frac{1}{16}\) & \(\frac{1}{8}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
-\hline
-& & \(\frac{1}{384}\) & \(\frac{1}{192}\) & \(\frac{1}{128}\) & \(\frac{1}{64}\) & \(\frac{1}{32}\) & \(\frac{1}{16}\) & \(\frac{1}{8}\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & & = 1 \\
+ &  &  &  & 1/192 & + 1/96 & + 1/64 & + 1/16 & + 1/8 & + 1/4 & + 1/2 &  & = 1 - 1/32 \\
 \hline
 \end{tabular}
 \end{center}
