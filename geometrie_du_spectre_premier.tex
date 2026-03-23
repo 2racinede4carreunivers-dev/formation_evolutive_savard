@@ -195,9 +195,9 @@
 
 \date{
     \vspace{0.5cm}
-    Date originale : 22 mars 2026\\
+    Date originale : 8 novembre 2025\\
     Révision : 18 janvier 2026\\
-    Compilation HOL : Mars 2026
+    Compilation HOL : Février 2026
 }
 
 % ============================================================================
@@ -253,22 +253,21 @@ Très jeune, l'auteur s'intéressa à la distribution des nombres entiers. Il te
     \item $1 + 800 = 801$
 \end{itemize}
 
-Il observa que les rapports entre ces ajouts donnaient tous $\frac{1}{2}$, lorsque mis en relation les valeurs ajoutés sont comparés pour leurs rapports entre eux? :
+Il observa que les rapports entre ces ajouts donnaient tous $\frac{1}{2}$ :
 \[
 \frac{50}{100} = \frac{100}{200} = \frac{200}{400} = \frac{400}{800} = \frac{1}{2}
 \]
 
 \begin{resume}
-\textbf{Visualisez} cette decouverte comme une echelle dont chaque barreau se situe exactement a mi-chemin entre le precedent et le suivant. Cette fraction constante, 1/2, agit alors comme un fil conducteur reliant l'ensemble des nombres entiers.
+\textbf{Visualisez} cette découverte comme une échelle où chaque barreau est exactement à mi-chemin entre le précédent et le suivant. Cette fraction constante $\frac{1}{2}$ apparaît comme un fil conducteur reliant tous les nombres entiers entre eux.
 \end{resume}
 
-Plus tard, au debut du secondaire, l'auteur decouvrit les nombres premiers. Un nombre premier est un entier divisible uniquement par 1 et par lui-meme. Les dix premiers nombres premiers sont : 2, 3, 5, 7, 11, 13, 17, 19, 23 et 29.
+Plus tard, au début du secondaire, l'auteur découvrit les nombres premiers. Un nombre premier est divisible uniquement par 1 et par lui-même. Les dix premiers nombres premiers sont : 2, 3, 5, 7, 11, 13, 17, 19, 23 et 29.
 
-Ce petit exercice de jeunesse, qui lui avait permis d'entrevoir l'existence d'un rapport inferieur a l'unite entre deux entiers, lui revint en memoire lorsqu'il appliqua la meme idee a une question nee de sa curiosite pour les mathematiques. Cette question, qu'il decouvrit par hasard au fil de ses lectures, etait celle de l'hypothese de Riemann. Il en fut immediatement fascine, se rappelant l'experience intuitive qu'il avait elaboree dans son enfance.
+Ce souvenir resta enfoui pendant près de vingt ans, jusqu'en 2016. L'auteur reprit l'expérience avec les nombres premiers de 0 à 109, en excluant 2 et 5. Il constata que 66,66\% des nombres ainsi générés étaient premiers en effectuant +/- 50, 100, 200,
+ 400 et 800 a ces nombres. De plus en plus de ce nombre élevé de nombres premiers ainsi dévoilé. il avait tous entre eux 1/2 lorsque placés en relation.
 
-Apres avoir termine la lecture de l'article consacre a Bernhard Riemann, il se demanda si cette enigme meritait reellement l'attention que l'on lui porte. Cette interrogation le poussa a reflechir plus profondement. Il constata que les zeros non triviaux de la fonction zeta de Riemann — au coeur meme de l'hypothese — sont presents en quantite infinie. Puisque ces zeros determinent la repartition des nombres premiers, il lui sembla naturel que les parties reelles auxquelles l'hypothese fait reference ne puissent etre en nombre inferieur a cette infinite de zeros.
-
-C'est ainsi qu'il mit au point une methode, la \emph{methode de Philippot}, sujet central du present document et dont une validation formelle via Isabelle est egalement incluse. Cette methode fut concue pour que les operations iteratives, identiques d'une etape a l'autre, permettent de determiner une infinite de fois le rapport 1/2. S'il parvenait a demontrer qu'il est impossible d'obtenir cette infinite de valeurs, alors, par l'absurde, il infirmerait l'hypothese de Riemann : en effet, les parties reelles ne sauraient etre presentes en quantite moindre que les zeros non triviaux auxquels elles sont liees.
+C'est à cette époque qu'il commença à s'intéresser à l'hypothèse de Riemann et à se poser la question fondamentale :
 
 \begin{center}
 \fbox{\parbox{0.8\textwidth}{
@@ -291,20 +290,12 @@ C'est ainsi qu'il mit au point une methode, la \emph{methode de Philippot}, suje
 \end{figure}
 
 \begin{resume}
-\textbf{Imaginez} la figure de la fonction Zeta de Philippot presente ci-dessus. Il s'agit d'une representation graphique composee de plusieurs sections distinctes. La premiere section remarquable est formee des quatre cubes de couleur verte. Ces quatre cubes constituent en realite un seul volume, traverse par un losange rouge selon un angle diedre. Autour de ce volume central se trouvent quatre pyramides, en mauve et en turquoise, orientees dans quatre directions opposees : vers la gauche, la droite, le haut et le bas. Chaque orientation est legerement decalee par rapport a la face avant et a la face arriere des cubes. Ces pyramides sont elles-memes composees d'une serie de carres correspondant a des divisions situees a des positions precises.
-
-L'origine de la fonction se trouve au centre des trois axes (x, y, z). En poursuivant l'observation de l'illustration, on remarque une zone quadrillee, egalement en mauve et en turquoise. Ce maillage traverse diagonalement les quatre cubes en passant par leur diametre lateral. Cette section correspond a l'endroit exact ou se situe l'analyse numerique metrique. Nous verrons dans ce document que les nombres premiers associes aux rapports spectraux sont determines a l'aide de deux suites, appelees A et B. La quantite de termes dans chacune de ces suites determine la position du nombre premier pour le rapport spectral 1/2. Ce rapport apparaitra de maniere explicite dans la suite du document, qui inclut une validation generalisee a l'ensemble des nombres premiers P.
-
-Pour determiner l'ensemble des nombres premiers et demontrer le rapport spectral commun, une suite d'operations doit etre appliquee. Les differents carres inclus dans les pyramides jouent le role de matrices de convolution. Les suites A et B sont definies ainsi : pour le premier nombre premier, soit 2, la suite contient un terme; pour le deuxieme, 3, elle contient deux termes; pour le troisieme, 5, trois termes; et ainsi de suite. Le meme principe s'applique aux nombres premiers negatifs : pour -2, il y a -1 terme; pour -3, -2 termes; pour -5, -3 termes, etc. Cette affirmation est validee pour le rapport 1/2. Les autres rapports spectraux presentent quelques variations, et deux exemples sont fournis et detailles dans la validation formalisee et generalisee a l'ensemble des nombres premiers par Isabelle, incluse dans ce document.
-
-Nous disions que les carres inclus dans les pyramides servent de matrices pour une serie de convolutions. Les resultats de ces convolutions sont obtenus par projection orthogonale d'un hypercube sur une surface quadrillee. Ces convolutions suivent le rythme de la rotation et du repli de l'hypercube, qui se replie sur lui-meme tout en tournant, permettant ainsi la projection orthogonale sur la surface. Sur cette surface, on observe une serie de paires de carres de meme dimension qui composent l'analyse numerique metrique. Une serie de parallelogrammes est inscrite dans ces carres, et c'est au sommet des angles obtus de ces parallelogrammes que se trouvent, en alternance, les sommes des suites A et B.
-
-Pour des raisons de clarte graphique, seules huit paires de carres sont representees dans l'illustration. Il faut toutefois retenir que cette serie comporte une infinite de paires, qui convergent vers la jonction des trois droites formant l'axe z. Cet axe traverse les parallelogrammes par leur centre, tandis que les deux autres axes se situent de part et d'autre. L'analyse numerique metrique ainsi construite permet d'observer, entre les petites diagonales des parallelogrammes, des trapezes dont les rapports d'aires sont exactement 1/2 d'un trapeze au suivant. La demonstration de ce calcul sera presentee dans les prochaines sections, accompagnee d'une representation isolee de l'analyse numerique metrique dans une illustration dediee.
+\textbf{Imaginez} un hypercube (tesseract) -- une figure géométrique à quatre dimensions -- tournant perpétuellement sur lui-même dans l'espace tridimensionnel. Cette rotation crée des projections dynamiques qui, selon l'auteur, encodent la distribution des nombres premiers.
 \end{resume}
 
 \subsection{Mouvement du plan cartésien et Tesseract}
 
-Le produit entre le périmètre d'un carré A et la mesure du diamètre d'un carré B est égal au produit du périmètre du carré B et de la mesure du diamètre du carré A. La figure de l'hypercube au repli type de la figure est démontré a l'aide de ce produit alternatif.
+En effet, le produit entre le périmètre d'un carré A et la mesure du diamètre d'un carré B est égal au produit du périmètre du carré B et de la mesure du diamètre du carré A. La figure de l'hypercube au repli type de la figure est démontré a l'aide de ce produit alternatif.
 Le produit entre le diamètre du carré A par le périmètre du carré B égale au produit du diamètre du carré B par le périmètre du carré A, donne naissance a l'analyse numérique métrique qui sera détaillé dans ce document plus en profondeur. Deux produit alternatifs distincts
 définissent le replient typique de l'hypercube? Le produit alternatif symétrique et le produit alternatif asymétrique. Les propriétée du produit alternatif assymétrique sont différentes de celui symétrique. Leproduit alternatif asymétrique pas du résultat du produit entre deux carrés,
 mais bien le fruit du produit résultant de la déformation de l'hypercube formant un rectangle? Ce rectangle est divisé en sections. 4 sections différentes dont le produit des aires diagonalement opposé forme le produit alternatif. Ces aires comme le démontre l'exemple présenté dans le
@@ -422,7 +413,7 @@ Pour aborder l'enigme de Riemann, l'auteur imagine un monticule de cailloux plus
 L'analyse numerique metrique transpose cette logique : une serie de parallelogrammes se succedent, chacun defini par deux petites diagonales opposees. Ces diagonales entretiennent entre elles un rapport constant de 1/2, de l'interieur vers l'exterieur. En trois dimensions, cette structure devient une serie de paires de cubes, formant un volume analogue a un tesseract -- un hypercube en deformation continue.
 \end{resume}
 
-\subsection{Analyse numérique métrique mesure de la droite du haut.}
+\subsection{Analyse numérique métrique en 3 dimensions}
 
 \begin{figure}[H]
     \centering
@@ -431,8 +422,6 @@ L'analyse numerique metrique transpose cette logique : une serie de parallelogra
     \label{fig:anm_haut}
 \end{figure}
 
-\subsection{ Analyse numérique métrique, mesure de la droite du centre.}
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{analyse_numerique_metrique_centre.png}
@@ -440,7 +429,7 @@ L'analyse numerique metrique transpose cette logique : une serie de parallelogra
     \label{fig:anm_centre}
 \end{figure}
 
-\begin{mydef}{Définition Zêta}
+\begin{mydef}{Le Digamma}
 Dans le système de numération grecque, le Zêta vaut 7, bien qu'il occupe la sixième position. Ceci est dû à l'ancienne existence du Digamma, situé entre l'Epsilon et le Zêta.
 
 \textit{(Définition tirée de l'encyclopédie libre Wikipédia)}
@@ -448,7 +437,7 @@ Dans le système de numération grecque, le Zêta vaut 7, bien qu'il occupe la s
 Cette particularité -- une valeur qui ne correspond pas à la position -- rejoint l'idée de substitution évoquée dans l'analyse granulométrique qui comme pour la méthode lié au sol permet le tamisage d'un sol composé de deux granulat permet du a la substitution dans la suite B de comparer les nombres composés et les nombres premiers.
 \end{mydef}
 
-\subsection{Géométrie des suites. Aires des trapèzes.}
+\subsection{Géométrie des suites}
 
 \begin{figure}[H]
     \centering
