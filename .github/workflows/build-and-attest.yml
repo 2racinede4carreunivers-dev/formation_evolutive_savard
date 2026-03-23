@@ -43,6 +43,11 @@ jobs:
         NEW="$MAJ.$MIN.$PAT"
         echo "new_version=$NEW" >> $GITHUB_OUTPUT
 
+    # --- MISE À JOUR AUTOMATIQUE DU FICHIER VERSION ---
+    - name: Update VERSION file
+      run: |
+        echo "${{ steps.bump.outputs.new_version }}" > VERSION
+
     # --- GÉNÉRATION D'UN CHANGELOG TEMPORAIRE ---
     - name: Generate temporary CHANGELOG
       id: changelog
