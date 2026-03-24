@@ -86,6 +86,141 @@ Le fichier détaille notamment :
 
 ---
 
+## 7. Mécanique harmonique du chaos discret
+
+Ce chapitre formalise la **mécanique harmonique du chaos discret**, un système géométrique et matriciel structuré en trois parties :
+
+### A. Axiomatisation géométrique
+- Carrés emboîtés de côté \(1.5^n\).
+- Triangle inscrit dépendant d’un nombre premier \(p\).
+- Rapport fondamental demi‑base / hauteur = \(\sqrt{p}\).
+- Angle associé : \(\theta(p) = \arctan(\sqrt{p})\).
+- Définition et invariance de l’unité géométrique \(U(p) = \sqrt{p} + 1\).
+
+### B. Cardan sans blocage
+- Construction polaire d’un cardan géométrique.
+- Angles structurants : 60°, 75°, 45°.
+- Longueurs internes définies formellement.
+- Points du cardan utilisés pour la structure matricielle.
+
+### C. Matrice à dérivée première
+- Définition des coefficients C1…C9 et des lignes R1…R3.
+- Matrice M1 (mesures du plan).
+- Matrice M2 (matrice de transition).
+- Version simplifiée basée sur des nombres premiers.
+- Introduction de l’inconnue unique \(u = \sqrt{3.375}\).
+- Facteur trigonométrique alternatif lié à \(1/\sqrt{p}\).
+
+### Documents associés
+- Isabelle/HOL : [`mecanique_discret.thy`](./mecanique_harmonique_chaos_discret/mecanique_discret.thy)  
+- LaTeX : [`mecanique_discret.tex`](./mecanique_harmonique_chaos_discret/mecanique_discret.tex)
+
+Ce chapitre constitue un élément central de la théorie **L’univers est au carré**, reliant géométrie, trigonométrie, nombres premiers et structures matricielles.
+
+
+## 8. Postulat de l’Univers Carré
+
+Ce chapitre formalise le **postulat du carré unifié**, une structure reliant rectangles, carrés, polygones et nombres premiers au sein de la théorie **L’univers est au carré**.
+
+### 1. Postulat carré et nombres premiers
+- Définition des surfaces :  
+  - \(S_S\) (surface totale),  
+  - \(S_F\) (surface carrée interne),  
+  - \(S_C\) (surface complémentaire).
+- Définition des diagonales : \(d_S\), \(d_F\), \(d_C\).
+- Unité associée au nombre premier :  
+  
+
+\[
+  unit_p = \sqrt{p} + 1
+  \]
+
+
+- Définition de l’indice \(k\) via la liste \([2 ..< p+1]\).
+- Équation centrale du postulat :  
+  
+
+\[
+  (diag \cdot \sqrt{unit_p})^2 = k \cdot area + h^2
+  \]
+
+
+- Deux rapports fondamentaux :  
+  - rapport hauteur/côté : \(h/s = \sqrt{p} + 1\),  
+  - rapport tronqué : \(t/s = \sqrt{p}\).
+
+### 2. Rectangle carré : équivalence
+- Définition de l’aire d’un rectangle et d’un carré.
+- Condition d’équivalence :  
+  
+
+\[
+  w \cdot h = s^2
+  \]
+
+
+
+### 3. Axiomatisation du polygone carré
+- Trois équations fondamentales :  
+  - ratio de hauteur,  
+  - ratio tronqué,  
+  - équation du postulat.  
+- Définition d’un **polygone carré** comme satisfaction simultanée des trois équations.
+
+### 4. Exemple formel pour \(p = 3\)
+- Vérification symbolique des trois rapports et de la diagonale tronquée.
+- Définition de l’aire associée.
+
+### Documents associés
+- Isabelle/HOL : [`postulat_carre.thy`](./postulat_carre/postulat_carre.thy)  
+- LaTeX : [`postulat_carre.tex`](./postulat_carre/postulat_carre.tex)
+
+Ce chapitre établit la structure mathématique du **postulat carré**, reliant surfaces, diagonales, rapports géométriques et nombres premiers dans la théorie *L’univers est au carré*.
+
+
+## 6. Espace de Philippôt
+
+Le chapitre *Espace de Philippôt* constitue le troisième pilier de la théorie unifiée **L’univers est au carré**.  
+Il s’ajoute aux deux méthodes fondatrices — la méthode de Philippôt et la méthode spectrale — et introduit une nouvelle structure conceptuelle permettant d’étendre la géométrie du spectre des nombres premiers.
+
+Ce chapitre repose sur deux fichiers principaux :
+
+- `espace_philippot.thy`  
+  → Formalisation Isabelle/HOL de la structure de l’espace de Philippôt, de ses axiomes et de ses propriétés internes.
+
+- `espace_philippot.tex`  
+  → Document LaTeX décrivant les fondements conceptuels, les définitions, les exemples et les interprétations géométriques associées.
+
+### Objectifs du chapitre
+
+L’espace de Philippôt vise à :
+
+- introduire une structure géométrique complémentaire aux suites spectrales ;
+- définir un espace conceptuel permettant de relier les rapports spectraux aux transformations internes de la théorie ;
+- proposer une extension naturelle de la méthode spectrale, en intégrant des propriétés topologiques et dynamiques ;
+- offrir un cadre unifié pour l’interprétation des valeurs rationnelles, des rapports spectraux et des comportements asymptotiques.
+
+### Rôle dans la théorie unifiée
+
+L’espace de Philippôt agit comme un **espace de cohérence** entre :
+
+- les suites rationnelles de la méthode de Philippôt ;
+- les rapports spectraux de la méthode spectrale ;
+- les transformations internes de la théorie *L’univers est au carré*.
+
+Il permet d’exprimer ces trois composantes dans un cadre unique, cohérent et formellement vérifiable.
+
+### Intégration au dépôt
+
+Le chapitre est intégré dans la structure existante du projet :
+
+- les fichiers `.thy` sont validés automatiquement par Isabelle/HOL ;
+- les fichiers `.tex` sont compilés automatiquement en PDF ;
+- le chapitre est inclus dans les documents finaux du dépôt.
+
+Ce chapitre constitue une extension majeure du projet et renforce la cohérence globale de la théorie.
+
+
 ## 4. Documents LaTeX
 
 Deux documents LaTeX (français et anglais) accompagnent les scripts Isabelle/HOL. Ils présentent :
@@ -110,36 +245,49 @@ Ce dépôt contient la formalisation Lean de la fonction zêta, des L‑fonction
 
 ---
 
-## Certification de compilation
+## Certification continue (CI)
 
-![Isabelle/HOL](https://img.shields.io/badge/Isabelle2025--2-Build%20Passing-brightgreen)
-![LaTeX](https://img.shields.io/badge/LaTeX-PDF%20OK-brightgreen)
+Depuis mars 2026, la compilation du dépôt est entièrement automatisée grâce au workflow GitHub Actions intégré au projet.
 
-**État de certification :**  
-Tous les fichiers Isabelle/HOL et LaTeX de ce dépôt ont été compilés avec succès  
-le **3 mars 2026**, sous l’environnement suivant :
+### Fonctionnement de la certification
 
-- **Isabelle2025‑2** (`isabelle build -D .`)
-- **MiKTeX** (`pdflatex`)
+À **chaque commit manuel** poussé vers le dépôt :
 
-Cette certification atteste uniquement que la version officielle du dépôt compile à cette date.
+1. Isabelle/HOL compile automatiquement l’ensemble des fichiers `.thy` du projet, incluant :
+   - `methode_de_philippot.thy`
+   - `methode_spectral.thy`
+   - `espace_philippot.thy`
+   - ainsi que tous les modules associés.
 
-## Developer Certificate of Origin (DCO)
+2. MiKTeX compile automatiquement tous les fichiers LaTeX `.tex`, incluant :
+   - les documents principaux,
+   - les annexes,
+   - les chapitres additionnels,
+   - `espace_philippot.tex`.
 
-Ce dépôt utilise le **Developer Certificate of Origin (DCO)** afin de garantir que toutes les contributions respectent les droits d’auteur et les conditions de la licence.
+3. Le workflow vérifie :
+   - la validité logique des fichiers Isabelle/HOL,
+   - la génération correcte des PDF,
+   - l’absence d’erreurs de compilation.
 
-En soumettant une contribution (commit, pull request ou modification), vous affirmez que :
+### Garantie de stabilité
 
-- votre contribution est votre travail original **ou** vous avez le droit légal de la soumettre (par exemple, autorisation de votre employeur) ;
-- vous acceptez que votre contribution soit distribuée sous la **licence Apache 2.0** du projet ;
-- vous comprenez que vous êtes **entièrement responsable** de vos modifications et de leurs effets ;
-- vous acceptez que l’auteur principal du dépôt ne fournit **aucune garantie** et n’assume **aucune responsabilité** concernant les versions modifiées par des tiers.
+Cette certification continue assure que :
 
-Chaque commit doit inclure une ligne de signature DCO :
+- **chaque commit** du dépôt est garanti compilable ;
+- les fichiers `.thy` sont toujours logiquement valides ;
+- les documents LaTeX sont toujours générés sans erreur ;
+- les chapitres nouveaux (dont *Espace de Philippôt*) sont automatiquement intégrés dans le pipeline.
 
+### Environnement de compilation
 
-Pour plus d’informations, consultez le texte officiel du DCO :  
-https://developercertificate.org/
+Le workflow utilise :
+
+- **Isabelle2025‑2**  
+- **MiKTeX**  
+- **Ubuntu GitHub Actions Runner**
+
+Les badges de compilation reflètent désormais l’état **en temps réel** du dépôt.
 
 ## Developer Certificate of Origin (DCO)
 
@@ -236,6 +384,141 @@ The file details:
 
 ---
 
+## 7. Harmonic Mechanics of Discrete Chaos
+
+This chapter formalizes the **harmonic mechanics of discrete chaos**, a geometric and matrix‑based system structured into three main components:
+
+### A. Geometric Axiomatization
+- Nested squares of side \(1.5^n\).
+- An inscribed triangle defined by a prime number \(p\).
+- Fundamental ratio: half‑base / height = \(\sqrt{p}\).
+- Associated angle: \(\theta(p) = \arctan(\sqrt{p})\).
+- Definition and invariance of the geometric unit \(U(p) = \sqrt{p} + 1\).
+
+### B. Block‑Free Cardan Mechanism
+- Polar construction of a geometric cardan.
+- Structural angles: 60°, 75°, 45°.
+- Formal definitions of internal segment lengths.
+- Cardan points used as the basis for matrix construction.
+
+### C. First‑Derivative Matrix
+- Coefficients C1…C9 and row sums R1…R3.
+- M1 matrix (plan‑based measurements).
+- M2 matrix (transition matrix).
+- Simplified version based on prime numbers.
+- Introduction of the unique parameter \(u = \sqrt{3.375}\).
+- Alternative trigonometric factor linked to \(1/\sqrt{p}\).
+
+### Associated Documents
+- Isabelle/HOL: [`mecanique_discret.thy`](./mecanique_harmonique_chaos_discret/mecanique_discret.thy)  
+- LaTeX: [`mecanique_discret.tex`](./mecanique_harmonique_chaos_discret/mecanique_discret.tex)
+
+This chapter is a central component of the unified theory **The Universe Squared**, connecting geometry, trigonometry, prime numbers, and matrix structures.
+---
+
+## 8. Squared‑Universe Postulate
+
+This chapter formalizes the **Unified Squared Rectangle Postulate**, establishing geometric relations between rectangles, squares, polygons, and prime numbers within the unified theory **The Universe Squared**.
+
+### 1. Squared Rectangle and Prime Postulate
+- Definitions of the three surfaces:  
+  - \(S_S\) (total surface),  
+  - \(S_F\) (inner square),  
+  - \(S_C\) (complementary region).
+- Diagonals: \(d_S\), \(d_F\), \(d_C\).
+- Prime‑based unit:  
+  
+
+\[
+  unit_p = \sqrt{p} + 1
+  \]
+
+
+- Definition of the index \(k\) from the list \([2 ..< p+1]\).
+- Central postulate equation:  
+  
+
+\[
+  (diag \cdot \sqrt{unit_p})^2 = k \cdot area + h^2
+  \]
+
+
+- Two fundamental ratios:  
+  - height ratio: \(h/s = \sqrt{p} + 1\),  
+  - truncation ratio: \(t/s = \sqrt{p}\).
+
+### 2. Squared Rectangle Equivalence
+- Rectangle area: \(w \cdot h\).  
+- Square area: \(s^2\).  
+- Equivalence condition:  
+  
+
+\[
+  w \cdot h = s^2
+  \]
+
+
+
+### 3. Axioms for the Squared Polygon
+- Height ratio equation.  
+- Truncation ratio equation.  
+- Postulate equation.  
+- A polygon is **square‑defined** when all three equations hold simultaneously.
+
+### 4. Formal Example for \(p = 3\)
+- Symbolic verification of the height ratio, truncation ratio, diagonal, and area relations.
+
+### Associated Documents
+- Isabelle/HOL: [`postulat_carre.thy`](./postulat_carre/postulat_carre.thy)  
+- LaTeX: [`postulat_carre.tex`](./postulat_carre/postulat_carre.tex)
+
+This chapter establishes the mathematical structure of the **Squared‑Universe Postulate**, linking surfaces, diagonals, geometric ratios, and prime numbers within *The Universe Squared*.
+
+--- 
+
+## 6. Philippôt Space
+
+The *Philippôt Space* chapter forms the third structural component of the unified theory **The Universe Squared**.  
+It complements the two foundational methods — Philippôt’s method and the spectral method — by introducing a new conceptual space that extends the geometry of the prime number spectrum.
+
+This chapter is based on two main files:
+
+- `espace_philippot.thy`  
+  → Isabelle/HOL formalization of the axioms, internal structure, and properties of the Philippôt Space.
+
+- `espace_philippot.tex`  
+  → LaTeX document presenting the conceptual foundations, definitions, examples, and geometric interpretations.
+
+### Chapter objectives
+
+The Philippôt Space aims to:
+
+- introduce a geometric structure complementary to the spectral sequences;
+- define a conceptual space linking spectral ratios to internal transformations of the theory;
+- extend the spectral method by incorporating topological and dynamic properties;
+- provide a unified framework for interpreting rational values, spectral ratios, and asymptotic behaviors.
+
+### Role within the unified theory
+
+The Philippôt Space acts as a **coherence space** connecting:
+
+- the rational sequences of Philippôt’s method,
+- the spectral ratios of the spectral method,
+- the internal transformations of *The Universe Squared*.
+
+It provides a unified, formally verifiable framework for expressing these three components.
+
+### Integration into the repository
+
+The chapter is fully integrated into the project structure:
+
+- `.thy` files are automatically validated by Isabelle/HOL,
+- `.tex` files are automatically compiled into PDF,
+- the chapter is included in the final documentation.
+
+This chapter represents a major extension of the project and strengthens the overall coherence of the theory.
+
+
 ## 4. LaTeX documents
 
 Two LaTeX documents (French and English) accompany the Isabelle/HOL scripts. They include:
@@ -258,21 +541,54 @@ This repository contains the Lean formalization of the zeta function, L‑functi
 
 ---
 
-## Build certification
+## Continuous Certification (CI)
 
-![Isabelle/HOL](https://img.shields.io/badge/Isabelle2025--2-Build%20Passing-brightgreen)
-![LaTeX](https://img.shields.io/badge/LaTeX-PDF%20OK-brightgreen)
+Since March 2026, the repository uses a fully automated continuous‑integration workflow based on GitHub Actions.  
+This system ensures that every manual commit pushed to the repository is automatically validated through a complete build of all Isabelle/HOL and LaTeX components.
 
-**Certification status:**  
-All Isabelle/HOL and LaTeX files in this repository were successfully compiled  
-on **March 3, 2026**, under the following environment:
+### How the certification works
 
-- **Isabelle2025‑2** (`isabelle build -D .`)
-- **MiKTeX** (`pdflatex`)
+For **each manual commit**, the GitHub Actions workflow performs the following steps:
 
-This certification only attests that the official version of the repository compiled on this date.
+1. **Isabelle/HOL compilation**  
+   All `.thy` files in the project are automatically built, including:
+   - `methode_de_philippot.thy`
+   - `methode_spectral.thy`
+   - `espace_philippot.thy`
+   - and all related modules.
 
----
+2. **LaTeX compilation**  
+   All `.tex` documents are compiled into PDF using MiKTeX, including:
+   - the main documents,
+   - appendices,
+   - supplementary chapters,
+   - `espace_philippot.tex`.
+
+3. **Validation checks**  
+   The workflow verifies:
+   - logical correctness of all Isabelle/HOL files,
+   - successful PDF generation,
+   - absence of compilation errors,
+   - integration of new chapters into the build pipeline.
+
+### Stability guarantee
+
+This continuous certification ensures that:
+
+- every commit in the repository is guaranteed to compile successfully,
+- all `.thy` files remain logically valid at all times,
+- all LaTeX documents are consistently generated without errors,
+- new chapters (including *Philippôt Space*) are automatically included in the validation process.
+
+### Build environment
+
+The automated workflow uses the following environment:
+
+- **Isabelle2025‑2**  
+- **MiKTeX**  
+- **Ubuntu GitHub Actions Runner**
+
+The build badges displayed in the README now reflect the **real‑time compilation status** of the repository.
 
 # Téléchargement BitTorrent / BitTorrent Download
 

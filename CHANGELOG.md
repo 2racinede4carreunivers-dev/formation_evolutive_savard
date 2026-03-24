@@ -94,3 +94,20 @@ D’autres fichiers HOL, .tex et .pdf seront ajoutés prochainement afin d’enr
 
 ### Notes
 - Ce commit sera associé à un **tag MAJOR** dans les releases GitHub.
+### Note — Unification du README
+
+Aujourd’hui, j’ai procédé à une mise à jour majeure de la documentation du dépôt.  
+Le README principal a été entièrement **reconstruit et unifié** afin de regrouper :
+
+- la présentation professionnelle,
+- la structure du dépôt,
+- la théorie mathématique complète,
+- les liens essentiels,
+- les versions française et anglaise,
+- la licence Apache 2.0 intégrale.
+
+L’ancien README, qui servait de base à la théorie *L’univers est au carré*, **reste disponible** dans le dossier `geometrie_spectre_premier/`.  
+Il n’a pas été supprimé afin de préserver l’historique et la cohérence du développement.
+
+Le nouveau README devient la **porte d’entrée officielle** du dépôt.  
+Il est conçu pour être clair, professionnel et immédiatement utile aux recruteurs, tout en respectant la structure interne de la théorie et des fichiers certifiés.
