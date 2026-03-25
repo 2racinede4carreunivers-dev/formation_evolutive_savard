@@ -169,6 +169,7 @@ axiomatization where
   volume_ratio:
     "\<forall>n. V_ell n = 10 * V_pyr n" and
 
+
   events_on_spiral:
     "\<exists>F :: (real \<times> real \<times> real \<times> real) \<Rightarrow> event \<Rightarrow> real \<times> real \<times> real.
        \<forall>n e. spiral_pos n e = F (a n, b n, c n, d n) e"

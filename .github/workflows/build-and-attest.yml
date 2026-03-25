@@ -21,7 +21,7 @@ jobs:
         if [ ! -f VERSION ]; then echo "1.0.0" > VERSION; fi
         echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
 
-    # --- CALCUL DE LA NOUVELLE VERSION (major/feat/fix) ---
+    # --- CALCUL DE LA NOUVELLE VERSION ---
     - name: Determine version bump
       id: bump
       run: |
@@ -43,12 +43,12 @@ jobs:
         NEW="$MAJ.$MIN.$PAT"
         echo "new_version=$NEW" >> $GITHUB_OUTPUT
 
-    # --- MISE À JOUR AUTOMATIQUE DU FICHIER VERSION ---
+    # --- MISE À JOUR DU FICHIER VERSION ---
     - name: Update VERSION file
       run: |
         echo "${{ steps.bump.outputs.new_version }}" > VERSION
 
-    # --- GÉNÉRATION D'UN CHANGELOG TEMPORAIRE ---
+    # --- GÉNÉRATION DU CHANGELOG TEMPORAIRE ---
     - name: Generate temporary CHANGELOG
       id: changelog
       run: |
@@ -81,10 +81,13 @@ jobs:
     - name: Isabelle build
       run: |
         set -o pipefail
+
+        # Liste complète incluant les nouveaux fichiers
+        FILES="mecanique_discret.thy methode_de_philippot.thy methode_spectral.thy postulat_carre.thy espace_philippôt.thy"
+
         if [ -f ROOT ]; then
           isabelle build -D . | tee isabelle_build.log
         else
-          FILES="mecanique_discret.thy methode_de_philippot.thy methode_spectral.thy postulat_carre.thy"
           for thy in $FILES; do
             if [ -f "$thy" ]; then
               echo "=== Building $thy ===" | tee -a isabelle_build.log
@@ -96,7 +99,9 @@ jobs:
     # --- COMPILATION LATEX ---
     - name: Compile LaTeX
       run: |
-        FILES="geometrie_du_spectre_premier.tex geometry_prime_spectrum.tex mecanique_chaos_discret.tex philosophy_geometry_prime_number.tex philosophy_geometry_of_prime_number.tex postulat_univers_carre.tex teleosemantique_analogiste_spectre_premier.tex"
+        # Ajout des deux nouveaux fichiers .tex
+        FILES="geometrie_du_spectre_premier.tex geometry_prime_spectrum.tex mecanique_chaos_discret.tex philosophy_geometry_prime_number.tex philosophy_geometry_of_prime_number.tex postulat_univers_carre.tex teleosemantique_analogiste_spectre_premier.tex espace_philippot.tex"
+
         for file in $FILES; do
           if [ -f "$file" ]; then
             echo "=== Compiling $file ==="
@@ -105,7 +110,7 @@ jobs:
           fi
         done
 
-    # --- CRÉATION DU TAG + RELEASE + UPLOAD ---
+    # --- CRÉATION DU TAG + RELEASE ---
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
