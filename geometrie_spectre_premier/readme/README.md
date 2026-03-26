@@ -1,3 +1,38 @@
+formation_evolutive_savard/
+├── .github/
+│   └── workflows/
+│       └── build-and-attest.yml
+│
+├── espace_philippot/
+│   ├── espace_philippot.tex
+│   └── espace_philippot.thy
+│
+├── geometrie_spectre_premier/
+│   ├── HOL/
+│   ├── LaTeX/
+│   ├── pdf_finaux/
+│   ├── python/
+│   └── readme/
+│
+├── mecanique_harmonique_chaos_discret/
+│   ├── HOL/
+│   ├── LaTeX/
+│   ├── PDF/
+│   └── python/
+│
+├── squaring/
+│   ├── postulat_carre.thy
+│   └── postulat_univers_carre.tex
+│
+├── LaTeX/
+│   └── images/
+│
+├── python/
+│
+├── CHANGELOG.md
+├── VERSION
+├── README.md
+└── divers fichiers .tex, .thy et images à la racine
 
 #  Structure du projet
 
@@ -324,6 +359,43 @@ https://www.apache.org/licenses/LICENSE-2.0
 
 # Geometry of the Prime Number Spectrum
 Conceptual and formal project by Philippe Thomas Savard
+
+formation_evolutive_savard/
+├── .github/
+│   └── workflows/
+│       └── build-and-attest.yml
+│
+├── espace_philippot/
+│   ├── espace_philippot.tex
+│   └── espace_philippot.thy
+│
+├── geometrie_spectre_premier/
+│   ├── HOL/
+│   ├── LaTeX/
+│   ├── pdf_finaux/
+│   ├── python/
+│   └── readme/
+│
+├── mecanique_harmonique_chaos_discret/
+│   ├── HOL/
+│   ├── LaTeX/
+│   ├── PDF/
+│   └── python/
+│
+├── squaring/
+│   ├── postulat_carre.thy
+│   └── postulat_univers_carre.tex
+│
+├── LaTeX/
+│   └── images/
+│
+├── python/
+│
+├── CHANGELOG.md
+├── VERSION
+├── README.md
+└── divers fichiers .tex, .thy et images à la racine
+
 
 This repository presents a conceptual analysis project related to Bernhard Riemann’s zeta function conjecture. The approach developed here, called the *geometry of the prime number spectrum*, proposes a dynamic tool to examine the structure of prime numbers and their relationship with the analytic properties of the zeta function.
 

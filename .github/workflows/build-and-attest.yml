@@ -1,10 +1,15 @@
-name: Build + Release automatique (sans commit)
+name: Build + Release automatique (avec rapport détaillé)
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
 
 jobs:
   build-release:
@@ -82,7 +87,6 @@ jobs:
       run: |
         set -o pipefail
 
-        # Liste complète incluant les nouveaux fichiers
         FILES="mecanique_discret.thy methode_de_philippot.thy methode_spectral.thy postulat_carre.thy espace_philippôt.thy"
 
         if [ -f ROOT ]; then
@@ -99,7 +103,6 @@ jobs:
     # --- COMPILATION LATEX ---
     - name: Compile LaTeX
       run: |
-        # Ajout des deux nouveaux fichiers .tex
         FILES="geometrie_du_spectre_premier.tex geometry_prime_spectrum.tex mecanique_chaos_discret.tex philosophy_geometry_prime_number.tex philosophy_geometry_of_prime_number.tex postulat_univers_carre.tex teleosemantique_analogiste_spectre_premier.tex espace_philippot.tex"
 
         for file in $FILES; do
@@ -109,6 +112,12 @@ jobs:
             pdflatex -shell-escape -interaction=nonstopmode "$file" || true
           fi
         done
+
+    # --- GÉNÉRATION DU RAPPORT D’ATTESTATION ---
+    - name: Generate build provenance
+      uses: actions/attest-build-provenance@v1
+      with:
+        subject-path: "*.pdf"
 
     # --- CRÉATION DU TAG + RELEASE ---
     - name: Create GitHub Release
@@ -120,5 +129,3 @@ jobs:
         files: |
           *.pdf
           isabelle_build.log
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
