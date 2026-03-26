@@ -111,3 +111,44 @@ Il n’a pas été supprimé afin de préserver l’historique et la cohérence 
 
 Le nouveau README devient la **porte d’entrée officielle** du dépôt.  
 Il est conçu pour être clair, professionnel et immédiatement utile aux recruteurs, tout en respectant la structure interne de la théorie et des fichiers certifiés.
+
+## Mise à jour du workflow — Release automatique (définitive)
+**Date :** 2026-03-26  
+**Type :** fix / infra
+
+### 🔧 Mise à jour du workflow `build-and-attest.yml`
+Le workflow CI/CD a été entièrement ajusté pour adopter la nouvelle forme de release automatique utilisée dans les dépôts récents.  
+Les changements incluent :
+
+- Ajout de la génération d’attestation (`build provenance`) pour certifier chaque PDF produit.
+- Harmonisation du pipeline avec la structure définitive adoptée à partir d’aujourd’hui.
+- Amélioration de la stabilité et de la reproductibilité des releases.
+
+Ce workflow devient désormais **la forme officielle et définitive** pour les releases automatiques du dépôt.
+
+---
+
+### 📄 Mise à jour du fichier README
+Le fichier `README.md` a été révisé pour clarifier certains points importants concernant :
+- l’utilisation du dépôt,
+- la structure des fichiers,
+- les instructions pour les utilisateurs.
+
+Les utilisateurs sont invités à consulter le fichier pour prendre connaissance des ajustements.
+
+---
+
+### 🗂️ Réorganisation du fichier LICENSE
+Le fichier `LICENSE` a été déplacé à la racine du dépôt afin d’améliorer :
+- l’accessibilité,
+- la conformité aux standards GitHub,
+- la visibilité pour les utilisateurs et outils automatisés.
+
+L’ancien fichier dans `geometrie_spectre_premier/readme/` a été retiré.
+
+---
+
+### 🛠️ Ajustements divers
+- Nettoyage mineur de la structure du dépôt.
+- Préparation du terrain pour les futures releases automatisées.
+
