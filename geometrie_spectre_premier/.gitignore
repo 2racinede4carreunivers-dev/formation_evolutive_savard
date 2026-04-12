@@ -1,0 +1,19 @@
+# Fichiers temporaires LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+texput.log
+
+# Fichiers temporaires de compilation PDF
+*.nav
+*.snm
+*.vrb
+
+# Sauvegardes éventuelles
+*.bak
+*.backup
+*~

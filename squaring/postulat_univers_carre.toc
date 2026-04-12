@@ -1,0 +1,13 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{Note de l’auteur}{2}{section*.2}%
+\contentsline {section}{\numberline {1}Explication mathématique du postulat du squaring}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Le rectangle initial $ABCD$}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Élévation au carré : le rectangle $A'B'C'D'$}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Carré maximal inscrit dans $A'B'C'D'$}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Décomposition interne du rectangle transformé}{3}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Les trois diagonales fondamentales}{3}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Les trois équations de l’octogone carré}{4}{subsection.1.6}%
+\contentsline {section}{\numberline {2}Appendix: Isabelle/HOL Structure formalisé du script HOL isabelle du postulat de l'univers est au carré.}{4}{section.2}%
+\contentsline {section}{\numberline {3}Unité symbolique $\sqrt {3}+1$ : rectangle carré et hexagone carré}{10}{section.3}%
+\contentsline {paragraph}{Rectangle initial $ABCD$.}{11}{section*.6}%
+\contentsline {subsection}{\numberline {3.1}Rectangle transformé}{11}{subsection.3.1}%
