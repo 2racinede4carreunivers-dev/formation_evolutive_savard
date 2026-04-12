@@ -83,11 +83,11 @@ jobs:
       - name: Préparer l’accès aux images PNG
         run: |
           echo "Configuration TEXINPUTS pour les images..."
-          export TEXINPUTS="./assets/images//:"
+          export TEXINPUTS="./src/tex//:./assets/images//:"
 
           echo "Creation d'un fichier graphics.cfg pour graphicx..."
           mkdir -p texmf/tex/latex/local
-          printf '%s\n%s\n' '\DeclareGraphicsExtensions{.png,.jpg,.pdf}' '\graphicspath{{../../assets/images/}{../../../assets/images/}{./assets/images/}}' > texmf/tex/latex/local/graphics.cfg
+          printf '%s\n%s\n' '\DeclareGraphicsExtensions{.png,.jpg,.pdf}' '\graphicspath{{./src/tex/}{../../assets/images/}{../../../assets/images/}{./assets/images/}}' > texmf/tex/latex/local/graphics.cfg
 
           export TEXMFHOME="$PWD/texmf"
           echo "TEXMFHOME=$TEXMFHOME"
@@ -99,7 +99,7 @@ jobs:
 
       - name: Compiler tous les fichiers LaTeX
         run: |
-          export TEXINPUTS="./assets/images//:"
+          export TEXINPUTS="./src/tex//:./assets/images//:"
           export TEXMFHOME="$PWD/texmf"
 
           echo "Compilation forcée du fichier analyse_hypothese_riemann_savard.tex"
