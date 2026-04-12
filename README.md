@@ -1,158 +1,152 @@
-# Theorie Mathematique de l'Univers est au Carre
+# formation_evolutive_savard
 
-![Build Isabelle + LaTeX](https://github.com/2racinede4carreunivers-dev/Theorie-mathematique-philippe-thomas-savard-2026/actions/workflows/build.yml/badge.svg)
-![Auto QR Quotidien](https://github.com/2racinede4carreunivers-dev/Theorie-mathematique-philippe-thomas-savard-2026/actions/workflows/auto-daily-qa.yml/badge.svg)
-![Propositions Hebdomadaires](https://github.com/2racinede4carreunivers-dev/Theorie-mathematique-philippe-thomas-savard-2026/actions/workflows/auto-weekly-proposals.yml/badge.svg)
-![Maintenance Mensuelle](https://github.com/2racinede4carreunivers-dev/Theorie-mathematique-philippe-thomas-savard-2026/actions/workflows/auto-monthly-maintenance.yml/badge.svg)
+### Portfolio evolutif — Formation en dessin industriel & Theorie mathematique
+
+![Build Isabelle + LaTeX](https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard/actions/workflows/build.yml/badge.svg)
 
 ---
 
-## Introduction
+## Presentation
 
-Ce depot est le depot officiel de la **theorie mathematique de Philippe Thomas Savard : L'Univers est au Carre**. Il reunit l'ensemble de la documentation, des preuves formelles et des outils associes a cette theorie originale.
+Ce depot est un **portfolio professionnel evolutif** qui documente chronologiquement mon parcours, de ma theorie mathematique personnelle _L'Univers est au Carre_ jusqu'a ma formation en dessin industriel au CFP Neufchatel (debut : aout 2026).
 
-La theorie est presentee a travers plusieurs chapitres :
+Il sert de **CV dynamique** pour les recruteurs et employeurs, leur permettant de :
 
-1. **La geometrie du spectre des nombres premiers** -- Etude de la distribution des nombres premiers a travers des methodes geometriques originales, aboutissant a une axiomatisation du rapport spectral.
-2. **La mecanique harmonique du chaos discret** -- Demonstration de l'invariance geometrique a travers des configurations de figures emboitees et des unites admissibles.
-3. **Le postulat unique de l'univers est au carre** -- La methode du squaring, acte fondamental de la theorie qui eleve le perimetre d'un rectangle au rang de nouveau perimetre.
-4. **L'espace de Philippot** -- Construction d'un espace geometrique pyramidal fonde sur la spirale de Theodore de Cyrene, unifiant disques, nombres hypercomplexes et volumes.
+- Observer l'evolution de mes competences dans le temps
+- Evaluer la rigueur de mon travail mathematique et technique
+- Constater l'influence de la formation sur mes projets personnels
 
-D'autres chapitres seront ajoutes au fil du temps a mesure que la theorie evolue.
+Chaque mise a jour est horodatee et chaque fichier source est certifie par attestation SLSA.
 
 ---
 
 ## Contenu du depot
 
-### Documents source et compiles
+### Theorie mathematique — _L'Univers est au Carre_
 
-| Type | Nombre | Description |
-|------|--------|-------------|
-| `.tex` | 7 fichiers | Source LaTeX des chapitres de la theorie |
-| `.thy` | 5 fichiers | Preuves formelles Isabelle/HOL validant les propositions mathematiques |
-| `.pdf` | 7 fichiers | Documents compiles par le build du workflow |
+La theorie est presentee en quatre chapitres :
 
-### Guides d'utilisation
+| # | Chapitre | Fichiers source |
+|---|----------|----------------|
+| 1 | **Geometrie du spectre des nombres premiers** | `src/tex/geometry_prime_spectrum.tex`, `src/hol/methode_spectral.thy`, `src/hol/methode_de_philippot.thy` |
+| 2 | **Mecanique harmonique du chaos discret** | `src/tex/mecanique_harmonique_du_chaos_discret.tex`, `src/hol/mecanique_discret.thy` |
+| 3 | **Postulat de l'univers est au carre** | `src/tex/postulat_de_univers_carre.tex`, `src/hol/postulat_carre.thy` |
+| 4 | **Espace de Philippot** | `src/tex/espace_de_philippot.tex`, `src/hol/espace_philippot.thy` |
 
-Plusieurs guides sont fournis dans `docs/guides/` pour permettre a tout utilisateur de reproduire les resultats presentes dans les chapitres :
+### Documents et preuves formelles
 
-- **Guide de compilation** (`guide_compilation.md`) -- Instructions pour compiler les fichiers LaTeX et Isabelle
-- **Guide HOL** (`guide_HOL.md`) -- Utilisation des preuves formelles Isabelle/HOL
-- **Guide IA** (`guide_IA.md`) -- Fonctionnement du systeme de questions/reponses intelligent
-- **Guide de contribution** (`guide_contribution.md`) -- Comment contribuer au depot
-- **Guide Python Q&R** (`guide_python_qa`) -- Fonctionnement des scripts de la banque evolutive
-- **Guide de securite** (`guide_securite.md`) -- Politique de securite du depot
+| Type | Emplacement | Description |
+|------|-------------|-------------|
+| `.tex` | `src/tex/` | Sources LaTeX des chapitres |
+| `.thy` | `src/hol/` | Preuves formelles Isabelle/HOL |
+| `.pdf` | `src/pdf/` | Documents compiles automatiquement |
+| Images | `assets/images/` | Illustrations mathematiques (~15 images) |
 
-### Arborescences et coherence
+### Application web — 3 IA collaboratives
 
-L'arborescence de tous les fichiers `.pdf` et `.thy` est incluse dans `src/` (12 fichiers `arborescence_*.md`), demontrant :
+Le dossier `Ia_geo_spec_prem_app_deplo/` contient une application web integrant trois intelligences artificielles :
 
-- La coherence du corpus Isabelle genere par le build du workflow
-- La coherence de chacun des chapitres attestes par le build de la session HOL d'Isabelle
-- La base de donnees de ce corpus est disponible dans l'explorateur du depot (`archive/`)
+1. **IA Collaborative** — Repond aux questions sur la theorie
+2. **IA Socratique** — Guide par le questionnement
+3. **IA Evolutive** — Banque de Q&R qui s'ameliore a chaque interaction
 
-### Illustrations
+### Banque de questions/reponses
 
-Le depot contient pres d'une centaine d'illustrations variees sur la theorie de l'univers est au carre, presentes dans les PDF, les fichiers `.tex` et le dossier `assets/` (81 images).
-
-### Script narratif
-
-Un script narratif decrivant la theorie et son contenu est disponible (`SCRIPT_NARRATIF.md`). Il a ete genere pour un projet en cours de creation : une animation presentant la theorie de A a Z.
-
-### Application web -- 3 IA collaboratives
-
-Le dossier `Ia_geo_spec_prem_app_deplo/` contient une application logiciel web integrant trois intelligences artificielles :
-
-1. **IA Collaborative** -- Repond aux questions des utilisateurs en s'appuyant sur la documentation du depot
-2. **IA Socratique** -- Guide l'utilisateur par le questionnement pour approfondir sa comprehension de la theorie
-3. **IA Evolutive** -- Dotee d'une banque de Q&R evolutive qui s'ameliore par l'entrainement a chaque question posee par les utilisateurs
-
-Les trois IA puisent l'information directement a la source du depot et sont mises a jour regulierement. La banque de Q&R de l'application evolue en meme temps que celle du depot puisque le logiciel web se met a jour avec le depot en temps reel.
-
-Par souci de transparence, une mise a niveau est fournie a chaque question entre ce que dit la theorie et les spheres mathematiques et scientifiques dans le monde.
-
-### Banque de questions/reponses evolutive
-
-La banque est consultable dans `qa_bank/CATALOGUE.md`. Elle contient actuellement **56 Q&R validees** et continue de croitre automatiquement.
+Le repertoire `qa_bank/` contient une banque evolutive de 56 Q&R validees, consultable dans `qa_bank/CATALOGUE.md`.
 
 ---
 
-## Fonctionnement du Workflow
+## Workflow et certification
 
-### Build principal (a chaque push sur `main`)
+### Build principal (actif)
 
-A chaque poussee d'un commit manuel, le workflow execute une compilation complete :
+A chaque push sur `main`, le workflow execute :
 
-1. **Compilation LaTeX** -- Les fichiers `.tex` sont compiles par TexLive pour generer les `.pdf`
-2. **Compilation Isabelle** -- Les fichiers `.thy` sont compiles par Isabelle 2024. Une attestation pour le corpus Isabelle est generee, produisant une base de donnees certifiant la coherence logique et que les propositions mathematiques avancees dans les theoremes sont soutenues (voir les arborescences des 5 fichiers `.thy`)
-3. **Attestation SLSA** -- Chacun des 19 fichiers (`.pdf`, `.thy`, `.tex`) est certifie et une attestation cryptographique SLSA est generee, garantissant la provenance et l'integrite
-4. **Generation de Q&R** -- A chaque commit, une question et sa reponse sont generees et ajoutees a la banque evolutive intelligente du depot
+1. **Compilation Isabelle** — Les fichiers `.thy` sont compiles par Isabelle 2024
+2. **Compilation LaTeX** — Les fichiers `.tex` sont compiles en PDF par TeX Live
+3. **Attestation SLSA** — Certification cryptographique garantissant la provenance et l'integrite des 19 fichiers principaux
+4. **Release automatique** — Creation d'une release versionnee avec les PDF et logs
 
-La banque de Q&R est evolutive et devient toujours plus complexe dans son questionnement et ses reponses a mesure que les mises a jour du depot s'effectuent.
+### Workflows archives (code conserve, execution suspendue)
 
-### Workflows automatises
+Les workflows suivants sont **neutralises** mais leur code reste visible pour illustrer les capacites du systeme :
 
-| Workflow | Frequence | Description |
-|----------|-----------|-------------|
-| **Q&R Quotidien** | 3 fois par jour (6h, 12h, 18h UTC) | Generation automatique de Q&R avec rotation sur les 12 fichiers source |
-| **Propositions Hebdomadaires** | Vendredi 14h UTC | Analyse de la banque Q&R et proposition d'ameliorations pour un fichier `.tex` ou `.thy` |
-| **Maintenance Mensuelle** | 1er du mois 9h UTC | Rapport de coherence, statistiques du depot et recommandations |
+| Workflow | Frequence originale | Statut |
+|----------|-------------------|--------|
+| Q&R Quotidien (`auto-daily-qa.yml`) | 3x/jour | Archive — code visible |
+| Propositions Hebdomadaires (`auto-weekly-proposals.yml`) | Vendredi 14h UTC | Archive — code visible |
+| Maintenance Mensuelle (`auto-monthly-maintenance.yml`) | 1er du mois 9h UTC | Archive — code visible |
+| Generation Q&R au build (`build.yml` → job `generate_qa`) | A chaque push | Archive — code visible |
 
----
-
-## Utilisation du depot
-
-### Licence Apache 2.0
-
-Ce depot est distribue sous la licence **Apache 2.0**. Les utilisateurs peuvent :
-
-- **Consulter** et **cloner** le depot
-- **Contribuer** via des pull requests (1 approbation requise, revue par proprietaire du code)
-- **Partager** et **redistribuer** le depot ou ses versions modifiees
-- **Modifier** le code source et les documents a des fins personnelles
-
-Les conditions completes sont definies dans le fichier [LICENSE](LICENSE).
-
-### Securite et integrite
-
-- Chaque build genere une empreinte cryptographique **SHA-256** pour tous les documents
-- Les attestations **SLSA** garantissent que les fichiers proviennent exclusivement de la branche `main`
-- L'historique lineaire est obligatoire, le force-push est interdit
-- Seule la branche `main` est supportee et authentifiee
-
-Pour signaler une vulnerabilite, ne pas creer d'issue publique. Contacter : **philippethomassavard@gmail.com**
-
-La politique de securite complete est disponible dans [SECURITY.md](.github/SECURITY.md).
-
-### Cloner le depot
-
-```bash
-git clone https://github.com/2racinede4carreunivers-dev/Theorie-mathematique-philippe-thomas-savard-2026.git
-```
+Ces workflows demonstrent la capacite a mettre en place une infrastructure CI/CD complete avec generation de contenu automatisee.
 
 ---
 
 ## Structure du depot
 
 ```
-.github/workflows/          4 workflows (build + 3 automatises)
+.github/workflows/          Workflows GitHub Actions (build + 3 archives)
 .github/SECURITY.md         Politique de securite
-src/tex/                    7 fichiers source LaTeX
-src/hol/                    5 preuves formelles Isabelle/HOL
-src/pdf/                    7 PDF compiles + references
-src/arborescence_*.md       12 arborescences de coherence
-assets/                     ~81 illustrations de la theorie
-scripts/                    Scripts Python (generation Q&R, maintenance)
+src/tex/                    Sources LaTeX des chapitres
+src/hol/                    Preuves formelles Isabelle/HOL (+ ROOT)
+src/pdf/                    PDF compiles par le build
+src/arborescence_*.md       Arborescences de coherence
+assets/images/              Illustrations mathematiques
+assets/animation/           Captures d'ecran et animations
+scripts/                    Scripts Python (Q&R, maintenance, validation)
 qa_bank/                    Banque Q&R evolutive (SQLite + catalogue)
-docs/guides/                6 guides d'utilisation
-proposals/                  Propositions d'amelioration hebdomadaires
+docs/guides/                Guides d'utilisation (compilation, HOL, IA, securite)
+proposals/                  Propositions d'amelioration
 archive/                    Base de donnees du corpus Isabelle
 Ia_geo_spec_prem_app_deplo/ Application web 3 IA collaboratives
-SCRIPT_NARRATIF.md          Script narratif pour animation video
+geometrie_spectre_premier/  Sous-projet geometrie du spectre
+corpus/                     Dependances Isabelle (Poly/ML)
 CHANGELOG.md                Journal des modifications
+SCRIPT_NARRATIF.md          Script narratif pour animation video
+VERSION                     Version actuelle du depot
 LICENSE                     Licence Apache 2.0
 ```
 
 ---
 
-*Theorie mathematique de Philippe Thomas Savard -- L'Univers est au Carre -- 2026*
+## Formation en dessin industriel
+
+**Etablissement :** CFP Neufchatel, Quebec  
+**Debut :** Aout 2026
+
+Cette section sera enrichie au fil de la formation avec :
+
+- Les modules completes et travaux realises
+- L'influence de la formation sur mes projets mathematiques
+- Les competences acquises en DAO, modelisation 3D, lecture de plans
+
+Les mises a jour seront documentees chronologiquement dans le portfolio web associe.
+
+---
+
+## Guides d'utilisation
+
+- [Guide de compilation](docs/guides/guide_compilation.md) — Compiler les fichiers LaTeX et Isabelle
+- [Guide HOL](docs/guides/guide_HOL.md) — Utiliser les preuves formelles Isabelle/HOL
+- [Guide de contribution](docs/guides/guide_contribution.md) — Comment contribuer
+- [Guide de securite](docs/guides/guide_securite.md) — Politique de securite
+
+---
+
+## Licence
+
+Ce depot est distribue sous la licence **Apache 2.0** ([LICENSE](LICENSE)).
+
+Pour signaler une vulnerabilite : **philippethomassavard@gmail.com**
+
+---
+
+## Cloner le depot
+
+```bash
+git clone https://github.com/2racinede4carreunivers-dev/formation_evolutive_savard.git
+```
+
+---
+
+*Philippe Thomas Savard — Portfolio evolutif — 2016–2026*
