@@ -1,0 +1,338 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, geometry, graphicx}
+\usepackage{setspace}
+\usepackage{caption}
+
+% --- Pour minted (coloration syntaxique Isabelle/HOL) ---
+\usepackage{minted}
+
+% --- Pour les encadrés gris élégants ---
+\usepackage[most]{tcolorbox}
+
+% --- Pour permettre à minted d'utiliser Pygments ---
+\usepackage{fvextra}
+\setminted{breaklines=true, autogobble=true}
+
+% --- Obligatoire pour minted : compilation avec -shell-escape ---
+% (déjà activé dans ton workflow GitHub Actions)
+
+
+\geometry{margin=1in}
+\setstretch{1.2}
+% --- Pour la table des matières ---
+\setcounter{tocdepth}{2}   % Profondeur : sections + sous-sections
+\setcounter{secnumdepth}{2} % Numérotation jusqu'aux sous-sections
+
+\begin{document}
+\section*{Note de l'auteur}
+
+Ce document a été conçu sans financement ni avantage de quelque nature que ce soit.
+Il a été rédigé en toute liberté de conscience, avec un esprit lucide et clairvoyant.
+
+L'auteur n'est pas titulaire d'une formation académique reconnue en mathématiques.
+Il est ouvrier, et ce travail a été réalisé par pur plaisir intellectuel, avec un
+intérêt profond pour les mathématiques et la géométrie.
+
+\bigskip
+\noindent Lévis, Québec
+
+\tableofcontents
+\newpage
+
+
+\begin{center}
+    {\LARGE \textbf{Chapitre 4 — L’Espace de Philippôt}}\\[0.5cm]
+\end{center}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{espace_philippot.png}
+    \caption{Illustration générale de l’Espace de Philippôt.}
+\end{figure}
+
+\section*{Introduction}
+
+L’Espace de Philippôt constitue le cœur conceptuel du quatrième chapitre de la théorie unifiée \emph{L’univers est au carré}. Cet espace géométrique, représenté par une structure pyramidale associée à une série de disques, est construit selon la progression de la spirale de Théodore de Cyrène. Cette spirale, définie par les longueurs successives $\sqrt{1}, \sqrt{2}, \sqrt{3}, \sqrt{4}, \dots$, sert ici de base métrique pour organiser les hauteurs, les rayons et les aires qui structurent l’espace.
+
+L’illustration ci-dessus montre la correspondance entre :
+\begin{itemize}
+    \item les disques supérieurs, dont les rayons suivent la progression $\sqrt{0.1}, \sqrt{0.2}, \sqrt{0.3}, \sqrt{0.4}, \dots$ ;
+    \item les hauteurs de la pyramide, alignées sur les valeurs $\sqrt{1}, \sqrt{2}, \sqrt{3}, \sqrt{4}, \dots$ ;
+    \item les points géométriques notés $H.2$, $H.3$, $H.5$, $H.7$, $H.11$, $H.13$, $H.17$, $H.19$, qui marquent les niveaux successifs de la spirale.
+\end{itemize}
+
+Une convention fondamentale de cet espace est l’égalité :
+\[
+\pi = \sqrt{10},
+\]
+qui permet d’harmoniser les aires circulaires avec les volumes pyramidaux et ellipsoïdaux.
+
+\section*{1. Structure géométrique de l’Espace de Philippôt}
+
+La pyramide représentée dans la figure est construite de manière à ce que chaque hauteur corresponde à une valeur de la spirale de Théodore. Les disques situés au sommet possèdent des rayons proportionnels à ces hauteurs, selon la relation :
+\[
+r_n = \sqrt{0.1\,n}.
+\]
+
+Ainsi, la géométrie de l’espace est entièrement déterminée par la progression racinaire, ce qui confère à l’ensemble une cohérence interne remarquable.
+
+\section*{2. Nombres hypercomplexes géométriques}
+
+Les nombres hypercomplexes définis dans cet espace ne sont pas les quaternions classiques, mais une construction géométrique analogue fondée sur trois composantes :
+\[
+H = \left( A,\, A\sqrt{10},\, r^2 \right)^{1/2},
+\]
+où :
+\begin{itemize}
+    \item $A$ est l’aire d’un disque,
+    \item $A\sqrt{10}$ représente l’aire pondérée selon la convention $\pi=\sqrt{10}$,
+    \item $r^2$ est le carré du rayon du disque.
+\end{itemize}
+
+\subsection*{Exemples tirés de la figure}
+
+Les droites qui composent la pyramide dans l’Espace de Philippot sont
+associées à trois formes hypercomplexes géométriques. Elles combinent
+simultanément une aire de disque, une aire pondérée et une mesure
+radiale, ce qui en fait des analogues géométriques des quaternions
+$(A^2 + B^2 + C^2 + D^2)^{1/2}$.
+
+\paragraph{1. Première forme (hyper1).}
+
+
+\[
+\left( (2 \times A_{\text{disque}}) +
+       (2 \times A_{\text{disque}} \times \sqrt{10}) +
+       r^2 \right)^{1/2}
+\;=\; P.2,\; R.2,\; P.5,\; P.7
+\text{ et toutes leurs parallèles et symétries.}
+\]
+
+
+
+Cette expression encode une aire, une aire amplifiée par $\sqrt{10}$,
+et une contribution radiale quadratique.
+
+\paragraph{2. Deuxième forme (hyper2).}
+
+
+\[
+\left( (2.8 \times A_{\text{disque}}) +
+       (2 \times A_{\text{disque}} \times \sqrt{10}) +
+       r^{1/2} \right)
+\;=\; P.2,\; P.19
+\text{ et leurs parallèles.}
+\]
+
+
+
+Ici, la contribution radiale est plus faible (racine du rayon), ce qui
+donne une croissance plus lente dans la structure hypercomplexe.
+
+\paragraph{3. Troisième forme (hyper3).}
+
+
+\[
+\left(
+  \frac{2 \times A_{\text{disque}}}{10}
+  + \sqrt{\,1 + (A_{\text{disque}} - A_{\text{disque}}^2)\,}
+  + 2 \times r^2
+\right)^{1/2}.
+\]
+
+
+
+Cette forme combine une aire réduite, un terme non linéaire
+$\sqrt{1 + (A - A^2)}$ et une amplification quadratique du rayon.
+Elle correspond aux droites les plus « courbées » de la pyramide
+hypercomplexe.
+
+\section*{3. Aires des quatre faces à la hauteur $\sqrt{2}$}
+
+À la hauteur correspondant à $\sqrt{2}$ dans la spirale, les quatre faces de la pyramide possèdent les aires suivantes :
+
+\begin{itemize}
+    \item \textbf{Face avant} :
+    \[
+    (2 + \sqrt{0.4}) - (\sqrt{0.064} - 0.4)
+    \]
+    \item \textbf{Face droite} :
+    \[
+    1.2 + \sqrt{0.064}
+    \]
+    \item \textbf{Face arrière} :
+    \[
+    (2 + \sqrt{0.4}) - (1.2 + \sqrt{0.064})
+    \]
+    \item \textbf{Face gauche} :
+    \[
+    0.4 + \sqrt{0.064}
+    \]
+\end{itemize}
+
+La somme totale des aires est :
+\[
+(\sqrt{2})^2 + (\sqrt{2} + 0.2)^2 + 0.6
+= 6.064911064
+= 4.8 + 2\,A_{\text{disque}}.
+\]
+
+\section*{4. Volume de la pyramide et correspondance ellipsoïdale}
+
+Le volume de la pyramide à la hauteur $\sqrt{2}$ est donné par :
+\[
+V_{\text{pyramide}} = \frac{1.6 \left( \sqrt{2} + \sqrt{0.2} \right)}{3}
+= 0.9927611508.
+\]
+
+Ce volume est égal à un dixième du volume d’un ellipsoïde construit selon les paramètres de l’Espace de Philippôt :
+\[
+\frac{1}{10} V_{\text{ellipsoïde}}
+= \frac{4\sqrt{10}\,\left( \sqrt{2}(\sqrt{2}+\sqrt{0.2})\sqrt{0.8} \right)}{10}
+= 9.927611509.
+\]
+
+Ainsi, dans cet espace, la pyramide peut être interprétée comme une \emph{décomposition plane} d’un ellipsoïde volumétriquement équivalent.
+
+\section*{Conclusion}
+
+L’Espace de Philippôt unifie la spirale de Théodore, les disques racinaires, les nombres hypercomplexes géométriques et les volumes pyramidaux et ellipsoïdaux dans une structure cohérente. Cette construction constitue un pivot essentiel de la théorie \emph{L’univers est au carré}, en révélant des correspondances profondes entre géométrie discrète, surfaces circulaires et volumes continus.
+
+\begin{tcolorbox}[
+  colback=gray!10,
+  colframe=gray!50,
+  arc=2mm,
+  boxrule=0.5pt,
+  left=4pt,
+  right=4pt,
+  top=6pt,
+  bottom=6pt,
+  enhanced
+]
+\begin{minted}[
+  fontsize=\small,
+  breaklines=true,
+  autogobble=true
+]{Isabelle}
+theory espace_philippot
+  imports Complex_Main
+begin
+
+section "Cotes de la pyramide selon la spirale de Theodore"
+
+text "
+  Chaque cote possede une longueur de reference Lref a la position 1^(1/2).
+  La longueur a la position n^(1/2) est donnee par la formule :
+     L(n) = (n * (Lref^2))^(1/2)
+  Cette loi correspond a la progression de la spirale de Theodore.
+"
+
+subsection "Longueurs de reference"
+
+definition L1_ref :: real where "L1_ref = 1.65301407"
+definition L2_ref :: real where "L2_ref = 1.72784193"
+definition L3_ref :: real where "L3_ref = 1.65301407"
+definition L4_ref :: real where "L4_ref = 0.93780239"
+
+subsection "Definition generale d un cote"
+
+definition cote :: "real ⇒ nat ⇒ real"
+  where
+  "cote Lref n = sqrt (real n * (Lref^2))"
+
+definition cote1 :: "nat ⇒ real"
+  where "cote1 n = cote L1_ref n"
+
+definition cote2 :: "nat ⇒ real"
+  where "cote2 n = cote L2_ref n"
+
+definition cote3 :: "nat ⇒ real"
+  where "cote3 n = cote L3_ref n"
+
+definition cote4 :: "nat ⇒ real"
+  where "cote4 n = cote L4_ref n"
+
+subsection "Propriete generale"
+
+lemma cote_formule_exacte:
+  "cote Lref n = sqrt (real n * (Lref^2))"
+  by (simp add: cote_def)
+
+
+section "Hauteurs, rayons et spirale de Theodore"
+
+definition hauteur :: "nat ⇒ real"
+  where
+  "hauteur n = sqrt (real n)"
+
+definition rayon :: "nat ⇒ real"
+  where
+  "rayon n = sqrt (hauteur n / 10)"
+
+lemma rayon_def_simplifie:
+  "rayon n = sqrt (sqrt (real n) / 10)"
+  by (simp add: rayon_def hauteur_def)
+
+
+section "Nombres hypercomplexes geometriques"
+
+type_synonym hypercomplexe = "real * real * real"
+
+definition hyper1 :: "real ⇒ real ⇒ real"
+  where
+  "hyper1 A r =
+     sqrt ( (2 * A) + (2 * A * sqrt 10) + (r^2) )"
+
+definition hyper2 :: "real ⇒ real ⇒ real"
+  where
+  "hyper2 A r =
+     sqrt ( (2.8 * A) + (2 * A * sqrt 10) + sqrt r )"
+
+definition hyper3 :: "real ⇒ real ⇒ real"
+  where
+  "hyper3 A r =
+     sqrt ( (2 * A) / 10
+          + sqrt (1 + (A - A^2))
+          + (2 * (r^2)) )"
+
+
+typedecl event
+typedecl index
+
+consts
+  r         :: "index ⇒ real"
+  a         :: "index ⇒ real"
+  b         :: "index ⇒ real"
+  c         :: "index ⇒ real"
+  d         :: "index ⇒ real"
+  V_pyr     :: "index ⇒ real"
+  V_ell     :: "index ⇒ real"
+  val_geom  :: "index ⇒ real"
+  spiral_pos :: "index ⇒ event ⇒ real × real × real"
+
+axiomatization where
+
+  spiral_Theodore:
+    "∃f :: nat ⇒ index. ∀n. r (f n) = sqrt (real n)" and
+
+  val_geom_form:
+    "∃u v :: index ⇒ real. ∀n. val_geom n = sqrt (u n) + v n" and
+
+  hypercomplex_norm:
+    "∃N :: (real × real × real × real) ⇒ real.
+       ∀n. N (a n, b n, c n, d n) =
+             sqrt ((a n)^2 + (b n)^2 + (c n)^2 + (d n)^2)" and
+
+  volume_ratio:
+    "∀n. V_ell n = 10 * V_pyr n" and
+
+  events_on_spiral:
+    "∃F :: (real × real × real × real) ⇒ event ⇒ real × real × real.
+       ∀n e. spiral_pos n e = F (a n, b n, c n, d n) e"
+
+end
+\end{minted}
+\end{tcolorbox}
+
+
+\end{document}

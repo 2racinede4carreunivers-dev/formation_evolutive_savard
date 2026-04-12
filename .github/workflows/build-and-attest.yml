@@ -1,0 +1,131 @@
+name: Build + Release automatique (avec rapport détaillé)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # --- LECTURE DE LA VERSION ACTUELLE ---
+    - name: Read current version
+      id: read_version
+      run: |
+        if [ ! -f VERSION ]; then echo "1.0.0" > VERSION; fi
+        echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
+
+    # --- CALCUL DE LA NOUVELLE VERSION ---
+    - name: Determine version bump
+      id: bump
+      run: |
+        MSG="${{ github.event.head_commit.message }}"
+        CURRENT="${{ steps.read_version.outputs.version }}"
+
+        IFS='.' read -r MAJ MIN PAT <<< "$CURRENT"
+
+        if echo "$MSG" | grep -qi "major:"; then
+          MAJ=$((MAJ+1)); MIN=0; PAT=0
+        elif echo "$MSG" | grep -qi "feat:"; then
+          MIN=$((MIN+1)); PAT=0
+        elif echo "$MSG" | grep -qi "fix:"; then
+          PAT=$((PAT+1))
+        else
+          PAT=$((PAT+1))
+        fi
+
+        NEW="$MAJ.$MIN.$PAT"
+        echo "new_version=$NEW" >> $GITHUB_OUTPUT
+
+    # --- MISE À JOUR DU FICHIER VERSION ---
+    - name: Update VERSION file
+      run: |
+        echo "${{ steps.bump.outputs.new_version }}" > VERSION
+
+    # --- GÉNÉRATION DU CHANGELOG TEMPORAIRE ---
+    - name: Generate temporary CHANGELOG
+      id: changelog
+      run: |
+        cp CHANGELOG.md CHANGELOG_TEMP.md
+
+        echo "" >> CHANGELOG_TEMP.md
+        echo "## Version ${{ steps.bump.outputs.new_version }} — $(date +'%Y-%m-%d %H:%M')" >> CHANGELOG_TEMP.md
+        echo "- ${{ github.event.head_commit.message }}" >> CHANGELOG_TEMP.md
+
+    # --- INSTALLATION TEXLIVE ---
+    - name: Install TeX Live + pygments
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          texlive-latex-base \
+          texlive-latex-recommended \
+          texlive-latex-extra \
+          texlive-fonts-recommended \
+          python3-pygments
+
+    # --- INSTALLATION ISABELLE ---
+    - name: Install Isabelle 2024
+      run: |
+        wget https://isabelle.in.tum.de/website-Isabelle2024/dist/Isabelle2024_linux.tar.gz
+        tar -xzf Isabelle2024_linux.tar.gz
+        mv Isabelle2024 isabelle
+        echo "$PWD/isabelle/bin" >> $GITHUB_PATH
+
+    # --- COMPILATION ISABELLE ---
+    - name: Isabelle build
+      run: |
+        set -o pipefail
+
+        FILES="mecanique_discret.thy methode_de_philippot.thy methode_spectral.thy postulat_carre.thy espace_philippôt.thy"
+
+        if [ -f ROOT ]; then
+          isabelle build -D . | tee isabelle_build.log
+        else
+          for thy in $FILES; do
+            if [ -f "$thy" ]; then
+              echo "=== Building $thy ===" | tee -a isabelle_build.log
+              isabelle build -b -d . "$thy" 2>&1 | tee -a isabelle_build.log
+            fi
+          done
+        fi
+
+    # --- COMPILATION LATEX ---
+    - name: Compile LaTeX
+      run: |
+        FILES="geometrie_du_spectre_premier.tex geometry_prime_spectrum.tex mecanique_chaos_discret.tex philosophy_geometry_prime_number.tex philosophy_geometry_of_prime_number.tex postulat_univers_carre.tex teleosemantique_analogiste_spectre_premier.tex espace_philippot.tex"
+
+        for file in $FILES; do
+          if [ -f "$file" ]; then
+            echo "=== Compiling $file ==="
+            pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+            pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+          fi
+        done
+
+    # --- GÉNÉRATION DU RAPPORT D’ATTESTATION ---
+    - name: Generate build provenance
+      uses: actions/attest-build-provenance@v1
+      with:
+        subject-path: "*.pdf"
+
+    # --- CRÉATION DU TAG + RELEASE ---
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: "v-fos-${{ steps.bump.outputs.new_version }}"
+        name: "Release v-fos-${{ steps.bump.outputs.new_version }}"
+        body_path: CHANGELOG_TEMP.md
+        files: |
+          *.pdf
+          isabelle_build.log
