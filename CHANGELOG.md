@@ -1,154 +1,296 @@
-# CHANGELOG — analyse_conjecture_riemann_savard
+### Aperçu de la Release
 
-Ce document retrace l’évolution du dépôt, les améliorations techniques, les correctifs, 
-et les étapes de certification liées aux fichiers `.tex` et `.thy`.
+Cette mise à jour s’inscrit dans le dépôt « Théorie mathématique de Philippe Thomas Savard 2026 », 
+répertoire complet dédié à la théorie « L’univers est au carré ». La documentation principale 
+se structure en quatre chapitres : (1) La géométrie du spectre des nombres premiers, 
+(2) La mécanique harmonique du chaos discret, (3) L’espace de Philippôt, 
+(4) Le postulat de l’univers est au carré. Ces chapitres sont rendus accessibles à travers 
+un ensemble de 19 fichiers .tex, .thy et .pdf, compilés automatiquement par le workflow 
+(TeX Live pour LaTeX, Isabelle 2024 pour le corpus HOL).
 
----
+Chaque build génère des PDF, un corpus Isabelle/HOL, ainsi qu’un rapport de certification SLSA 
+garantissant la traçabilité et l’intégrité des artefacts. Une base de données évolutive est en cours 
+de construction, destinée à accueillir de futures fonctionnalités autour des corpus générés. 
+Le corpus HOL vérifie la cohérence logique des développements mathématiques et soutient formellement 
+les résultats présentés dans les documents.
 
-## [2025-02-XX] — Initialisation du dépôt et première certification complète
-### Ajouts
-- Ajout des dix fichiers `.tex` et `.thy` constituant la base du projet.
-- Mise en place du fichier `ROOT` pour la session Isabelle `Univers_Carre`.
-- Ajout des illustrations nécessaires à la compilation LaTeX.
-- Intégration du workflow GitHub Actions pour :
-  - installation d’Isabelle 2024,
-  - compilation certifiée de la session HOL,
-  - compilation LaTeX automatisée,
-  - génération des artefacts PDF.
+Une banque de Questions/Réponses intelligente et évolutive accompagne le dépôt, permettant aux 
+contributeurs d’influencer progressivement le contenu et la mise à jour des 19 fichiers principaux 
+et des suivants. Le dépôt peut être cloné (sous licence Apache 2.0) via :
 
-### Correctifs
-- Correction de la structure du fichier `ROOT` (syntaxe Isabelle conforme).
-- Résolution du problème d’encadrés HOL manquants dans certains PDF.
-- Déplacement des illustrations à la racine du dépôt pour assurer leur inclusion dans les PDF.
+git clone https://github.com/2racinede4carreunivers-dev/Theorie-mathematique-philippe-thomas-savard-2026.git
 
-### Résultats
-- **6 PDF générés avec succès**, incluant :
-  - illustrations,
-  - encadrés HOL,
-  - tables des matières,
-  - mise en page complète.
-- Certification Isabelle réussie (`Univers_Carre` compilé en ~4 secondes).
-- Pipeline CI/CD entièrement fonctionnel et stable.
+Un guide pour les contributeurs, des méthodologies de reproduction des résultats en Markdown, 
+le fichier README et le fichier SECURITY sont disponibles dans l’arborescence du dépôt et doivent 
+être consultés pour toute analyse, contribution ou considération de sécurité. Les mises à jour 
+successives sont consignées dans le fichier CHANGELOG.md et reflétées dans les releases.
 
----
 
-## [2025-02-XX] — Améliorations futures (prévu)
-### À venir
-- Ajout d’un index automatique des PDF générés.
-- Structuration des artefacts dans des sous-dossiers dédiés.
-- Ajout d’un README enrichi avec liens vers les PDF certifiés.
-- Optimisation du workflow (cache TeX Live / Isabelle).
-- Ajout d’une documentation téléosémantique pour la session `Univers_Carre`.
+
+# CHANGELOG
+
+## Table des mises à jour
+- [2026‑04‑01 — Lancement officiel du dépôt](#2026-04-01--lancement-officiel-du-dépôt)
 
 ---
 
-## Format du CHANGELOG
-Ce changelog suit une structure simple :
-- **Ajouts** : nouvelles fonctionnalités, nouveaux fichiers.
-- **Correctifs** : erreurs corrigées, améliorations techniques.
-- **Résultats** : état final de la compilation et de la certification.
-- **À venir** : planification des prochaines étapes.
+## 2026-04-01 — Lancement officiel du dépôt
+
+Le dépôt **L’univers est au carré** est maintenant entièrement fonctionnel et officiellement ouvert au public.  
+La structure du projet, les workflows de compilation (Isabelle + LaTeX), ainsi que les mécanismes d’attestation et de génération des artefacts PDF sont en place et opérationnels.
+
+Cette première version marque le début du développement public du projet, offrant aux utilisateurs un accès clair, reproductible et transparent à l’ensemble des documents scientifiques, sources formelles et outils associés.
 
 ---
 
-*Dernière mise à jour : 2025-02-XX*
 
-### Note importante — Début des mises à jour du dépôt
+## Commit 9bf0be5a5ba5de2aea4cfa82bb1d10ffb3b60611 — 2026-04-02 22:05 UTC
+- Mise à jour sans note fournie.
 
-Début des mises à jour pour le dépôt **analyse_conjecture_riemann_savard**.  
-Cette première mise à jour concorde avec la compilation certifiée du build GitHub Actions pour le workflow du dépôt.
+## Commit d5781d77b26a85f73b04cd7f7e22df9ff172f51f — 2026-04-02 22:51 UTC
+- Mise à jour sans note fournie.
 
-La certification est un succès :  
-- les **4 fichiers HOL (.thy)** encodés sous Isabelle sont certifiés et compilés,  
-- les fichiers **.tex** ont été traités correctement,  
-- le build a généré **6 PDF LaTeX complets**, incluant :  
-  - la version originale en français de *La géométrie du spectre des nombres premiers*,  
-  - la version adaptée en anglais,  
-  - la version originale en français de *La téléosémantique de l’esprit de l’analogiste derrière la géométrie du spectre des nombres premiers*,  
-  - les fichiers *mécanique harmonique du chaos discret* et *postulat de l’univers carré*, tous deux compilés avec succès.
+## Commit 74384d5f1b77402af9bdc3f154f2752847d3e481 — 2026-04-03 00:37 UTC
+- Mise à jour sans note fournie.
 
-Ces **six PDF** et **quatre fichiers .thy** constituent le cœur et l’âme de ce dépôt.  
-D’autres fichiers HOL, .tex et .pdf seront ajoutés prochainement afin d’enrichir la structure scientifique et téléosémantique du projet.
+## Commit 045caf8368558a49a58b24d82be5a7b08932daf6 — 2026-04-03 11:14 UTC
+- Mise à jour sans note fournie.
 
-## [2026-03-21] Mise a jour du document LaTeX
+## Commit bcda99b2b71619371706dfcb70902847d668890c — 2026-04-04 00:10 UTC
+- Mise à jour sans note fournie.
 
-- Ajout d'une definition complete concernant l'analyse numerique metrique dans `geometrie_du_spectre_premier.tex`.
-- Correction et remplacement du tableau de la deuxieme etape de la methode de Philippot.
-- Harmonisation du contenu avec les sections existantes du document.
+## Commit 872155b6a45112342394422c13ea545f69c7fd92 — 2026-04-04 00:21 UTC
+- Mise à jour sans note fournie.
 
-## [MAJOR] – Ajout du chapitre « espace_philippot » (2026‑03‑23)
+## Commit c8b2787178968e5e21b5de16290c6ed2097809ef — 2026-04-04 12:27 UTC
+- Mise à jour sans note fournie.
 
-### Ajouté
-- Introduction d’un nouveau chapitre majeur : **Espace de Philippôt**.
-- Ajout du fichier `espace_philippot.thy`, entièrement formalisé en HOL Isabelle.
-- Ajout du fichier associé `espace_philippot.tex` pour la documentation LaTeX.
+## Commit 919b9a5cbbead1d5c3253dd8eae4d62113e64adb — 2026-04-04 12:54 UTC
+- Mise à jour sans note fournie.
 
-### Impact
-- Ce chapitre marque le début d’une nouvelle section de la théorie unifiée  
-  **« L’univers est au carré »**.
-- Le fichier `.thy` est maintenant intégré à la session Isabelle via le ROOT  
-  et sera compilé automatiquement par le workflow GitHub Actions.
-- Une future mise à jour du `README.md` détaillera ce nouveau chapitre.
-- Les autres fichiers du dépôt seront progressivement harmonisés pour refléter  
-  cette nouvelle structure.
+## Commit 889f4f8894bc20a2615211b2141186a779b5aa88 — 2026-04-04 13:04 UTC
+- Mise à jour sans note fournie.
 
-### Notes
-- Ce commit sera associé à un **tag MAJOR** dans les releases GitHub.
-### Note — Unification du README
+## Commit 12c35ec97e1f0ecfc7eed2e850ef10e383581790 — 2026-04-04 16:15 UTC
+- Mise à jour sans note fournie.
 
-Aujourd’hui, j’ai procédé à une mise à jour majeure de la documentation du dépôt.  
-Le README principal a été entièrement **reconstruit et unifié** afin de regrouper :
+## Commit c7456de50f85293cacfbc2add493360d73a98b4b — 2026-04-04 19:12 UTC
+- Mise à jour sans note fournie.
 
-- la présentation professionnelle,
-- la structure du dépôt,
-- la théorie mathématique complète,
-- les liens essentiels,
-- les versions française et anglaise,
-- la licence Apache 2.0 intégrale.
+## Commit 42daae25ee869f1fe864faac57cae16e3c8ab9df — 2026-04-04 19:37 UTC
+- Mise à jour sans note fournie.
 
-L’ancien README, qui servait de base à la théorie *L’univers est au carré*, **reste disponible** dans le dossier `geometrie_spectre_premier/`.  
-Il n’a pas été supprimé afin de préserver l’historique et la cohérence du développement.
+## Commit 93e46db671f0cdaa097f90008a719549fcdbde7a — 2026-04-05 01:19 UTC
+- Mise à jour sans note fournie.
 
-Le nouveau README devient la **porte d’entrée officielle** du dépôt.  
-Il est conçu pour être clair, professionnel et immédiatement utile aux recruteurs, tout en respectant la structure interne de la théorie et des fichiers certifiés.
 
-## Mise à jour du workflow — Release automatique (définitive)
-**Date :** 2026-03-26  
-**Type :** fix / infra
+## Release 
 
-### 🔧 Mise à jour du workflow `build-and-attest.yml`
-Le workflow CI/CD a été entièrement ajusté pour adopter la nouvelle forme de release automatique utilisée dans les dépôts récents.  
-Les changements incluent :
+- Mise à jour sans note fournie.
 
-- Ajout de la génération d’attestation (`build provenance`) pour certifier chaque PDF produit.
-- Harmonisation du pipeline avec la structure définitive adoptée à partir d’aujourd’hui.
-- Amélioration de la stabilité et de la reproductibilité des releases.
 
-Ce workflow devient désormais **la forme officielle et définitive** pour les releases automatiques du dépôt.
+## Release 
 
----
+- Mise à jour sans note fournie.
 
-### 📄 Mise à jour du fichier README
-Le fichier `README.md` a été révisé pour clarifier certains points importants concernant :
-- l’utilisation du dépôt,
-- la structure des fichiers,
-- les instructions pour les utilisateurs.
 
-Les utilisateurs sont invités à consulter le fichier pour prendre connaissance des ajustements.
+## Release 
 
----
+- Mise à jour sans note fournie.
 
-### 🗂️ Réorganisation du fichier LICENSE
-Le fichier `LICENSE` a été déplacé à la racine du dépôt afin d’améliorer :
-- l’accessibilité,
-- la conformité aux standards GitHub,
-- la visibilité pour les utilisateurs et outils automatisés.
 
-L’ancien fichier dans `geometrie_spectre_premier/readme/` a été retiré.
+## Release 
 
----
+- Mise à jour sans note fournie.
 
-### 🛠️ Ajustements divers
-- Nettoyage mineur de la structure du dépôt.
-- Préparation du terrain pour les futures releases automatisées.
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+## Structure du dépôt
+**Date :** …
+
+### Note ajoutée
+Le dépôt est maintenant structurellement mis en place et complet quant à son fonctionnement ainsi qu’à son organisation interne.
+
+Une dernière fonction est actuellement en développement : elle sera intégrée au workflow GitHub Actions et permettra de générer automatiquement une animation présentant la théorie *L’Univers est au Carré*.
+
+### Améliorations du workflow
+Le workflow comprend désormais :
+
+1. **Compilation, certification et attestation SLSA**  
+   - Attestation SLSA automatisée pour les 19 fichiers `.tex`, `.pdf` et `.thy` présents dans le dépôt.  
+   - Vérification complète de l’intégrité et de la reproductibilité.
+
+2. **Génération quotidienne de contenu**  
+   - Production automatisée de **1 question et 1 réponse**, trois fois par jour.  
+   - Génération assurée par l’IA via la clé API Emergent.sh universelle.
+
+3. **Suggestions hebdomadaires**  
+   - Une fois par semaine (vendredi), le workflow génère automatiquement une **suggestion intelligente** concernant les fichiers `.thy`, `.tex` et `.pdf`.
+
+4. **Automate de maintenance autonome**  
+   - Un troisième automate, également basé sur la clé API Emergent.sh universelle, assure :  
+     - le contrôle de la maintenance du dépôt,  
+     - la suppression ou l’archivage automatique des fichiers arrivés à échéance,  
+     - la réorganisation de l’arborescence,  
+     - la correction minimale et autonome du code lorsque nécessaire.
+
+### Documentation et ressources
+Le dépôt inclut maintenant :
+
+- Un fichier **CHANGELOG.md** pour le carnet de mise à jour.  
+- Une **release** GitHub associée.  
+- Un fichier **SECURITY.md** pour encadrer les contributions selon les permissions de la licence.  
+- Plusieurs fichiers Markdown servant de **guides d’utilisation** pour reproduire les résultats.  
+- Une **banque de questions et réponses** évolutive, générée automatiquement par le workflow.  
+  - Cette banque s’améliore continuellement grâce à l’apprentissage progressif des réponses générées.
+
+### Message aux visiteurs
+Bienvenue à tous les visiteurs du dépôt !
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
+
+
+## Release 
+
+- Mise à jour sans note fournie.
 
