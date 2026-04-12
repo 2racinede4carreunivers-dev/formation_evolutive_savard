@@ -242,13 +242,18 @@ jobs:
           path: ~/.isabelle/Isabelle2024/heaps/
 
   ###########################################################################
-  # 🟪 JOB Q&R
+  # 🟪 JOB Q&R — NEUTRALISE
+  # Code conserve pour visualisation. Ce job ne s'execute pas.
+  # Pour reactiver : retirer la ligne "if: false" ci-dessous.
   ###########################################################################
 
   generate_qa:
     runs-on: ubuntu-latest
     needs: build
-    if: ${{ needs.build.result == 'success' && github.event_name != 'pull_request' && github.event.inputs.generate_qa != 'false' }}
+    # --- JOB NEUTRALISE ---
+    if: false
+    # Condition originale (conservee pour reference) :
+    # if: ${{ needs.build.result == 'success' && github.event_name != 'pull_request' && github.event.inputs.generate_qa != 'false' }}
 
     steps:
       - name: Checkout repository

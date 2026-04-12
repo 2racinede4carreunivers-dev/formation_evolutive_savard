@@ -1,15 +1,26 @@
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║  WORKFLOW NEUTRALISE — Code conserve pour visualisation            ║
+# ║  Ce workflow n'est plus actif sur ce depot (formation_evolutive).  ║
+# ║  Les triggers automatiques sont desactives.                        ║
+# ║  Le code source est preserve pour demontrer la structure du        ║
+# ║  systeme de maintenance mensuelle aux recruteurs.                  ║
+# ╚══════════════════════════════════════════════════════════════════════╝
+#
 # Workflow automatique mensuel - Maintenance du depot
 # Theorie Mathematique Philippe Thomas Savard 2026
 #
-# Frequence: Le 1er de chaque mois a 9h00 UTC
+# Frequence originale: Le 1er de chaque mois a 9h00 UTC
 # Taches: Maintenance, relecture, corrections simples, rapport de coherence
 
-name: Auto Maintenance Mensuelle
+name: "[ARCHIVE] Auto Maintenance Mensuelle"
 
 on:
-  schedule:
-    - cron: '0 9 1 * *'
-
+  # --- TRIGGERS NEUTRALISES ---
+  # Le declencheur automatique ci-dessous est desactive.
+  # Decommenter les lignes suivantes pour reactiver :
+  #
+  # schedule:
+  #   - cron: '0 9 1 * *'
   workflow_dispatch:
 
 permissions:
@@ -18,6 +29,9 @@ permissions:
 jobs:
   monthly_maintenance:
     runs-on: ubuntu-latest
+    # --- JOB NEUTRALISE ---
+    # Ce job ne s'executera pas. Retirer la ligne ci-dessous pour reactiver.
+    if: false
 
     steps:
       - name: Checkout repository

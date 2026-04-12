@@ -1,16 +1,28 @@
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║  WORKFLOW NEUTRALISE — Code conserve pour visualisation            ║
+# ║  Ce workflow n'est plus actif sur ce depot (formation_evolutive).  ║
+# ║  Les triggers automatiques sont desactives.                        ║
+# ║  Le code source est preserve pour demontrer la structure et les    ║
+# ║  capacites du systeme de Q&R evolutif aux recruteurs.              ║
+# ╚══════════════════════════════════════════════════════════════════════╝
+#
 # Workflow automatique quotidien - Generation Q&R
 # Theorie Mathematique Philippe Thomas Savard 2026
 #
-# Frequence: 3 fois par jour (6h, 12h, 18h UTC)
+# Frequence originale: 3 fois par jour (6h, 12h, 18h UTC)
 # Tache: Genere 1 question/reponse a chaque execution
 
-name: Auto QR Quotidien
+name: "[ARCHIVE] Auto QR Quotidien"
 
 on:
-  schedule:
-    - cron: '0 6 * * *'
-    - cron: '0 12 * * *'
-    - cron: '0 18 * * *'
+  # --- TRIGGERS NEUTRALISES ---
+  # Les declencheurs automatiques ci-dessous sont desactives.
+  # Decommenter les lignes suivantes pour reactiver :
+  #
+  # schedule:
+  #   - cron: '0 6 * * *'
+  #   - cron: '0 12 * * *'
+  #   - cron: '0 18 * * *'
   workflow_dispatch:
 
 permissions:
@@ -19,6 +31,9 @@ permissions:
 jobs:
   generate_single_qa:
     runs-on: ubuntu-latest
+    # --- JOB NEUTRALISE ---
+    # Ce job ne s'executera pas. Retirer la ligne ci-dessous pour reactiver.
+    if: false
 
     steps:
       - name: Checkout repository
