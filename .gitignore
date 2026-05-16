@@ -286,3 +286,6 @@ credentials.json
 *.pem
 *.key
 .credentials
+# Fichiers vidéo lourds à ignorer
+geometrie_spectre_premier [Enregistrement automatique].mp4
+*.mp4
