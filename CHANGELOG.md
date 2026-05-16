@@ -499,3 +499,10 @@ un projet IA avancé,
 un référentiel évolutif pour les recruteurs et collaborateurs.
 
 Le dépôt est désormais prêt à accompagner toute la durée de la formation en dessin industriel, tout en continuant à faire évoluer la théorie L’Univers est au Carré.
+
+## 2026-05-16 -- Commit fa85281
+
+Message: Ignore la vidéo lourde et suppression du suivi Git
+
+---
+
