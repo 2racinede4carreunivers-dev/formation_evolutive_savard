@@ -1,0 +1,88 @@
+# ===========================================
+# Agent IA Local Mathematique - Dockerfile CLI (Fusion Finale)
+# ===========================================
+
+FROM python:3.11-slim as base
+
+# Variables d'environnement
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONFAULTHANDLER=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# ===========================================
+# Dépendances système (fusion des deux Dockerfile)
+# ===========================================
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    curl \
+    git \
+    libportaudio2 \
+    portaudio19-dev \
+    libasound2-dev \
+    libpulse-dev \
+    ffmpeg \
+    espeak \
+    wget \
+    unzip \
+    libgomp1 \
+    libwww-perl \
+    libxml2 \
+    libxslt1.1 \
+    libgtk-3-0 \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libatk1.0-0 \
+    libcairo2 \
+    libglib2.0-0 \
+    openjdk-21-jdk-headless \
+    && rm -rf /var/lib/apt/lists/*
+
+# ===========================================
+# Installer Isabelle Linux
+# ===========================================
+RUN wget https://isabelle.in.tum.de/website-Isabelle2025-2/dist/Isabelle2025-2_linux.tar.gz -O /tmp/isabelle.tar.gz \
+    && tar -xzf /tmp/isabelle.tar.gz -C /opt \
+    && rm /tmp/isabelle.tar.gz
+
+ENV ISABELLE_HOME=/opt/Isabelle2025-2
+ENV PATH="$ISABELLE_HOME/bin:$PATH"
+
+# ===========================================
+# Installation des dépendances Python
+# ===========================================
+WORKDIR /home/agent/app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY requirements-cli.txt .
+RUN pip install --no-cache-dir -r requirements-cli.txt
+
+# ===========================================
+# Créer l'utilisateur AVANT le chown
+# ===========================================
+RUN useradd --create-home --shell /bin/bash agent
+
+# ===========================================
+# Copie du code (maintenant que l'utilisateur existe)
+# ===========================================
+COPY --chown=agent:agent . .
+
+# ===========================================
+# Créer les répertoires et assigner les permissions
+# ===========================================
+RUN mkdir -p data logs templates/email && chown -R agent:agent .
+
+# ===========================================
+# Utilisateur non-root
+# ===========================================
+USER agent
+
+VOLUME ["/home/agent/app/data", "/home/agent/app/logs"]
+
+# ===========================================
+# Commande de démarrage
+# ===========================================
+CMD ["python", "main_cli.py"]

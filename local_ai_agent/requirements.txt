@@ -1,0 +1,67 @@
+# ===========================================
+# Agent IA Local Mathematique - Dependances
+# ===========================================
+
+# Interface Graphique
+PyQt6>=6.6.0
+PyQt6-WebEngine>=6.6.0
+
+# LLM et AI
+openai>=1.12.0
+ollama>=0.1.7
+langchain>=0.1.0
+langchain-community>=0.0.20
+langchain-openai>=0.0.5
+
+# Mathematiques et Calcul Symbolique
+sympy>=1.12
+numpy>=1.26.0
+scipy>=1.12.0
+matplotlib>=3.8.0
+wolframalpha>=5.0.0
+
+# Traitement de Fichiers
+python-docx>=1.1.0
+PyPDF2>=3.0.1
+openpyxl>=3.1.2
+Pillow>=10.2.0
+python-magic>=0.4.27  # Version compatible Linux/Docker
+
+# Reconnaissance Vocale et Audio
+SpeechRecognition>=3.10.0
+pyttsx3>=2.90
+# PyAudio - installer separement avec pipwin
+
+# GitHub Integration
+PyGithub>=2.1.1
+gitpython>=3.1.41
+
+# Email et Calendrier
+google-auth>=2.27.0
+google-auth-oauthlib>=1.2.0
+google-api-python-client>=2.116.0
+exchangelib>=5.1.0  # Pour Outlook/Exchange
+
+# Base de Donnees et Memoire
+chromadb>=0.4.22
+sqlite3-api>=2.0.0
+
+# Web et Recherche
+requests>=2.31.0
+beautifulsoup4>=4.12.3
+duckduckgo-search>=4.4.3
+
+# Utilitaires
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+rich>=13.7.0
+click>=8.1.7
+watchdog>=4.0.0
+schedule>=1.2.1
+psutil>=5.9.8
+
+# Securite
+cryptography>=42.0.2
+
+# LaTeX et Rendu
+pylatex>=1.4.2

@@ -1,0 +1,54 @@
+# Fichiers Docker
+Dockerfile
+Dockerfile.cli
+docker-compose.yml
+docker-compose.cli.yml
+.dockerignore
+
+# Environnement Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+.venv/
+
+# Fichiers de configuration locaux
+.env
+*.local
+
+# Logs et donnees (geres par volumes)
+logs/
+data/
+*.log
+*.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Tests
+tests/
+test_reports/
+.pytest_cache/
+.coverage
+
+# Documentation build
+docs/_build/
+
+# Fichiers temporaires
+tmp/
+temp/
+*.tmp

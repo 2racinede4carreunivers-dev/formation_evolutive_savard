@@ -77,17 +77,17 @@ jobs:
           isabelle build -v -d src/hol Univers_Au_Carre
 
       ###########################################################################
-      # 🟦 SECTION LATEX — AJOUT DU SUPPORT PNG (CORRECTION)
+      #  SECTION LATEX — SUPPORT PNG
       ###########################################################################
 
-      - name: Préparer l’accès aux images PNG
+      - name: Préparer l'accès aux images PNG
         run: |
           echo "Configuration TEXINPUTS pour les images..."
-          export TEXINPUTS="./src/tex//:./assets/images//:"
+          export TEXINPUTS="./assets/images//:"
 
           echo "Creation d'un fichier graphics.cfg pour graphicx..."
           mkdir -p texmf/tex/latex/local
-          printf '%s\n%s\n' '\DeclareGraphicsExtensions{.png,.jpg,.pdf}' '\graphicspath{{./src/tex/}{../../assets/images/}{../../../assets/images/}{./assets/images/}}' > texmf/tex/latex/local/graphics.cfg
+          printf '%s\n%s\n' '\DeclareGraphicsExtensions{.png,.jpg,.pdf}' '\graphicspath{{../../assets/images/}{../../../assets/images/}{./assets/images/}}' > texmf/tex/latex/local/graphics.cfg
 
           export TEXMFHOME="$PWD/texmf"
           echo "TEXMFHOME=$TEXMFHOME"
@@ -99,13 +99,18 @@ jobs:
 
       - name: Compiler tous les fichiers LaTeX
         run: |
-          export TEXINPUTS="./src/tex//:./assets/images//:"
+          export TEXINPUTS="./assets/images//:"
           export TEXMFHOME="$PWD/texmf"
 
-          echo "Compilation forcée du fichier analyse_hypothese_riemann_savard.tex"
+          echo "Compilation forcee du fichier analyse_hypothese_riemann_savard.tex (src/tex)"
           pdflatex -shell-escape -interaction=nonstopmode "src/tex/analyse_hypothese_riemann_savard.tex" || true
           pdflatex -shell-escape -interaction=nonstopmode "src/tex/analyse_hypothese_riemann_savard.tex" || true
           pdflatex -shell-escape -interaction=nonstopmode "src/tex/analyse_hypothese_riemann_savard.tex" || true
+
+          echo "Compilation forcee du fichier analyse_hypothese_riemann_savard.tex (src/tex/tex-2)"
+          pdflatex -shell-escape -interaction=nonstopmode "src/tex/tex-2/analyse_hypothese_riemann_savard.tex" || true
+          pdflatex -shell-escape -interaction=nonstopmode "src/tex/tex-2/analyse_hypothese_riemann_savard.tex" || true
+          pdflatex -shell-escape -interaction=nonstopmode "src/tex/tex-2/analyse_hypothese_riemann_savard.tex" || true
 
           for file in src/tex/*.tex; do
             echo "Compilation de $file"
@@ -114,8 +119,28 @@ jobs:
             pdflatex -shell-escape -interaction=nonstopmode "$file" || true
           done
 
+          for file in src/tex/tex-2/*.tex; do
+            echo "Compilation de $file"
+            pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+            pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+            pdflatex -shell-escape -interaction=nonstopmode "$file" || true
+          done
+
+      - name: Compilation forcée du fichier spirale_inverse_temps.tex
+        run: |
+          export TEXINPUTS="./assets/images//:"
+          export TEXMFHOME="$PWD/texmf"
+
+          echo "Compilation forcée du fichier spirale_inverse_temps.tex"
+          pdflatex -shell-escape -interaction=nonstopmode "src/tex/spirale_inverse_temps.tex" || true
+          pdflatex -shell-escape -interaction=nonstopmode "src/tex/spirale_inverse_temps.tex" || true
+          pdflatex -shell-escape -interaction=nonstopmode "src/tex/spirale_inverse_temps.tex" || true
+
       - name: Copier les PDF generes par LaTeX
         run: |
+          mkdir -p src/pdf
+
+          # Copier les PDF de src/tex
           for texfile in src/tex/*.tex; do
             basename=$(basename "$texfile" .tex)
             if [ -f "${basename}.pdf" ]; then
@@ -123,6 +148,22 @@ jobs:
               echo "  Copie: ${basename}.pdf"
             fi
           done
+
+          # Copier les PDF de src/tex/tex-2
+          for texfile in src/tex/tex-2/*.tex; do
+            basename=$(basename "$texfile" .tex)
+            if [ -f "${basename}.pdf" ]; then
+              cp "${basename}.pdf" src/pdf/
+              echo "  Copie: ${basename}.pdf"
+            fi
+          done
+
+          # Copie explicite pour spirale_inverse_temps (sécurité)
+          if [ -f "spirale_inverse_temps.pdf" ]; then
+            cp "spirale_inverse_temps.pdf" src/pdf/
+            echo "  Copie: spirale_inverse_temps.pdf"
+          fi
+
           echo "PDF dans src/pdf/:"
           ls -la src/pdf/*.pdf 2>/dev/null || echo "  Aucun PDF"
 
@@ -156,6 +197,12 @@ jobs:
           name: pdf-documents
           path: src/pdf/*.pdf
 
+      - name: Upload HOL theories artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: hol-theories
+          path: src/hol/*.thy
+
       - name: Upload attestation report
         uses: actions/upload-artifact@v4
         with:
@@ -185,6 +232,8 @@ jobs:
             src/hol/methode_de_philippot.thy
             src/hol/mecanique_discret.thy
             src/hol/espace_philippot.thy
+            src/hol/geometrie_spectre_premier.thy
+            src/hol/infini_parti.thy
             src/pdf/postulat_de_univers_carre.pdf
             src/pdf/analyse_hypothese_riemann_savard.pdf
             src/pdf/geometry_prime_spectrum.pdf
@@ -192,9 +241,11 @@ jobs:
             src/pdf/pilosophy_geometry_of_prime_number.pdf
             src/pdf/espace_de_philippot.pdf
             src/pdf/teleosemantique_philosophie_esprit_analogiste.pdf
+            src/tex/spirale_inverse_temps.tex
+            src/pdf/spirale_inverse_temps.pdf
 
   ###########################################################################
-  # 🟩 JOB HOL — SECTION CORRIGÉE
+  #  JOB HOL — Vérification HOL
   ###########################################################################
 
   hol_verification:
@@ -242,18 +293,13 @@ jobs:
           path: ~/.isabelle/Isabelle2024/heaps/
 
   ###########################################################################
-  # 🟪 JOB Q&R — NEUTRALISE
-  # Code conserve pour visualisation. Ce job ne s'execute pas.
-  # Pour reactiver : retirer la ligne "if: false" ci-dessous.
+  #  JOB Q&R — Génération des Questions/Réponses uniquement
   ###########################################################################
 
   generate_qa:
     runs-on: ubuntu-latest
     needs: build
-    # --- JOB NEUTRALISE ---
-    if: false
-    # Condition originale (conservee pour reference) :
-    # if: ${{ needs.build.result == 'success' && github.event_name != 'pull_request' && github.event.inputs.generate_qa != 'false' }}
+    if: ${{ needs.build.result == 'success' && github.event_name != 'pull_request' && github.event.inputs.generate_qa != 'false' }}
 
     steps:
       - name: Checkout repository
@@ -278,10 +324,10 @@ jobs:
       - name: Vérification de la clé API
         run: |
           if [ -z "${{ secrets._CLE }}" ]; then
-            echo "⚠️  EMERGENT_LLM_KEY non configuré - Génération Q&R désactivée"
+            echo "  EMERGENT_LLM_KEY non configuré - Génération Q&R désactivée"
             echo "qa_enabled=false" >> $GITHUB_OUTPUT
           else
-            echo "✅ Clé API Emergent configurée"
+            echo " Clé API Emergent configurée"
             echo "qa_enabled=true" >> $GITHUB_OUTPUT
           fi
         id: check_key
@@ -298,6 +344,12 @@ jobs:
           path: src/pdf/
         continue-on-error: true
 
+      - name: Telecharger les theories HOL
+        uses: actions/download-artifact@v4
+        with:
+          name: hol-theories
+          path: src/hol/
+
       - name: Génération des Questions/Réponses
         if: steps.check_key.outputs.qa_enabled == 'true'
         env:
@@ -305,7 +357,7 @@ jobs:
           GITHUB_SHA: ${{ github.sha }}
           GENERATION_LANGUAGE: ${{ github.event.inputs.qa_language || 'fr' }}
         run: |
-          echo "🧠 Démarrage de la génération Q&R..."
+          echo " Démarrage de la génération Q&R..."
           echo "   Commit: $GITHUB_SHA"
           echo "   Langue: $GENERATION_LANGUAGE"
           echo "   Répertoire: $(pwd)"
@@ -316,12 +368,12 @@ jobs:
 
       - name: Résumé de la génération Q&R
         run: |
-          echo "## 📚 Génération Q&R - Théorie Savard" >> $GITHUB_STEP_SUMMARY
+          echo "##  Génération Q&R - Théorie Savard" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Commit:** \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          if [ -f qa_output/*.json ]; then
+          if ls qa_output/*.json >/dev/null 2>&1; then
             TOTAL=$(cat qa_output/*.json 2>/dev/null | python3 -c "import sys,json; data=json.load(sys.stdin); print(data.get('total_questions', 0))" 2>/dev/null || echo "0")
             echo "**Questions générées:** $TOTAL" >> $GITHUB_STEP_SUMMARY
           else
@@ -329,10 +381,10 @@ jobs:
           fi
 
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### 📋 Prochaines étapes" >> $GITHUB_STEP_SUMMARY
-          echo "1. Téléchargez l'artifact `qa-generated`" >> $GITHUB_STEP_SUMMARY
+          echo "###  Prochaines étapes" >> $GITHUB_STEP_SUMMARY
+          echo "1. Téléchargez l'artifact \`qa-generated\`" >> $GITHUB_STEP_SUMMARY
           echo "2. Examinez les Q&R dans le fichier Markdown" >> $GITHUB_STEP_SUMMARY
-          echo "3. Utilisez `python qa_validator.py --interactive` pour valider" >> $GITHUB_STEP_SUMMARY
+          echo "3. Utilisez \`python qa_validator.py --interactive\` pour valider" >> $GITHUB_STEP_SUMMARY
           echo "4. Committez la banque mise à jour" >> $GITHUB_STEP_SUMMARY
 
       - name: Upload Q&R générées
@@ -346,7 +398,92 @@ jobs:
           if-no-files-found: warn
 
   ###########################################################################
-  # 🟦 JOB RELEASE
+  #  JOB CORPUS DB — Base SQLite + Arborescences + Extraction textuelle
+  ###########################################################################
+
+  generate_corpus_db:
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configuration Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installation des dependances corpus
+        run: |
+          python -m pip install --upgrade pip
+          pip install pypdf beautifulsoup4 lxml markdownify
+
+      - name: Telecharger les PDF compiles
+        uses: actions/download-artifact@v4
+        with:
+          name: pdf-documents
+          path: src/pdf/
+
+      - name: Telecharger les theories HOL
+        uses: actions/download-artifact@v4
+        with:
+          name: hol-theories
+          path: src/hol/
+
+      - name: Generation du corpus SQLite complet
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+        run: |
+          python3 scripts/generate_corpus_db.py
+
+      - name: Upload corpus.db artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: corpus-db-${{ github.sha }}
+          path: corpus_output/corpus.db
+          retention-days: 90
+
+      - name: Attestation SLSA pour corpus.db
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: corpus_output/corpus.db
+
+      - name: Ajouter exemple_calculs.md au corpus
+        run: |
+          python3 generate_corpus_db.py --include-markdown
+
+      - name: Resume corpus
+        run: |
+          echo "## Corpus SQLite" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          DB_SIZE=$(stat -c%s corpus_output/corpus.db 2>/dev/null || echo "0")
+          echo "**Taille:** ${DB_SIZE} octets" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Contenu:**" >> $GITHUB_STEP_SUMMARY
+          echo "- Extraction textuelle complete (PDF, TEX, THY)" >> $GITHUB_STEP_SUMMARY
+          echo "- 4 arborescences (HOL, LaTeX, PDF, globale)" >> $GITHUB_STEP_SUMMARY
+          echo "- Concepts extraits (theoremes, lemmes, definitions)" >> $GITHUB_STEP_SUMMARY
+          echo "- SHA-256 pour chaque fichier" >> $GITHUB_STEP_SUMMARY
+          echo "- Attestation SLSA generee" >> $GITHUB_STEP_SUMMARY
+
+      - name: Commit corpus.db dans le depot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          cp corpus_output/corpus.db qa_bank/corpus.db
+          git add qa_bank/corpus.db
+          git diff --staged --quiet || git commit -m "Auto: corpus.db mis a jour $(date +%Y-%m-%d)"
+          git push || (git pull --rebase && git push) || true
+
+  ###########################################################################
+  #  JOB RELEASE
   ###########################################################################
 
   release:
@@ -373,7 +510,7 @@ jobs:
           path: .
 
   ###########################################################################
-  # 🟧 JOB CHANGELOG
+  # JOB CHANGELOG
   ###########################################################################
 
   update_changelog:
@@ -387,49 +524,55 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Lire la note si elle existe
+      - name: Lire la note manuelle si presente
         id: note
         run: |
-          NOTE_FILE=".git/.note"
-          if [ -f "$NOTE_FILE" ]; then
+          if [ -f ".pending_note" ]; then
             echo "note_exists=true" >> $GITHUB_OUTPUT
-            source "$NOTE_FILE"
-            echo "title=$title" >> $GITHUB_OUTPUT
-            echo "summary=$summary" >> $GITHUB_OUTPUT
-            echo "date=$date" >> $GITHUB_OUTPUT
-            echo "tag=$tag" >> $GITHUB_OUTPUT
-            echo "previous_tag=$previous_tag" >> $GITHUB_OUTPUT
+            echo "title=$(grep '^TITLE=' .pending_note | cut -d= -f2-)" >> $GITHUB_OUTPUT
+            echo "summary=$(grep '^SUMMARY=' .pending_note | cut -d= -f2-)" >> $GITHUB_OUTPUT
+            echo "date=$(grep '^DATE=' .pending_note | cut -d= -f2-)" >> $GITHUB_OUTPUT
           else
             echo "note_exists=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Mettre à jour le CHANGELOG
+      - name: Mettre a jour le CHANGELOG
         run: |
-          echo "" >> CHANGELOG.md
-          echo "## Release ${{ steps.note.outputs.tag }}" >> CHANGELOG.md
-          echo "" >> CHANGELOG.md
+          COMMIT_SHA="${{ github.sha }}"
+          SHORT_SHA="${COMMIT_SHA:0:7}"
+          COMMIT_MSG=$(git log -1 --pretty=%s)
+          COMMIT_DATE=$(git log -1 --pretty=%ci | cut -d' ' -f1)
 
-          if [ "${{ steps.note.outputs.note_exists }}" = "true" ]; then
-            echo "- **Titre** : ${{ steps.note.outputs.title }}" >> CHANGELOG.md
-            echo "- **Résumé** : ${{ steps.note.outputs.summary }}" >> CHANGELOG.md
-            echo "- **Date** : ${{ steps.note.outputs.date }}" >> CHANGELOG.md
-            echo "- **Tag précédent** : ${{ steps.note.outputs.previous_tag }}" >> CHANGELOG.md
-          else
-            echo "- Mise à jour sans note fournie." >> CHANGELOG.md
+          {
+            echo ""
+            if [ "${{ steps.note.outputs.note_exists }}" = "true" ]; then
+              echo "## ${{ steps.note.outputs.date }} -- ${{ steps.note.outputs.title }}"
+              echo ""
+              echo "Commit: $SHORT_SHA"
+              echo ""
+              echo "Resume: ${{ steps.note.outputs.summary }}"
+            else
+              echo "## $COMMIT_DATE -- Commit $SHORT_SHA"
+              echo ""
+              echo "Message: $COMMIT_MSG"
+            fi
+            echo ""
+            echo "---"
+            echo ""
+          } >> CHANGELOG.md
+
+      - name: Supprimer la note apres utilisation
+        run: |
+          if [ -f ".pending_note" ]; then
+            rm .pending_note
+            git rm --cached .pending_note 2>/dev/null || true
           fi
 
-          echo "" >> CHANGELOG.md
-
-      - name: Supprimer la note après utilisation
+      - name: Commit et push du CHANGELOG
         run: |
-          if [ -f ".git/.note" ]; then
-            rm .git/.note
-          fi
-
-      - name: Commit et push du CHANGELOG mis à jour
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add CHANGELOG.md
-          git commit -m "Mise à jour automatique du CHANGELOG"
+          git diff --cached --quiet || git commit -m "CHANGELOG: mise a jour automatique"
+          git pull --rebase origin main || true
           git push

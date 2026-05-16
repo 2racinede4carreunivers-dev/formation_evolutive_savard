@@ -1,53 +1,43 @@
-#!/usr/bin/env bash
-set -e
+#!/bin/bash
 
-REPO_ROOT="$(git rev-parse --show-toplevel)"
-NOTE_FILE="$REPO_ROOT/.git/.note"
+# ================================
+# Script note.sh — Version corrigée
+# Compatible avec le workflow GitHub
+# ================================
 
-echo "=== Création d'une note pour le CHANGELOG ==="
+echo "----------------------------------------"
+echo " Génération d'une note pour CHANGELOG.md"
+echo "----------------------------------------"
 echo ""
 
-# --- Détection automatique du build ---
-BUILD_HASH="$(git rev-parse --short HEAD)"
-BUILD_LINK="# build $BUILD_HASH"
+# Question 1 — Titre
+read -p "Titre de la mise à jour : " TITLE
 
-# --- Détection automatique du tag existant ---
-CURRENT_TAG="$(git describe --tags --abbrev=0 2>/dev/null || true)"
+# Question 2 — Résumé
+read -p "Résumé court : " SUMMARY
 
-# --- Génération automatique du tag intelligent ---
-TODAY="$(date '+%Y.%m.%d')"
-TAG_PREFIX="v$TODAY"
+# Question 3 — Date (auto ou manuelle)
+read -p "Date (laisser vide pour aujourd'hui) : " DATE
+if [ -z "$DATE" ]; then
+    DATE=$(date +%Y-%m-%d)
+fi
 
-# Trouver le prochain numéro disponible
-N=1
-while git rev-parse "$TAG_PREFIX.$N" >/dev/null 2>&1; do
-    N=$((N+1))
-done
-
-AUTO_TAG="$TAG_PREFIX.$N"
-
-# --- Questions posées à l'utilisateur ---
-read -p "1. Titre de la note (titre du commit) : " TITLE
-read -p "2. Résumé de la mise à jour : " SUMMARY
-read -p "3. Date de la mise à jour (YYYY-MM-DD) [$(date '+%Y-%m-%d')] : " DATE
-
-# Valeurs par défaut si vide
-TITLE="${TITLE:-Commit $BUILD_HASH du $(date '+%Y-%m-%d') ($AUTO_TAG)}"
-SUMMARY="${SUMMARY:-Mise à jour automatique du commit $BUILD_HASH.}"
-DATE="${DATE:-$(date '+%Y-%m-%d')}"
-
-# --- Enregistrement structuré ---
+# Écriture dans le fichier attendu par GitHub Actions
 {
-    echo "type=\"manual\""
-    echo "title=\"$TITLE $BUILD_LINK\""
-    echo "summary=\"$SUMMARY\""
-    echo "date=\"$DATE\""
-    echo "tag=\"$AUTO_TAG\""
-    echo "previous_tag=\"$CURRENT_TAG\""
-} > "$NOTE_FILE"
+    echo "TITLE=$TITLE"
+    echo "SUMMARY=$SUMMARY"
+    echo "DATE=$DATE"
+} > .pending_note
 
 echo ""
-echo "Votre note a été enregistrée dans : $NOTE_FILE"
-echo "Tag généré automatiquement : $AUTO_TAG"
-echo "Ancien tag détecté : ${CURRENT_TAG:-aucun}"
-echo "Elle sera intégrée automatiquement au CHANGELOG lors du prochain push."
+echo "----------------------------------------"
+echo " Note enregistrée dans .pending_note"
+echo "----------------------------------------"
+echo "Contenu écrit :"
+cat .pending_note
+echo ""
+echo "Vous pouvez maintenant faire :"
+echo "  git add ."
+echo "  git commit -m \"Mise à jour note\""
+echo "  git push"
+echo ""

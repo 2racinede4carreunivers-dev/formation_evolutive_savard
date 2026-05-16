@@ -318,4 +318,184 @@ Bienvenue à tous les visiteurs du dépôt !
 ## Release 
 
 - Mise à jour sans note fournie.
+2026‑05‑16 — Refonte majeure du dépôt “Formation Évolutive Savard”
+Cette mise à jour constitue la plus importante évolution du dépôt depuis sa création.
+Elle marque la transition du projet vers un véritable portfolio évolutif, destiné à accompagner l’ensemble du parcours de formation de Philippe Thomas Savard au CFP Neufchâtel (Dessin Industriel), tout en intégrant l’évolution continue de la théorie mathématique L’Univers est au Carré.
 
+Cette release introduit :
+
+une réorganisation complète de l’arborescence,
+
+une mise à jour massive des fichiers LaTeX, PDF et HOL,
+
+l’intégration des premiers éléments du système d’agent local IA,
+
+la consolidation du dépôt comme référence professionnelle pour de futurs recruteurs.
+
+ 1. Réorganisation structurelle complète du dépôt
+Une restructuration profonde a été effectuée afin d’améliorer :
+
+la lisibilité,
+
+la cohérence interne,
+
+la modularité,
+
+la séparation claire entre théorie, formation et outils IA.
+
+Changements majeurs :
+Suppression de nombreux fichiers obsolètes (LaTeX/, images/, autre-pdf/, anciens scripts, anciens ROOT Isabelle).
+
+Nettoyage complet des PDF et TeX redondants.
+
+Réorganisation des dossiers src/hol, src/pdf, src/tex.
+
+Mise à jour des fichiers .gitignore, workflows GitHub Actions, et documentation.
+
+Archivage des anciennes versions dans archive/.
+
+Cette refonte prépare le dépôt à accueillir :
+
+les travaux de formation en dessin industriel,
+
+les versions successives de la théorie mathématique,
+
+les artefacts générés automatiquement par l’agent IA local.
+
+ 2. Intégration du système d’agent IA local
+Cette mise à jour introduit les premiers éléments du Math Agent Local, un système IA autonome capable de :
+
+analyser les fichiers Isabelle/HOL,
+
+corriger automatiquement les erreurs,
+
+générer des preuves,
+
+mettre à jour des sections entières,
+
+maintenir la cohérence du corpus,
+
+produire des suggestions intelligentes.
+
+Les fichiers suivants ont été ajoutés ou mis à jour :
+
+interface_isabelle.py
+
+isabelle_auto.py
+
+intégration des commandes avancées dans main_cli.py
+
+préparation du pipeline /isabelle_auto_all
+
+Cette intégration transforme le dépôt en un laboratoire IA + mathématiques + formation, unique en son genre.
+
+ 3. Mise à jour des documents mathématiques
+Plusieurs fichiers .thy, .tex et .pdf ont été mis à jour, restructurés ou remplacés.
+
+Modifications notables :
+Mise à jour de espace_philippot.thy
+
+Mise à jour de geometry_prime_spectrum.tex
+
+Mise à jour de postulat_de_univers_carre.tex
+
+Mise à jour de plusieurs PDF associés
+
+Nettoyage des anciennes versions et des fichiers intermédiaires
+
+Ces changements préparent la théorie à être utilisée comme modèle de référence pour illustrer les compétences acquises en dessin industriel.
+
+ 4. Dépôt repositionné comme portfolio évolutif
+Le dépôt devient officiellement un portfolio professionnel évolutif, permettant :
+
+de suivre l’évolution des compétences techniques,
+
+de documenter les projets réalisés en formation,
+
+de montrer la progression dans la théorie mathématique,
+
+de fournir aux recruteurs un modèle concret du savoir‑faire de Philippe Thomas Savard.
+
+La théorie L’Univers est au Carré sert désormais de fil conducteur, permettant d’illustrer :
+
+la rigueur,
+
+la créativité,
+
+la capacité d’abstraction,
+
+la maîtrise des outils formels (LaTeX, Isabelle/HOL),
+
+la capacité à structurer un projet complexe.
+
+ 5. Mise à jour des workflows GitHub Actions
+Les workflows ont été mis à jour pour refléter la nouvelle structure :
+
+auto-daily-qa.yml
+
+auto-weekly-proposals.yml
+
+auto-monthly-maintenance.yml
+
+build.yml
+
+Nouveautés :
+meilleure gestion des artefacts,
+
+nettoyage automatique,
+
+génération de QA améliorée,
+
+préparation pour l’intégration future de l’agent IA local dans les workflows.
+
+ 6. Nettoyage massif des fichiers obsolètes
+Plus de 300 fichiers ont été supprimés ou archivés, incluant :
+
+anciens PDF,
+
+anciens TeX,
+
+anciens scripts,
+
+fichiers Isabelle non utilisés,
+
+images redondantes,
+
+documents externes non pertinents.
+
+Ce nettoyage améliore :
+
+la clarté du dépôt,
+
+la vitesse des workflows,
+
+la cohérence globale.
+
+ 7. Préparation pour les futures fonctionnalités
+Cette mise à jour prépare le terrain pour :
+
+l’intégration complète du Math Agent Local,
+
+la génération automatique d’animations (workflow en développement),
+
+la synchronisation entre théorie et formation,
+
+la création d’un tableau de bord évolutif,
+
+la génération automatique de documentation.
+
+ Conclusion
+Cette mise à jour marque une étape majeure dans l’évolution du dépôt.
+Il devient :
+
+un outil pédagogique,
+
+un portfolio professionnel,
+
+un laboratoire mathématique,
+
+un projet IA avancé,
+
+un référentiel évolutif pour les recruteurs et collaborateurs.
+
+Le dépôt est désormais prêt à accompagner toute la durée de la formation en dessin industriel, tout en continuant à faire évoluer la théorie L’Univers est au Carré.

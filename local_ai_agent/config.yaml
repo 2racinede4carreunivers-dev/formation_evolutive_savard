@@ -1,0 +1,200 @@
+# ===========================================
+# Configuration Agent IA Local Mathematique
+# ===========================================
+# Ce fichier configure le comportement de l'agent.
+# Les cles API doivent etre dans le fichier .env
+
+# Configuration Generale
+general:
+  app_name: "Agent IA Mathematique"
+  version: "1.0.0"
+  language: "fr"
+  theme: "dark"
+
+# Configuration LLM
+llm:
+  # Provider par defaut: ollama (local) ou openai
+  default_provider: "ollama"
+  
+  # Modele Ollama par defaut
+  # Choix selon la RAM disponible:
+  #   8 Go libre:  "qwen2.5:3b-instruct"          (~3 Go, RAPIDE, recommande)
+  #   8 Go libre:  "qwen2.5:7b-instruct-q4_K_M"   (~5 Go, LENT mais plus precis)
+  #   12+ Go libre:"qwen2.5:7b-instruct"          (~7 Go, optimal)
+  #   16+ Go libre:"deepseek-r1:14b"              (~11 Go, raisonnement avance)
+  ollama:
+    model: "qwen2.5:3b-instruct"
+    # Pour Docker, utiliser: http://ollama:11434
+    # Pour local, utiliser: http://localhost:11434
+    host: "http://ollama:11434"
+    timeout: 180
+    
+  # Configuration OpenAI (pour taches complexes)
+  openai:
+    model: "gpt-4o-mini"
+    max_tokens: 4096
+    temperature: 0.7
+    # Alternatives: "gpt-4o" (plus puissant mais ~10x plus cher),
+    #               "gpt-4o-mini" (rapide, economique)
+    
+  # Basculer automatiquement vers OpenAI pour:
+  auto_switch_to_openai:
+    complex_math: true
+    long_context: true
+    code_generation: true
+    threshold_tokens: 2000
+
+# Configuration Mathematiques
+mathematics:
+  # WolframAlpha pour calculs
+  wolfram:
+    enabled: true
+    timeout: 30
+    
+  # Isabelle pour preuves formelles
+  isabelle:
+    enabled: false
+    path: ""
+    default_theory: "Main"
+    auto_verify: true
+    
+  # SymPy pour calcul symbolique local
+  sympy:
+    enabled: true
+    
+  # Graphiques
+  plotting:
+    default_style: "seaborn"
+    save_format: "png"
+    dpi: 150
+
+# Configuration Fichiers
+files:
+  # Dossiers surveilles
+  watched_directories:
+    - "data"
+    
+  # Extensions supportees
+  supported_extensions:
+    documents: [".docx", ".pdf", ".txt", ".md", ".tex"]
+    code: [".py", ".thy", ".ml", ".hs", ".js", ".json"]
+    images: [".jpg", ".jpeg", ".png", ".gif", ".bmp"]
+    archives: [".zip", ".tar", ".gz"]
+    
+  # Limite de taille (MB)
+  max_file_size: 50
+
+# Configuration Email
+email:
+  enabled: false
+  provider: "gmail"
+  
+  gmail:
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    
+  outlook:
+    server: "outlook.office365.com"
+    
+  templates_dir: "templates/email"
+
+# Configuration Calendrier
+calendar:
+  enabled: true
+  provider: "local"
+  default_reminder: 30
+  sync_interval: 15
+
+# Configuration GitHub
+github:
+  enabled: false
+  default_branch: "main"
+  auto_commit: false
+  commit_message_prefix: "[Agent] "
+  favorite_repos: []
+
+# Configuration Vocale
+voice:
+  enabled: false
+  
+  recognition:
+    language: "fr-FR"
+    energy_threshold: 300
+    pause_threshold: 0.8
+    
+  synthesis:
+    enabled: false
+    rate: 150
+    voice: "french"
+
+# Configuration Memoire
+memory:
+  enabled: true
+  
+  vector_db:
+    path: "data/chromadb"
+    collection: "conversations"
+    
+  history:
+    max_conversations: 1000
+    max_messages_per_conversation: 500
+    
+  preferences:
+    learn_from_usage: true
+    save_patterns: true
+
+# Configuration Interface
+ui:
+  window:
+    width: 1200
+    height: 800
+    min_width: 800
+    min_height: 600
+    
+  font:
+    family: "Segoe UI"
+    size: 11
+    code_family: "Consolas"
+    code_size: 10
+    
+  colors:
+    background: "#1e1e2e"
+    surface: "#313244"
+    primary: "#89b4fa"
+    secondary: "#f5c2e7"
+    text: "#cdd6f4"
+    text_secondary: "#a6adc8"
+    success: "#a6e3a1"
+    warning: "#f9e2af"
+    error: "#f38ba8"
+
+# Configuration Securite
+security:
+  confirm_actions:
+    delete_files: true
+    send_emails: true
+    execute_commands: true
+    git_push: true
+    
+  encrypt_sensitive_data: true
+  
+  logging:
+    enabled: true
+    level: "INFO"
+    file: "logs/agent.log"
+    max_size_mb: 10
+    backup_count: 5
+
+# Configuration Avancee
+advanced:
+  auto_update: false
+  debug: false
+  
+  cache:
+    enabled: true
+    path: "data/cache"
+    max_size_mb: 500
+    
+  scheduled_tasks:
+    enabled: true
+    check_interval: 60

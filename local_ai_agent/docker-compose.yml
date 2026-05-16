@@ -1,0 +1,120 @@
+# ===========================================
+# Agent IA Local Mathématique - Docker Compose
+# ===========================================
+# Version finale : un seul agent (math-agent-cli)
+# ===========================================
+
+services:
+
+  # ===========================================
+  # SERVICE PRINCIPAL : math-agent-cli
+  # ===========================================
+  math-agent-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile.cli   # ✔ Le bon Dockerfile fusionné
+    container_name: math-agent-cli
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - QT_QPA_PLATFORM=offscreen
+      - DEFAULT_LANGUAGE=fr
+
+    stdin_open: true
+    tty: true
+
+    command: ["python", "main_cli.py"]
+
+    volumes:
+      - agent-data:/home/agent/app/data
+      - agent-logs:/home/agent/app/logs
+      - ./config.yaml:/home/agent/app/config.yaml:ro
+      - ./.env:/home/agent/app/.env:ro
+      - ./.env.example:/home/agent/app/.env.example:ro
+      - ./local_ai_agent/corpus_actions/exemple_calculs.md:/home/agent/app/local_ai_agent/corpus_actions/exemple_calculs.md:ro
+      - ./local_ai_agent/data/corpus.db:/home/agent/app/local_ai_agent/data/corpus.db
+      - .:/home/agent/app   # ✔ Accès complet au code local
+
+    networks:
+      - agent-network
+
+    depends_on:
+      - ollama
+
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 1G
+
+  # ===========================================
+  # SERVICE : OLLAMA
+  # ===========================================
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+
+    volumes:
+      - ollama-data:/root/.ollama
+
+    ports:
+      - "11434:11434"
+
+    networks:
+      - agent-network
+
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
+
+  # ===========================================
+  # SERVICE : OLLAMA INIT (Téléchargement des modèles)
+  # ===========================================
+  ollama-init:
+    image: ollama/ollama:latest
+    container_name: ollama-init
+    depends_on:
+      - ollama
+    entrypoint: ["/bin/sh", "-c"]
+    command: |
+      echo "Attente du demarrage d'Ollama (30 secondes)..."
+      sleep 30
+      echo "Téléchargement des modèles Ollama..."
+      OLLAMA_HOST=http://ollama:11434 ollama pull llama3.2 || echo "Erreur llama3.2, continuer..."
+      echo "Initialisation terminée!"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    networks:
+      - agent-network
+    restart: "no"
+
+# ===========================================
+# VOLUMES
+# ===========================================
+volumes:
+  agent-data:
+    driver: local
+    name: math-agent-data
+  agent-logs:
+    driver: local
+    name: math-agent-logs
+  ollama-data:
+    driver: local
+    name: ollama-models
+
+# ===========================================
+# NETWORK
+# ===========================================
+networks:
+  agent-network:
+    driver: bridge
+    name: math-agent-network
